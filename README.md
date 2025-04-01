@@ -18,7 +18,7 @@
 |                              | 16:30 – 17:30 | Hands-on coding & Troubleshooting         |
 |                              | 20:00 - tbd   | Dinner at XYZ                             |
 |                              |               |                                           |
-| **Tuesday, April 8, 2025**   | 09:00 – 09:30 | Talk: "Clonal dynamics and mitochondrial genetics through the lens of single-cell multi-omics" by [Leif Ludwig]([https://github.com/ilan-gold](https://www.mdc-berlin.de/de/person/dr-med-dr-rer-nat-leif-s-ludwig)) |
+| **Tuesday, April 8, 2025**   | 09:00 – 09:30 | Talk: "Clonal dynamics and mitochondrial genetics through <br> the lens of single-cell multi-omics" by [Leif Ludwig](https://www.mdc-berlin.de/de/person/dr-med-dr-rer-nat-leif-s-ludwig) |
 |                              | 09:30 – 10:00 | 1) Ligand-receptor interaction analysis   |
 |                              | 10:00 – 11:30 | 1) Ligand-receptor interaction analysis   |
 |                              |               | 2) Differential cellular abundance        |
