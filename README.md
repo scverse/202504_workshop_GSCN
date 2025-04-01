@@ -7,7 +7,7 @@
 
 | Date                         | Time          | Activity                                  |
 |------------------------------|---------------|-------------------------------------------|
-| **Monday, April 7, 2025**    | 09:00 – 10:00 | Talk #1                                   |
+| **Monday, April 7, 2025**    | 09:00 – 10:00 | Talk: "An in-depth look at AnnData" by [Ilan Gold](https://github.com/ilan-gold) |
 |                              | 10:00 – 11:30 | 1) Basic pre-processing of scRNA-seq data |
 |                              |               | 2) Batch effect correction                |
 |                              |               | 3) Downstream analysis                    |
