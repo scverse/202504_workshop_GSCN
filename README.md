@@ -13,8 +13,7 @@
 |                              |               | 3) Downstream analysis                    |
 |                              | 11:30 - 12:00 | Hands-on coding & Troubleshooting         |
 |                              | 12:00 – 13:00 | Lunch                                     |
-|                              | 13:00 – 16:30 | Group A) Trajectory analysis              |
-|                              |               | Group B) scATACseq                        |
+|                              | 13:00 – 16:30 | Trajectory analysis                       |
 |                              | 16:30 – 17:30 | Hands-on coding & Troubleshooting         |
 |                              | 20:00 - tbd   | Dinner at XYZ                             |
 |                              |               |                                           |
