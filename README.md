@@ -1,5 +1,15 @@
 # scverse workshop in collaboration with the GSCN
 
+## Before the event
+
+### Tech setup
+In addition to the actual workshop, we offer two pre-workshop sessions designed to help participants with any issues installing software required for the workshop. During these, we also encourage participants to ask questions about basic Python/Jupyter Notebook usages (the notebook discussed in these sessions can be found here). The two sessions take place on:
+
+- Wednesday (02.04.2025), 15:00 - 17:00 CET 
+- Thursday (03.04.2025), 15:30 - 17:30 CET 
+
+The Zoom links to these events can be found in the mail sent on Sunday, 30.03.2025. If you have any other questions, please direct them to the [2025-04: Workshop GSCN > pre-workshop support](https://scverse.zulipchat.com/#narrow/channel/493335-2025-04.3A-Workshop-GSCN/topic/pre-workshop.20support/with/509718455) Zulip channel.
+
 
 ## Syllabus
 
