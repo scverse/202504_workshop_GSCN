@@ -7,7 +7,7 @@
 
 | Date                         | Time          | Activity                                  |
 |------------------------------|---------------|-------------------------------------------|
-| **Monday <br>April 7, 2025**    | 09:00 – 10:00 | Talk: "An in-depth look at AnnData" by [Ilan Gold](https://github.com/ilan-gold) |
+| **Monday, 07.04.2025**    | 09:00 – 10:00 | Talk: "An in-depth look at AnnData" by [Ilan Gold](https://github.com/ilan-gold) |
 |                              | 10:00 – 11:30 | 1) Basic pre-processing of scRNA-seq data |
 |                              |               | 2) Batch effect correction                |
 |                              |               | 3) Downstream analysis                    |
@@ -17,8 +17,8 @@
 |                              | 16:30 – 17:30 | Hands-on coding & Troubleshooting         |
 |                              | 20:00 - tbd   | Dinner at XYZ                             |
 |                              |               |                                           |
-| **Tuesday <br>April 8, 2025**   | 09:00 – 09:30 | Talk: "Clonal dynamics and mitochondrial genetics through the lens of single-cell multi-omics" by [Leif Ludwig](https://www.mdc-berlin.de/de/person/dr-med-dr-rer-nat-leif-s-ludwig) |
-|                              | 09:30 – 10:00 | Title: “Spatiotemporal dynamics of tumor development in a novel triple-negative breast cancer model" by [Tancredi Massimo Pentimalli](www.linkedin.com/in/tancredi-massimo-pentimalli)  |
+| **Tuesday, 08.04.2025**   | 09:00 – 09:30 | Talk: "Clonal dynamics and mitochondrial genetics through the<br>lens of single-cell multi-omics" by [Leif Ludwig](https://www.mdc-berlin.de/de/person/dr-med-dr-rer-nat-leif-s-ludwig) |
+|                              | 09:30 – 10:00 | Talk: “Spatiotemporal dynamics of tumor development in a novel<br>triple-negative breast cancer model" by [Tancredi Massimo Pentimalli](www.linkedin.com/in/tancredi-massimo-pentimalli)  |
 |                              | 10:00 – 11:30 | 1) Ligand-receptor interaction analysis   |
 |                              |               | 2) Differential cellular abundance        |
 |                              | 11:30 - 12:00 | Hands-on coding & Troubleshooting         |
@@ -27,8 +27,8 @@
 |                              | 16:30 – 17:30 | Hands-on coding & Troubleshooting         |
 |                              | 20:00 - tbd   | Dinner (self-organised)                   |
 |                              |               |                                           |
-| **Wednesday <br>April 9, 2025** | 09:00 – 09:30 | Talk #3                                   |
-|                              | 09:30 – 11:30 | Talk: "Foxa2 pioneers enteroendocrine lineage recruitment from intestinal stem cells" by [Michael Sterr](https://www.helmholtz-munich.de/en/pi-3-20)     |
+| **Wednesday, 09.042025** | 09:00 – 09:30 | Talk #3                                   |
+|                              | 09:30 – 11:30 | Talk: "Foxa2 pioneers enteroendocrine lineage recruitment from<br>intestinal stem cells" by [Michael Sterr](https://www.helmholtz-munich.de/en/pi-3-20)     |
 |                              | 10:00 – 11:30 | Option A) Reproduce published figures     |
 |                              |               | Option B) Discuss your own data/analysis  |
 |                              | 11:30 – 12:00 | Results / Feedback                        |
