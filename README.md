@@ -3,7 +3,7 @@
 ## Before the event
 
 ### Tech setup
-In addition to the actual workshop, we offer two pre-workshop sessions designed to help participants with any issues installing software required for the workshop. During these, we also encourage participants to ask questions about basic Python/Jupyter Notebook usages (the notebook discussed in these sessions can be found here). The two sessions take place on:
+In addition to the actual workshop, we offer two pre-workshop sessions designed to help participants with any issues installing software required for the workshop. During these, we also encourage participants to ask questions about basic Python/Jupyter Notebook usages (the notebook discussed in these sessions can be found [here](https://github.com/scverse/202504_workshop_GSCN/blob/main/misc/pre_workshop_session.ipynb)). The two sessions take place on:
 
 - Wednesday (02.04.2025), 15:00 - 17:00 CET 
 - Thursday (03.04.2025), 15:30 - 17:30 CET 
