@@ -24,8 +24,10 @@ The Zoom links to these events can be found in the mail sent on Sunday, 30.03.20
 |                              | 11:30 - 12:00 | Hands-on coding & Troubleshooting         |
 |                              | 12:00 – 13:00 | Lunch                                     |
 |                              | 13:00 – 16:30 | Trajectory analysis                       |
+|                              | 13:00 – 14:30 | Trajectory analysis                       |
+|                              | 13:00 – 16:30 | Trajectory analysis                       |
 |                              | 16:30 – 17:30 | Hands-on coding & Troubleshooting         |
-|                              | 20:00 - tbd   | Dinner at XYZ                             |
+|                              | 19:00 - tbd   | Dinner at [Porta Nova](https://www.tripadvisor.de/Restaurant_Review-g187323-d2456707-Reviews-Porta_Nova-Berlin.html) ([Robert-Koch-Platz 12](https://maps.app.goo.gl/wFXHXyAk1Fdkpf658))                           |
 |                              |               |                                           |
 | **Tuesday, 08.04.2025**   | 09:00 – 09:30 | Talk: "Clonal dynamics and mitochondrial genetics through the<br>lens of single-cell multi-omics" by [Leif Ludwig](https://www.mdc-berlin.de/de/person/dr-med-dr-rer-nat-leif-s-ludwig) |
 |                              | 09:30 – 10:00 | Talk: “Spatiotemporal dynamics of tumor development in a novel<br>triple-negative breast cancer model" by [Tancredi Massimo Pentimalli](www.linkedin.com/in/tancredi-massimo-pentimalli)  |

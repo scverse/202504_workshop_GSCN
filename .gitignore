@@ -15,3 +15,6 @@ __pycache__/
 # Windows system files
 Thumbs.db
 
+# Don't include any data files
+*.zarr
+*.zip
