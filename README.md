@@ -31,8 +31,8 @@ The Zoom links to these events can be found in the mail sent on Sunday, 30.03.20
 |                              | 15:40 – 17:30 | Trajectory analysis                       |
 |                              | 19:00 - tbd   | Dinner at [Porta Nova](https://www.tripadvisor.de/Restaurant_Review-g187323-d2456707-Reviews-Porta_Nova-Berlin.html) ([Robert-Koch-Platz 12](https://maps.app.goo.gl/wFXHXyAk1Fdkpf658))                           |
 |                              |               |                                           |
-| **Tuesday, 08.04.2025**   | 09:00 – 09:30 | Talk: "Clonal dynamics and mitochondrial genetics through the<br>lens of single-cell multi-omics" by [Leif Ludwig](https://www.mdc-berlin.de/de/person/dr-med-dr-rer-nat-leif-s-ludwig) |
-|                              | 09:30 – 10:00 | Talk:                                     |
+| **Tuesday, 08.04.2025**      | 09:00 – 09:30 | Recap and Q&A, tech setup for spatial workshop |
+|                              | 09:30 – 10:00 | Talk: "Clonal dynamics and mitochondrial genetics through the<br>lens of single-cell multi-omics" by [Leif Ludwig](https://www.mdc-berlin.de/de/person/dr-med-dr-rer-nat-leif-s-ludwig) |
 |                              | 10:00 – 11:30 | 1) Ligand-receptor interaction analysis   |
 |                              |               | 2) Differential cellular abundance        |
 |                              | 11:30 - 12:00 | Hands-on coding & Troubleshooting         |
