@@ -23,10 +23,11 @@ The Zoom links to these events can be found in the mail sent on Sunday, 30.03.20
 |                              |               | 3) Downstream analysis                    |
 |                              | 11:30 - 12:00 | Hands-on coding & Troubleshooting         |
 |                              | 12:00 – 13:00 | Lunch                                     |
-|                              | 13:00 – 16:30 | Trajectory analysis                       |
-|                              | 13:00 – 14:30 | Trajectory analysis                       |
-|                              | 13:00 – 16:30 | Trajectory analysis                       |
-|                              | 16:30 – 17:30 | Hands-on coding & Troubleshooting         |
+|                              | 13:00 – 13:30 | Intro to "Trajectory analysis"            |
+|                              | 13:30 – 13:40 | Break                                     |
+|                              | 13:40 – 15:20 | Trajectory analysis                       |
+|                              | 15:20 – 15:40 | Break                                     |
+|                              | 15:40 – 17:30 | Trajectory analysis                       |
 |                              | 19:00 - tbd   | Dinner at [Porta Nova](https://www.tripadvisor.de/Restaurant_Review-g187323-d2456707-Reviews-Porta_Nova-Berlin.html) ([Robert-Koch-Platz 12](https://maps.app.goo.gl/wFXHXyAk1Fdkpf658))                           |
 |                              |               |                                           |
 | **Tuesday, 08.04.2025**   | 09:00 – 09:30 | Talk: "Clonal dynamics and mitochondrial genetics through the<br>lens of single-cell multi-omics" by [Leif Ludwig](https://www.mdc-berlin.de/de/person/dr-med-dr-rer-nat-leif-s-ludwig) |
@@ -35,8 +36,11 @@ The Zoom links to these events can be found in the mail sent on Sunday, 30.03.20
 |                              |               | 2) Differential cellular abundance        |
 |                              | 11:30 - 12:00 | Hands-on coding & Troubleshooting         |
 |                              | 12:00 – 13:00 | Lunch                                     |
-|                              | 13:00 – 16:30 | Spatial preprocessing & analysis          |
-|                              | 16:30 – 17:30 | Hands-on coding & Troubleshooting         |
+|                              | 13:00 – 13:30 | Intro to "Spatial Omics"                  |
+|                              | 13:30 – 13:40 | Break                                     |
+|                              | 13:40 – 15:20 | Spatial preprocessing & analysis          |
+|                              | 15:20 – 15:40 | Break                                     |
+|                              | 15:40 – 17:30 | Spatial preprocessing & analysis          |
 |                              | 20:00 - tbd   | Dinner (self-organised)                   |
 |                              |               |                                           |
 | **Wednesday, 09.042025** | 09:00 – 09:30 | Talk #3                                   |
