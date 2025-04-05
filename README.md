@@ -17,7 +17,8 @@ The Zoom links to these events can be found in the mail sent on Sunday, 30.03.20
 
 | Date                         | Time          | Activity                                  |
 |------------------------------|---------------|-------------------------------------------|
-| **Monday, 07.04.2025**    | 09:00 – 10:00 | Talk: "An in-depth look at AnnData" by [Ilan Gold](https://github.com/ilan-gold) |
+| **Monday, 07.04.2025**       | 09:00 – 09:15 | Welcome & Introduction to the Workshop    |
+|                              | 09:15 – 10:00 | Talk: "An in-depth look at AnnData" by [Ilan Gold](https://github.com/ilan-gold) |
 |                              | 10:00 – 11:30 | 1) Basic pre-processing of scRNA-seq data |
 |                              |               | 2) Batch effect correction                |
 |                              |               | 3) Downstream analysis                    |
@@ -31,7 +32,7 @@ The Zoom links to these events can be found in the mail sent on Sunday, 30.03.20
 |                              | 19:00 - tbd   | Dinner at [Porta Nova](https://www.tripadvisor.de/Restaurant_Review-g187323-d2456707-Reviews-Porta_Nova-Berlin.html) ([Robert-Koch-Platz 12](https://maps.app.goo.gl/wFXHXyAk1Fdkpf658))                           |
 |                              |               |                                           |
 | **Tuesday, 08.04.2025**   | 09:00 – 09:30 | Talk: "Clonal dynamics and mitochondrial genetics through the<br>lens of single-cell multi-omics" by [Leif Ludwig](https://www.mdc-berlin.de/de/person/dr-med-dr-rer-nat-leif-s-ludwig) |
-|                              | 09:30 – 10:00 | Talk: “Spatiotemporal dynamics of tumor development in a novel<br>triple-negative breast cancer model" by [Tancredi Massimo Pentimalli](www.linkedin.com/in/tancredi-massimo-pentimalli)  |
+|                              | 09:30 – 10:00 | Talk:                                     |
 |                              | 10:00 – 11:30 | 1) Ligand-receptor interaction analysis   |
 |                              |               | 2) Differential cellular abundance        |
 |                              | 11:30 - 12:00 | Hands-on coding & Troubleshooting         |
@@ -43,7 +44,7 @@ The Zoom links to these events can be found in the mail sent on Sunday, 30.03.20
 |                              | 15:40 – 17:30 | Spatial preprocessing & analysis          |
 |                              | 20:00 - tbd   | Dinner (self-organised)                   |
 |                              |               |                                           |
-| **Wednesday, 09.042025** | 09:00 – 09:30 | Talk #3                                   |
+| **Wednesday, 09.042025** | 09:00 – 09:30 | Talk: “Spatiotemporal dynamics of tumor development in a novel<br>triple-negative breast cancer model" by [Tancredi Massimo Pentimalli](www.linkedin.com/in/tancredi-massimo-pentimalli) |
 |                              | 09:30 – 11:30 | Talk: "Foxa2 pioneers enteroendocrine lineage recruitment from<br>intestinal stem cells" by [Michael Sterr](https://www.helmholtz-munich.de/en/pi-3-20)     |
 |                              | 10:00 – 11:30 | Option A) Reproduce published figures     |
 |                              |               | Option B) Discuss your own data/analysis  |
