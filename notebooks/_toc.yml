@@ -1,20 +1,29 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
 format: jb-book
 root: index
-chapters:
-  - file: day_1/index
+parts:
+  - caption: Workshop Days
+    chapters:
+    - file: day_1/index
+      title: Day 1
+    - file: day_2/index
+      title: Day 2
+      sections:
+        - file: day_2/spatial/index
+          title: Spatial Analysis
+    - file: day_3/index
+      title: Day 3
     sections:
       - file: day_1/section1/index
         sections:
           - file: day_1/section1/beginner
           - file: day_1/section1/advanced
-  - file: day_2/index
-    sections:
       - file: day_2/spatial/index
         sections:
           - file: day_2/spatial/beginner
           - file: day_2/spatial/advanced
-  - file: day_3/index
-    sections:
       - file: day_3/section1/index
         sections:
           - file: day_3/section1/beginner
