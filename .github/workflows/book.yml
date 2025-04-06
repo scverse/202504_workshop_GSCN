@@ -30,6 +30,5 @@ jobs:
               uses: peaceiris/actions-gh-pages@v3.5.9
               with:
                   personal_token: ${{ secrets.DOC_DEPLOY_SECRET }}
-                  external_repository: timtreis/timtreis.github.io
+                  external_repository: timtreis/202504_workshop_GSCN
                   publish_dir: notebooks/_build/html
-                  destination_dir: 202504_workshop_GSCN
