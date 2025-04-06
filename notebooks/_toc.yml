@@ -8,31 +8,27 @@ parts:
     chapters:
     - file: day_1/index
       title: Day 1
-      sections:
-        - file: day_1/section1/index
-          title: Section 1
-          sections:
-            - file: day_1/section1/beginner
-              title: Beginner
-            - file: day_1/section1/advanced
-              title: Advanced
     - file: day_2/index
       title: Day 2
       sections:
-        - file: day_2/spatial/index
+        - file: day_2/spatialdata/README
           title: Spatial Analysis
           sections:
-            - file: day_2/spatial/beginner
-              title: Beginner
-            - file: day_2/spatial/advanced
-              title: Advanced
+            - title: Beginner
+              sections:
+                - file: day_2/spatialdata/beginner/nb1_spatialdata_objects
+                  title: "1. SpatialData Objects"
+                - file: day_2/spatialdata/beginner/nb2_static_plotting
+                  title: "2. Static Plotting"
+                - file: day_2/spatialdata/beginner/nb3_interactive_plotting_with_napari
+                  title: "3. Interactive Plotting with Napari"
+                - file: day_2/spatialdata/beginner/nb4_simple_analysis_using_scverse_tools
+                  title: "4. Simple Analysis using scverse Tools"
+            - title: Advanced
+              sections:
+                - file: day_2/spatialdata/advanced/transformations
+                  title: "Transformations"
+                - file: day_2/spatialdata/advanced/tutorial_niche_calculation
+                  title: "Niche Calculation Tutorial"
     - file: day_3/index
-      title: Day 3
-      sections:
-        - file: day_3/section1/index
-          title: Section 1
-          sections:
-            - file: day_3/section1/beginner
-              title: Beginner
-            - file: day_3/section1/advanced
-              title: Advanced 
+      title: Day 3 
