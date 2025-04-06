@@ -4,13 +4,28 @@
 format: jb-book
 root: README
 parts:
-  - caption: Workshop Days
+  - caption: Notebooks
     chapters:
     - file: day_1/README.md
       title: Day 1
+      sections:
+        - file: day_1/nb1_qc_normalization.ipynb
+          title: "1. QC and Normalization"
+        - file: day_1/nb2_preprocessing.ipynb
+          title: "2. Preprocessing"
+        - file: day_1/nb3_batch_correction.ipynb
+          title: "3. Batch Correction"
+        - file: day_1/nb4_downstream_analysis.ipynb
+          title: "4. Downstream Analysis"
+        - file: day_1/nb5_trajectory_inference.ipynb
+          title: "5. Trajectory Inference"
     - file: day_2/README.md
       title: Day 2
       sections:
+        - file: day_2/nb1_ligand_recepter_interactions.ipynb
+          title: "1. Ligand-Receptor Interactions"
+        - file: day_2/nb2_differential_cellular_abundance.ipynb
+          title: "2. Differential Cellular Abundance"
         - file: day_2/spatialdata/README.md
           title: Spatial Analysis
           sections:
@@ -23,8 +38,8 @@ parts:
             - file: day_2/spatialdata/beginner/nb4_simple_analysis_using_scverse_tools.ipynb
               title: "4. Simple Analysis using scverse Tools"
             - file: day_2/spatialdata/advanced/transformations.ipynb
-              title: "5. Transformations"
+              title: "5. Transformations (advanced)"
             - file: day_2/spatialdata/advanced/tutorial_niche_calculation.ipynb
-              title: "6. Niche Calculation Tutorial"
+              title: "6. Niche Calculation Tutorial (advanced)"
     - file: day_3/README.md
       title: Day 3 
