@@ -11,20 +11,20 @@ parts:
     - file: day_2/index
       title: Day 2
       sections:
-        - file: day_2/spatialdata/README
+        - file: day_2/spatialdata/README.md
           title: Spatial Analysis
           sections:
-            - file: day_2/spatialdata/beginner/nb1_spatialdata_objects
+            - file: day_2/spatialdata/beginner/nb1_spatialdata_objects.ipynb
               title: "1. SpatialData Objects"
-            - file: day_2/spatialdata/beginner/nb2_static_plotting
+            - file: day_2/spatialdata/beginner/nb2_static_plotting.ipynb
               title: "2. Static Plotting"
-            - file: day_2/spatialdata/beginner/nb3_interactive_plotting_with_napari
+            - file: day_2/spatialdata/beginner/nb3_interactive_plotting_with_napari.ipynb
               title: "3. Interactive Plotting with Napari"
-            - file: day_2/spatialdata/beginner/nb4_simple_analysis_using_scverse_tools
+            - file: day_2/spatialdata/beginner/nb4_simple_analysis_using_scverse_tools.ipynb
               title: "4. Simple Analysis using scverse Tools"
-            - file: day_2/spatialdata/advanced/transformations
+            - file: day_2/spatialdata/advanced/transformations.ipynb
               title: "5. Transformations"
-            - file: day_2/spatialdata/advanced/tutorial_niche_calculation
+            - file: day_2/spatialdata/advanced/tutorial_niche_calculation.ipynb
               title: "6. Niche Calculation Tutorial"
     - file: day_3/index
       title: Day 3 
