@@ -32,4 +32,4 @@ jobs:
                   github_token: ${{ secrets.DOC_DEPLOY_SECRET }}
                   publish_dir: notebooks/_build/html
                   external_repository: timtreis/timtreis.github.io
-                  publish_branch: main
+                  publish_branch: docs
