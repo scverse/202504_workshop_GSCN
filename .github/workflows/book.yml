@@ -31,7 +31,7 @@ jobs:
               with:
                 folder: notebooks/_build/html
                 branch: docs
-                repository: timtreis/timtreis.github.io
+                repository-name: timtreis/timtreis.github.io
                 token: ${{ secrets.DOC_DEPLOY_SECRET }}
                 clean: true
                 clean-exclude: |
