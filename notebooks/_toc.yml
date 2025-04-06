@@ -10,22 +10,22 @@ parts:
       title: Day 1
       sections:
         - file: day_1/nb1_qc_normalization.ipynb
-          title: "1. QC and Normalization"
+          title: "QC and Normalization"
         - file: day_1/nb2_preprocessing.ipynb
-          title: "2. Preprocessing"
+          title: "Preprocessing"
         - file: day_1/nb3_batch_correction.ipynb
-          title: "3. Batch Correction"
+          title: "Batch Correction"
         - file: day_1/nb4_downstream_analysis.ipynb
-          title: "4. Downstream Analysis"
+          title: "Downstream Analysis"
         - file: day_1/nb5_trajectory_inference.ipynb
-          title: "5. Trajectory Inference"
+          title: "Trajectory Inference"
     - file: day_2/README.md
       title: Day 2
       sections:
         - file: day_2/nb1_ligand_recepter_interactions.ipynb
-          title: "1. Ligand-Receptor Interactions"
+          title: "Ligand-Receptor Interactions"
         - file: day_2/nb2_differential_cellular_abundance.ipynb
-          title: "2. Differential Cellular Abundance"
+          title: "Differential Cellular Abundance"
         - file: day_2/spatialdata/README.md
           title: Spatial Analysis
           sections:
