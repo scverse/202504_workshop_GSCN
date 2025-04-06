@@ -28,8 +28,13 @@ jobs:
             # Push the book's HTML to personal pages
             - name: GitHub Pages action
               uses: peaceiris/actions-gh-pages@v3.5.9
+              env:
+                PERSONAL_TOKEN: ${{ secrets.DOC_DEPLOY_SECRET }}
               with:
-                  github_token: ${{ secrets.DOC_DEPLOY_SECRET }}
+                  github_token: ${{ env.PERSONAL_TOKEN }}
                   publish_dir: notebooks/_build/html
                   external_repository: timtreis/timtreis.github.io
                   publish_branch: docs
+                  commit_message: "Deploy Jupyter Book"
+                  user_name: "github-actions[bot]"
+                  user_email: "github-actions[bot]@users.noreply.github.com"
