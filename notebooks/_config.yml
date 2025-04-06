@@ -32,4 +32,4 @@ html:
   extra_navbar: ""
   extra_footer: ""
   home_page_in_navbar: true
-  baseurl: "https://timtreis.github.io/202504_workshop_GSCN" 
+  baseurl: "/202504_workshop_GSCN" 
