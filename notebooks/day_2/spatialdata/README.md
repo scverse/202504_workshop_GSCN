@@ -1,4 +1,22 @@
-# Day 2: Spatial
+# Spatial Analysis Tutorials
+
+Welcome to the spatial analysis tutorials! This section contains both beginner and advanced materials.
+
+## Beginner Tutorials
+Start here if you're new to spatial analysis:
+
+1. **SpatialData Objects**: Introduction to working with spatial data structures
+2. **Static Plotting**: Learn how to create static visualizations
+3. **Interactive Plotting with Napari**: Explore interactive visualization using Napari
+4. **Simple Analysis using scverse Tools**: Basic analysis techniques using the scverse toolkit
+
+## Advanced Tutorials
+Once you're comfortable with the basics, explore these more complex topics:
+
+1. **Transformations**: Learn about spatial transformations and coordinate systems
+2. **Niche Calculation Tutorial**: Advanced analysis of spatial niches and microenvironments
+
+These advanced tutorials assume familiarity with the concepts covered in the beginner section.
 
 ## Environment setup instructions
 In order to work with `SpatialData`, we will need to install some more packages. To avoid installation conflicts, we suggest to create a new environment, very similar to what was required for the first day.
