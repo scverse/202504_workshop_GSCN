@@ -2,13 +2,13 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: index
+root: README
 parts:
   - caption: Workshop Days
     chapters:
-    - file: day_1/index
+    - file: day_1/README.md
       title: Day 1
-    - file: day_2/index
+    - file: day_2/README.md
       title: Day 2
       sections:
         - file: day_2/spatialdata/README.md
@@ -26,5 +26,5 @@ parts:
               title: "5. Transformations"
             - file: day_2/spatialdata/advanced/tutorial_niche_calculation.ipynb
               title: "6. Niche Calculation Tutorial"
-    - file: day_3/index
+    - file: day_3/README.md
       title: Day 3 
