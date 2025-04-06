@@ -22,6 +22,7 @@ bibtex_bibfiles:
 repository:
   url: https://github.com/scverse/202504_workshop_GSCN
   branch: main
+  path_to_book: notebooks
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
