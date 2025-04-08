@@ -4,11 +4,16 @@ Problem statement: Reproduce some of the figures from this paper: https://www.na
 
 Paper title: MACHETE identifies interferon-encompassing chromosome 9p21.3 deletions as mediators of immune evasion and metastasis 
 
-Brief summary: Barriga et al. develop MACHETE, a genome engineering strategy enabling the flexible modeling of megabase-sized deletions and show that the concomitant loss of the interferon cluster with CDKN2A/B deletions on 9p21.3 enhances immune evasion.
+Brief summary: Barriga et al. develop MACHETE, a genome engineering strategy enabling the flexible modeling of megabase-sized deletions and 
+show that the concomitant loss of the interferon cluster with CDKN2A/B deletions on 9p21.3 enhances immune evasion.
 
 Goal: Reproduce Fig. 6a, 6b, 6d, 6e, 6f, 6g, 6i.
 
-Notes: You can use the genes provided in Extended Data Fig. 5H to celltype your clusters (i.e. to obtain Fig. 6b). Please consult the methods section starting with the subsection: "scRNA sequencing/Data cleanup/" and any other related sections you may need. The samples were originally hashtagged and we have provided you with a demultiplexed data - each cell is assigned it's own hash_id. Doublets have been removed. You will have the final set of cells with hashID already annotated. You can of course read the whole article, but if you want to just focus on the single-cell part, please read the methods section and the corresponding figure legend before you begin. 
+Notes: You can use the genes provided in Extended Data Fig. 5H to celltype your clusters (i.e. to obtain Fig. 6b). 
+Please consult the methods section starting with the subsection: "scRNA sequencing/Data cleanup/" and any other related sections you may need. 
+The samples were originally hashtagged and we have provided you with a demultiplexed data - each cell is assigned it's own hash_id. Doublets have been removed. 
+You will have the final set of cells with hashID already annotated. 
+You can of course read the whole article, but if you want to just focus on the single-cell part, please read the methods section and the corresponding figure legend before you begin. 
 
 Optional: Recreate the figure for "IFN response signature" (Fig. 6c). 
 
