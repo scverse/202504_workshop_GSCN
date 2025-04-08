@@ -25,7 +25,7 @@ In order to work with `SpatialData`, we will need to install some more packages.
 conda create -y --name workshop_2025_spatial python=3.12
 conda activate workshop_2025_spatial
 pip install jupyterlab notebook
-pip install spatialdata spatialdata-io spatialdata-plot napari-spatialdata squidpy lamindb[bionty]
+pip install spatialdata spatialdata-io spatialdata-plot napari-spatialdata squidpy pyproj
 conda install -y ipykernel
 python -m ipykernel install --user --name workshop_2025_spatial
 ```
