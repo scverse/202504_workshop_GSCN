@@ -1,8 +1,8 @@
 # Book settings
-title: GSCN Workshop 2025
-author: GSCN Workshop Team
-copyright: "2024"
-logo: ""
+title: scverse x GSCN Workshop 2025
+author: scverse community & outreach team
+copyright: "2025, scverse"
+logo: "../misc/ressources/scverse_logo.png"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -27,9 +27,9 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  use_issues_button: true
+  use_issues_button: false
   use_repository_button: true
-  use_edit_page_button: true
+  use_edit_page_button: false
   extra_navbar: ""
   extra_footer: ""
   home_page_in_navbar: true
