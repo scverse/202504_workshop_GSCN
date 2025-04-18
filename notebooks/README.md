@@ -1,4 +1,4 @@
-# scverse workshop in collaboration with the GSCN
+# Overview
 Welcome to the GSCN Workshop materials! This book contains the workshop materials organized by day:
 
 - [Day 1](day_1/README.md)
