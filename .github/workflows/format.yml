@@ -1,0 +1,48 @@
+name: Autoformat Notebooks
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  format:
+    name: Autoformat notebooks with nbqa
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # needed to push back to PR branch
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install nbqa + tools
+        run: |
+          pip install nbqa black
+
+      - name: Run nbqa black (format in-place)
+        run: |
+          nbqa black .
+
+      - name: Check for changes
+        id: git-diff
+        run: |
+          if git diff --quiet; then
+            echo "no_changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "no_changes=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push changes
+        if: steps.git-diff.outputs.no_changes == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "Autoformat notebooks via nbqa black"
+          git push origin HEAD:${{ github.head_ref }}
