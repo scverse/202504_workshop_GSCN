@@ -5,16 +5,16 @@ Welcome to the spatial analysis tutorials! This section contains both beginner a
 ## Beginner Tutorials
 Start here if you're new to spatial analysis:
 
-1. **SpatialData Objects**: Introduction to working with spatial data structures
-2. **Static Plotting**: Learn how to create static visualizations
-3. **Interactive Plotting with Napari**: Explore interactive visualization using Napari
-4. **Simple Analysis using scverse Tools**: Basic analysis techniques using the scverse toolkit
+1. [**SpatialData Objects**](beginner/nb1_spatialdata_objects.ipynb): Introduction to working with spatial data structures
+2. [**Static Plotting**](beginner/nb2_static_plotting.ipynb): Learn how to create static visualizations
+3. [**Interactive Plotting with Napari**](beginner/nb3_interactive_plotting_with_napari.ipynb): Explore interactive visualization using Napari
+4. [**Simple Analysis using scverse tools**](beginner/nb4_simple_analysis_using_scverse_tools.ipynb): Basic analysis techniques using the scverse toolkit
 
 ## Advanced Tutorials
 Once you're comfortable with the basics, explore these more complex topics:
 
-1. **Transformations**: Learn about spatial transformations and coordinate systems
-2. **Niche Calculation Tutorial**: Advanced analysis of spatial niches and microenvironments
+1. [**Transformations**](advanced/transformations.ipynb): Learn about spatial transformations and coordinate systems
+2. [**Niche Calculation Tutorial**](advanced/tutorial_niche_calculation.ipynb): Advanced analysis of spatial niches and microenvironments
 
 These advanced tutorials assume familiarity with the concepts covered in the beginner section.
 
