@@ -522,7 +522,7 @@ document.write(`
 <p>The data consists of CD34+ human bone marrow cells undergoing differentiation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./data_day1&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;./data_day1&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -531,7 +531,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># downloaded from https://drive.google.com/drive/u/1/folders/1fXhGtF4qnaiXDBBHvQGfgxDWc9h45oR5</span>
 
-<span class="n">adata_bm</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">read_h5ad</span><span class="p">(</span><span class="n">data_path</span> <span class="o">/</span> <span class="s1">&#39;human_cd34_bm_rep1.h5ad&#39;</span><span class="p">)</span>
+<span class="n">adata_bm</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">read_h5ad</span><span class="p">(</span><span class="n">data_path</span> <span class="o">/</span> <span class="s2">&quot;human_cd34_bm_rep1.h5ad&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -554,14 +554,14 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change the name of the obsm so we can invoke scanpy plotting functions</span>
-<span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;tsne&#39;</span><span class="p">]</span>
+<span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;tsne&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;clusters&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;clusters&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -572,8 +572,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize some gene expression trends</span>
-<span class="n">genes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CD34&#39;</span><span class="p">,</span> <span class="s1">&#39;MPO&#39;</span><span class="p">,</span> <span class="s1">&#39;IRF8&#39;</span><span class="p">,</span> <span class="s1">&#39;CD79A&#39;</span><span class="p">,</span> <span class="s1">&#39;GATA1&#39;</span><span class="p">,</span> <span class="s1">&#39;ITGA2B&#39;</span><span class="p">]</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">genes</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">vmin</span> <span class="o">=</span> <span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="s1">&#39;p99&#39;</span><span class="p">)</span>
+<span class="n">genes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CD34&quot;</span><span class="p">,</span> <span class="s2">&quot;MPO&quot;</span><span class="p">,</span> <span class="s2">&quot;IRF8&quot;</span><span class="p">,</span> <span class="s2">&quot;CD79A&quot;</span><span class="p">,</span> <span class="s2">&quot;GATA1&quot;</span><span class="p">,</span> <span class="s2">&quot;ITGA2B&quot;</span><span class="p">]</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">genes</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="s2">&quot;p1&quot;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="s2">&quot;p99&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -583,10 +583,10 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We are computing 300 principal components as that is what the authors used. </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We are computing 300 principal components as that is what the authors used.</span>
 <span class="c1"># The rationale was that they wanted to consider enough PCs to explain 75% of the variance in the data</span>
 <span class="c1"># We&#39;re doing this to reproduce their results, not because we think it&#39;s a good idea</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">n_comps</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">n_comps</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -613,8 +613,14 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute diffusion maps</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">use_rep</span> <span class="o">=</span> <span class="s1">&#39;X_pca&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">key_added</span><span class="o">=</span><span class="s1">&#39;neighbors_30&#39;</span><span class="p">)</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">diffmap</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">n_comps</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">neighbors_key</span> <span class="o">=</span> <span class="s1">&#39;neighbors_30&#39;</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="p">,</span>
+    <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">use_rep</span><span class="o">=</span><span class="s2">&quot;X_pca&quot;</span><span class="p">,</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span>
+    <span class="n">key_added</span><span class="o">=</span><span class="s2">&quot;neighbors_30&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">diffmap</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">n_comps</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">neighbors_key</span><span class="o">=</span><span class="s2">&quot;neighbors_30&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -622,10 +628,10 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eigenvalues</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;diffmap_evals&#39;</span><span class="p">])),</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;diffmap_evals&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Index&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Eigen-Values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;diffmap_evals&quot;</span><span class="p">])),</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;diffmap_evals&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s2">&quot;on&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Index&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Eigen-Values&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
     <span class="s2">&quot;eigen gap&quot;</span><span class="p">,</span>
@@ -651,16 +657,21 @@ document.write(`
 <span class="n">ncol</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">nrow</span> <span class="o">=</span> <span class="mi">3</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">ncol</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="n">nrow</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">ncol</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">nrow</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">im1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;tsne&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;tsne&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> 
-                 <span class="n">c</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_diffmap&#39;</span><span class="p">][:,</span> <span class="n">j</span><span class="p">],</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
+    <span class="n">im1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;tsne&quot;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;tsne&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_diffmap&quot;</span><span class="p">][:,</span> <span class="n">j</span><span class="p">],</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Diff Map - &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
-    
-<span class="c1"># To save: </span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Diff Map - &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
+
+<span class="c1"># To save:</span>
 <span class="c1"># fig.savefig(output_directory + &#39;umap_colored_by_diff_maps.png&#39;, bbox_inches = &#39;tight&#39;, dpi = 150)</span>
 </pre></div>
 </div>
@@ -684,9 +695,9 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correlate with diffusion component 1 (Recall: Diff Comp 0 is to be ignored)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">X</span>
-<span class="n">diff_1</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_diffmap&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">diff_1</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_diffmap&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">]</span>
 
-<span class="n">corr_score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">corr_score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
     <span class="n">corr_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="n">j</span><span class="p">],</span> <span class="n">diff_1</span><span class="p">)</span>
     <span class="n">corr_score</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">corr_temp</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
@@ -697,8 +708,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Arrange that in pandas data frame with associated gene names:</span>
-<span class="n">df_corr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;corr_score&#39;</span><span class="p">:</span> <span class="n">corr_score</span><span class="p">},</span> <span class="n">index</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">var</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">df_corr</span><span class="p">[</span><span class="s1">&#39;absolute_corr_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df_corr</span><span class="p">[</span><span class="s1">&#39;corr_score&#39;</span><span class="p">])</span>
+<span class="n">df_corr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;corr_score&quot;</span><span class="p">:</span> <span class="n">corr_score</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">var</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df_corr</span><span class="p">[</span><span class="s2">&quot;absolute_corr_score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df_corr</span><span class="p">[</span><span class="s2">&quot;corr_score&quot;</span><span class="p">])</span>
 <span class="n">df_corr</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -764,7 +775,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sort by absolute value of corr_score (to isolate top positively &amp; negatively correlated genes)</span>
-<span class="n">df_corr</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;absolute_corr_score&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">df_corr</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;absolute_corr_score&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -860,14 +871,17 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize the trend of top 5 genes along diffusion component 1:</span>
-<span class="n">top_genes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;KLF1&#39;</span><span class="p">,</span> <span class="s1">&#39;APOC1&#39;</span><span class="p">,</span> <span class="s1">&#39;CNRIP1&#39;</span><span class="p">,</span> <span class="s1">&#39;GATA1&#39;</span><span class="p">,</span> <span class="s1">&#39;ANK1&#39;</span><span class="p">]</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">top_genes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;KLF1&quot;</span><span class="p">,</span> <span class="s2">&quot;APOC1&quot;</span><span class="p">,</span> <span class="s2">&quot;CNRIP1&quot;</span><span class="p">,</span> <span class="s2">&quot;GATA1&quot;</span><span class="p">,</span> <span class="s2">&quot;ANK1&quot;</span><span class="p">]</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">2</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">gene</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">top_genes</span><span class="p">):</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_diffmap&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> 
-               <span class="n">adata_bm</span><span class="o">.</span><span class="n">X</span><span class="p">[:,</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">var_names</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">gene</span><span class="p">)],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Diffusion component-1&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">gene</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_diffmap&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">adata_bm</span><span class="o">.</span><span class="n">X</span><span class="p">[:,</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">var_names</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">gene</span><span class="p">)],</span>
+        <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Diffusion component-1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">gene</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -884,17 +898,17 @@ document.write(`
 
 <span class="k">for</span> <span class="n">diff_comp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calculating correlation for diffusion component: </span><span class="si">{</span><span class="n">diff_comp</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">diff_temp</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_diffmap&#39;</span><span class="p">][:,</span> <span class="n">diff_comp</span><span class="p">]</span>
-    <span class="n">corr_score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">diff_temp</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_diffmap&quot;</span><span class="p">][:,</span> <span class="n">diff_comp</span><span class="p">]</span>
+    <span class="n">corr_score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
         <span class="n">corr_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="n">j</span><span class="p">],</span> <span class="n">diff_temp</span><span class="p">)</span>
         <span class="n">corr_score</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">corr_temp</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-    
-    <span class="n">df_corr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;corr_score&#39;</span><span class="p">:</span> <span class="n">corr_score</span><span class="p">},</span> <span class="n">index</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">var</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-    <span class="n">df_corr</span><span class="p">[</span><span class="s1">&#39;absolute_corr_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df_corr</span><span class="p">[</span><span class="s1">&#39;corr_score&#39;</span><span class="p">])</span>
-    
+
+    <span class="n">df_corr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;corr_score&quot;</span><span class="p">:</span> <span class="n">corr_score</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">var</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">df_corr</span><span class="p">[</span><span class="s2">&quot;absolute_corr_score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df_corr</span><span class="p">[</span><span class="s2">&quot;corr_score&quot;</span><span class="p">])</span>
+
     <span class="c1"># save as csv:</span>
-    <span class="c1">#df_corr.to_csv(output_directory + &#39;gene_correlation_with_diffusion_comp_&#39; + str(diff_comp) + &#39;.csv&#39;)</span>
+    <span class="c1"># df_corr.to_csv(output_directory + &#39;gene_correlation_with_diffusion_comp_&#39; + str(diff_comp) + &#39;.csv&#39;)</span>
 </pre></div>
 </div>
 </div>
@@ -979,10 +993,10 @@ Calculating correlation for diffusion component: 10
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualize the eigenvalues:</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;DM_EigenValues&#39;</span><span class="p">])),</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;DM_EigenValues&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Index&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;EigenValues&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;DM_EigenValues&quot;</span><span class="p">])),</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;DM_EigenValues&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Index&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;EigenValues&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s2">&quot;on&quot;</span><span class="p">)</span>
 
 
 <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
@@ -1029,7 +1043,7 @@ Calculating correlation for diffusion component: 10
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;DM_EigenVectors_multiscaled&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;DM_EigenVectors_multiscaled&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -1047,16 +1061,21 @@ Calculating correlation for diffusion component: 10
 <span class="n">ncol</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">nrow</span> <span class="o">=</span> <span class="mi">3</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">ncol</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="n">nrow</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">ncol</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">nrow</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">im1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;tsne&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;tsne&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> 
-                 <span class="n">c</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;DM_EigenVectors&#39;</span><span class="p">][:,</span> <span class="n">j</span><span class="p">],</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
+    <span class="n">im1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;tsne&quot;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;tsne&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;DM_EigenVectors&quot;</span><span class="p">][:,</span> <span class="n">j</span><span class="p">],</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Diff Map - &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
-    
-<span class="c1"># To save: </span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Diff Map - &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
+
+<span class="c1"># To save:</span>
 <span class="c1"># fig.savefig(output_directory + &#39;umap_colored_by_diff_maps.png&#39;, bbox_inches = &#39;tight&#39;, dpi = 150)</span>
 </pre></div>
 </div>
@@ -1069,8 +1088,7 @@ Calculating correlation for diffusion component: 10
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize some gene expression on the above tsne:</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> 
-           <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34&#39;</span><span class="p">,</span> <span class="s1">&#39;MPO&#39;</span><span class="p">,</span> <span class="s1">&#39;GATA1&#39;</span><span class="p">,</span> <span class="s1">&#39;IRF8&#39;</span><span class="p">,</span> <span class="s1">&#39;ITGA2B&#39;</span><span class="p">,</span> <span class="s1">&#39;CD79A&#39;</span><span class="p">],</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CD34&quot;</span><span class="p">,</span> <span class="s2">&quot;MPO&quot;</span><span class="p">,</span> <span class="s2">&quot;GATA1&quot;</span><span class="p">,</span> <span class="s2">&quot;IRF8&quot;</span><span class="p">,</span> <span class="s2">&quot;ITGA2B&quot;</span><span class="p">,</span> <span class="s2">&quot;CD79A&quot;</span><span class="p">],</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1086,27 +1104,35 @@ Calculating correlation for diffusion component: 10
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a start point</span>
 <span class="c1"># Please note that the start_cell should be the barcode of the cell estimated to be an ideal start point</span>
-<span class="n">start_cell</span> <span class="o">=</span> <span class="s1">&#39;Run5_164698952452459&#39;</span>
+<span class="n">start_cell</span> <span class="o">=</span> <span class="s2">&quot;Run5_164698952452459&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">select_cells</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][</span><span class="n">select_cells</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][</span><span class="n">select_cells</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cluster to select start cell&#39;</span><span class="p">)</span>
+<span class="n">select_cells</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;clusters&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][</span><span class="n">select_cells</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][</span><span class="n">select_cells</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Cluster to select start cell&quot;</span><span class="p">)</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">select_cells</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obs_names</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">start_cell</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][</span><span class="n">select_cells</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][</span><span class="n">select_cells</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Selected start cell&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][</span><span class="n">select_cells</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][</span><span class="n">select_cells</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Selected start cell&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1122,7 +1148,7 @@ Calculating correlation for diffusion component: 10
 <p>Note: we only look at the first 8 diffusion component because the gap in eigenvalues is highest there, meaning that palantir will focus on these 8 components to derive a pseudotime.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;DM_EigenVectors_multiscaled&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;DM_EigenVectors_multiscaled&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -1138,25 +1164,32 @@ Calculating correlation for diffusion component: 10
 <span class="n">ncol</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">nrow</span> <span class="o">=</span> <span class="mi">2</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">ncol</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="n">nrow</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">ncol</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">nrow</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">im1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;tsne&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;tsne&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> 
-                 <span class="n">c</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;DM_EigenVectors&#39;</span><span class="p">][:,</span> <span class="n">j</span><span class="p">],</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
-    
-    <span class="p">[</span><span class="n">id_min</span><span class="p">,</span> <span class="n">id_max</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;DM_EigenVectors&#39;</span><span class="p">][:,</span> <span class="n">j</span><span class="p">])[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
-    
-    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;tsne&#39;</span><span class="p">][</span><span class="n">id_min</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
-               <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;tsne&#39;</span><span class="p">][</span><span class="n">id_min</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-    
-    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;tsne&#39;</span><span class="p">][</span><span class="n">id_max</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
-               <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;tsne&#39;</span><span class="p">][</span><span class="n">id_max</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
-    
+    <span class="n">im1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;tsne&quot;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;tsne&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;DM_EigenVectors&quot;</span><span class="p">][:,</span> <span class="n">j</span><span class="p">],</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="p">[</span><span class="n">id_min</span><span class="p">,</span> <span class="n">id_max</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;DM_EigenVectors&quot;</span><span class="p">][:,</span> <span class="n">j</span><span class="p">])[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;tsne&quot;</span><span class="p">][</span><span class="n">id_min</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;tsne&quot;</span><span class="p">][</span><span class="n">id_min</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;r&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;tsne&quot;</span><span class="p">][</span><span class="n">id_max</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;tsne&quot;</span><span class="p">][</span><span class="n">id_max</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;k&quot;</span>
+    <span class="p">)</span>
+
     <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Diff Map - &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">),</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">)</span>
-    
-<span class="c1"># To save: </span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Diff Map - &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># To save:</span>
 <span class="c1"># fig.savefig(output_directory + &#39;umap_colored_by_diff_maps.png&#39;, bbox_inches = &#39;tight&#39;, dpi = 150)</span>
 </pre></div>
 </div>
@@ -1180,24 +1213,24 @@ Calculating correlation for diffusion component: 10
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">terminal_states</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># for component 1</span>
-<span class="n">cell_comp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;DM_EigenVectors&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">])[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">cell_comp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;DM_EigenVectors&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">])[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
 <span class="n">terminal_states</span> <span class="o">=</span> <span class="n">terminal_states</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs_names</span><span class="p">[</span><span class="n">cell_comp1</span><span class="p">])</span>
 
 <span class="c1"># for component 2</span>
-<span class="n">cell_comp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;DM_EigenVectors&#39;</span><span class="p">][:,</span> <span class="mi">2</span><span class="p">])[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">cell_comp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;DM_EigenVectors&quot;</span><span class="p">][:,</span> <span class="mi">2</span><span class="p">])[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">terminal_states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs_names</span><span class="p">[</span><span class="n">cell_comp2</span><span class="p">])</span>
 
 
 <span class="c1"># for component 3</span>
-<span class="n">cell_comp3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;DM_EigenVectors&#39;</span><span class="p">][:,</span> <span class="mi">3</span><span class="p">])[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">cell_comp3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;DM_EigenVectors&quot;</span><span class="p">][:,</span> <span class="mi">3</span><span class="p">])[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">terminal_states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs_names</span><span class="p">[</span><span class="n">cell_comp3</span><span class="p">])</span>
 
 <span class="c1"># for component 5</span>
-<span class="n">cell_comp5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;DM_EigenVectors&#39;</span><span class="p">][:,</span> <span class="mi">5</span><span class="p">])[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">cell_comp5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;DM_EigenVectors&quot;</span><span class="p">][:,</span> <span class="mi">5</span><span class="p">])[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">terminal_states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs_names</span><span class="p">[</span><span class="n">cell_comp5</span><span class="p">])</span>
 
 <span class="c1"># for component 6</span>
-<span class="n">cell_comp6</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;DM_EigenVectors&#39;</span><span class="p">][:,</span> <span class="mi">6</span><span class="p">])[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">cell_comp6</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;DM_EigenVectors&quot;</span><span class="p">][:,</span> <span class="mi">6</span><span class="p">])[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">terminal_states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs_names</span><span class="p">[</span><span class="n">cell_comp6</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1226,12 +1259,20 @@ Calculating correlation for diffusion component: 10
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">select_cell_start</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obs_names</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">start_cell</span><span class="p">)</span>
 <span class="n">select_cell_terminal</span> <span class="o">=</span> <span class="p">[</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs_names</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">terminal_states</span><span class="p">]</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][</span><span class="n">select_cell_start</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
-            <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][</span><span class="n">select_cell_start</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;start&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][</span><span class="n">select_cell_terminal</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
-            <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][</span><span class="n">select_cell_terminal</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;terminal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Selected start cell and terminal states&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][</span><span class="n">select_cell_start</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][</span><span class="n">select_cell_start</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;start&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][</span><span class="n">select_cell_terminal</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][</span><span class="n">select_cell_terminal</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;terminal&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Selected start cell and terminal states&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1246,8 +1287,7 @@ Calculating correlation for diffusion component: 10
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize some gene expression on the above tsne:</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> 
-           <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34&#39;</span><span class="p">,</span> <span class="s1">&#39;MPO&#39;</span><span class="p">,</span> <span class="s1">&#39;GATA1&#39;</span><span class="p">,</span> <span class="s1">&#39;IRF8&#39;</span><span class="p">])</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CD34&quot;</span><span class="p">,</span> <span class="s2">&quot;MPO&quot;</span><span class="p">,</span> <span class="s2">&quot;GATA1&quot;</span><span class="p">,</span> <span class="s2">&quot;IRF8&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1260,9 +1300,9 @@ Calculating correlation for diffusion component: 10
 <h3>Compute pseudotime<a class="headerlink" href="#compute-pseudotime" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pr_res</span> <span class="o">=</span> <span class="n">palantir</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">run_palantir</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> 
-                                    <span class="n">early_cell</span> <span class="o">=</span> <span class="n">start_cell</span><span class="p">,</span> 
-                                    <span class="n">terminal_states</span><span class="o">=</span><span class="n">terminal_states</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pr_res</span> <span class="o">=</span> <span class="n">palantir</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">run_palantir</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="p">,</span> <span class="n">early_cell</span><span class="o">=</span><span class="n">start_cell</span><span class="p">,</span> <span class="n">terminal_states</span><span class="o">=</span><span class="n">terminal_states</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1312,7 +1352,7 @@ Project results to all cells...
 <h3>Get the pseudotime<a class="headerlink" href="#get-the-pseudotime" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;palantir_pseudotime&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;palantir_pseudotime&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1339,7 +1379,7 @@ Name: palantir_pseudotime, Length: 5780, dtype: float64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the branch probabilities</span>
 <span class="c1"># As shown below, palantir used the 6 terminally differentiated states</span>
-<span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;palantir_fate_probabilities&#39;</span><span class="p">]</span>
+<span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;palantir_fate_probabilities&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1487,7 +1527,14 @@ Name: palantir_pseudotime, Length: 5780, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can rename the different branches:</span>
-<span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;palantir_fate_probabilities&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Branch1&#39;</span><span class="p">,</span> <span class="s1">&#39;Branch2&#39;</span><span class="p">,</span> <span class="s1">&#39;Branch3&#39;</span><span class="p">,</span> <span class="s1">&#39;Branch4&#39;</span><span class="p">,</span> <span class="s1">&#39;Branch5&#39;</span><span class="p">,</span> <span class="s1">&#39;Branch6&#39;</span><span class="p">]</span>
+<span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;palantir_fate_probabilities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Branch1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Branch2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Branch3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Branch4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Branch5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Branch6&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1495,7 +1542,7 @@ Name: palantir_pseudotime, Length: 5780, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the entropy</span>
-<span class="n">adata_bm</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;palantir_entropy&#39;</span><span class="p">]</span>
+<span class="n">adata_bm</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;palantir_entropy&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1522,7 +1569,7 @@ Name: palantir_entropy, Length: 5780, dtype: float64
 <h3>Visualize the pseudotime<a class="headerlink" href="#visualize-the-pseudotime" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;palantir_entropy&#39;</span><span class="p">,</span> <span class="s1">&#39;palantir_pseudotime&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;palantir_entropy&quot;</span><span class="p">,</span> <span class="s2">&quot;palantir_pseudotime&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1535,13 +1582,18 @@ Name: palantir_entropy, Length: 5780, dtype: float64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize branch probability</span>
 <span class="n">nrow</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">ncol</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">ncol</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="n">nrow</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">ncol</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">nrow</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pr_res</span><span class="o">.</span><span class="n">branch_probs</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">im1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> 
-              <span class="n">c</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;palantir_fate_probabilities&#39;</span><span class="p">][</span><span class="n">item</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Branch probability - &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">im1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;palantir_fate_probabilities&quot;</span><span class="p">][</span><span class="n">item</span><span class="p">],</span>
+        <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Branch probability - &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1556,38 +1608,59 @@ Name: palantir_entropy, Length: 5780, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_cells</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Run5_164698952452459&quot;</span><span class="p">,</span> <span class="s2">&quot;Run5_170327461775790&quot;</span><span class="p">,</span> <span class="s2">&quot;Run4_121896095574750&quot;</span><span class="p">]</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">2</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">cell_id</span> <span class="o">=</span> <span class="p">[</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs_names</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">example_cells</span><span class="p">]</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][</span><span class="n">cell_id</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][</span><span class="n">cell_id</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> 
-          <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">example_cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][</span><span class="n">cell_id</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][</span><span class="n">cell_id</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> 
-          <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">example_cells</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][</span><span class="n">cell_id</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][</span><span class="n">cell_id</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> 
-          <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">example_cells</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][</span><span class="n">cell_id</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][</span><span class="n">cell_id</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">c</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="n">example_cells</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][</span><span class="n">cell_id</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][</span><span class="n">cell_id</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">c</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="n">example_cells</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][</span><span class="n">cell_id</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_tsne&quot;</span><span class="p">][</span><span class="n">cell_id</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">c</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="n">example_cells</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;palantir_fate_probabilities&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> 
-       <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;palantir_fate_probabilities&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">example_cells</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Branches&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;palantir_fate_probabilities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;palantir_fate_probabilities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">example_cells</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Branches&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Probability&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">example_cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;palantir_fate_probabilities&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> 
-       <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;palantir_fate_probabilities&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">example_cells</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Branches&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;palantir_fate_probabilities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;palantir_fate_probabilities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">example_cells</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Branches&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Probability&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">example_cells</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;palantir_fate_probabilities&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> 
-       <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;palantir_fate_probabilities&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">example_cells</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Branches&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;palantir_fate_probabilities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;palantir_fate_probabilities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">example_cells</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Branches&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Probability&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">example_cells</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1630,7 +1703,7 @@ Name: palantir_entropy, Length: 5780, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;branch_masks&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;branch_masks&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1820,7 +1893,7 @@ plot_branch_selection(ad: anndata._core.anndata.AnnData, pseudo_time_key: str = 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">palantir</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_branch_selection</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">embedding_basis</span> <span class="o">=</span> <span class="s1">&#39;tsne&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">palantir</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_branch_selection</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">embedding_basis</span><span class="o">=</span><span class="s2">&quot;tsne&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1836,81 +1909,96 @@ plot_branch_selection(ad: anndata._core.anndata.AnnData, pseudo_time_key: str = 
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">sparse</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.sparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">coo_matrix</span><span class="p">,</span> <span class="n">csr_matrix</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">run_MAGIC</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">neighbors_key</span> <span class="o">=</span> <span class="s1">&#39;neighbors&#39;</span><span class="p">,</span> <span class="n">knn</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">use_rep</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">layer</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
-               <span class="n">n_components</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">metric</span> <span class="o">=</span> <span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">impute</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">key_added</span> <span class="o">=</span> <span class="s1">&#39;custom_magic&#39;</span><span class="p">):</span>
 
+<span class="k">def</span><span class="w"> </span><span class="nf">run_MAGIC</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span>
+    <span class="n">t</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">neighbors_key</span><span class="o">=</span><span class="s2">&quot;neighbors&quot;</span><span class="p">,</span>
+    <span class="n">knn</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">use_rep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">layer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_components</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span>
+    <span class="n">impute</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">key_added</span><span class="o">=</span><span class="s2">&quot;custom_magic&quot;</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;                                                                                                                                                                                                       </span>
+<span class="sd">    Data denoising using MAGIC</span>
 
-<span class="sd">      Data denoising using MAGIC</span>
-<span class="sd">      </span>
-<span class="sd">      adata: Anndata object                                                                                                                                                                                    </span>
-<span class="sd">      t: Number of steps to power the transition matrix (default = 3)</span>
-<span class="sd"> </span>
-<span class="sd">      neighbors_key: If nearest neighbor is already computed, supply the key (default = &#39;neighbors&#39;)</span>
+<span class="sd">    adata: Anndata object</span>
+<span class="sd">    t: Number of steps to power the transition matrix (default = 3)</span>
 
-<span class="sd">      knn: Number of nearest neighbors (default = 30) </span>
+<span class="sd">    neighbors_key: If nearest neighbor is already computed, supply the key (default = &#39;neighbors&#39;)</span>
 
-<span class="sd">      use_rep: Entry in adata to use if nearest neighbor is to be recomputed (default = None) </span>
+<span class="sd">    knn: Number of nearest neighbors (default = 30)</span>
 
-<span class="sd">      layer: If to denoise specific layer as opposed to adata.X (default = None)</span>
+<span class="sd">    use_rep: Entry in adata to use if nearest neighbor is to be recomputed (default = None)</span>
 
-<span class="sd">      n_components: Number of eigenvectors(values) of the transition matrix</span>
+<span class="sd">    layer: If to denoise specific layer as opposed to adata.X (default = None)</span>
 
-<span class="sd">      metric: Metric if nearest neighbor is to be computed (default = Euclidean)</span>
+<span class="sd">    n_components: Number of eigenvectors(values) of the transition matrix</span>
 
-<span class="sd">      impute: Boolean to impute or not (default = True); if set to False will only compute diffusion maps</span>
+<span class="sd">    metric: Metric if nearest neighbor is to be computed (default = Euclidean)</span>
 
-<span class="sd">      key_added: key to store MAGIC imputed data</span>
-<span class="sd">  &quot;&quot;&quot;</span>
+<span class="sd">    impute: Boolean to impute or not (default = True); if set to False will only compute diffusion maps</span>
+
+<span class="sd">    key_added: key to store MAGIC imputed data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># number of cells</span>
     <span class="n">N</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    
+
     <span class="c1"># distance matrix</span>
     <span class="k">if</span> <span class="n">use_rep</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Computing nearest neighbor graph&#39;</span><span class="p">)</span>
-        <span class="n">nbrs</span> <span class="o">=</span> <span class="n">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">knn</span><span class="p">),</span> <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="n">use_rep</span><span class="p">])</span>
-        <span class="n">sparse_distance_matrix</span> <span class="o">=</span> <span class="n">nbrs</span><span class="o">.</span><span class="n">kneighbors_graph</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="n">use_rep</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;distance&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computing nearest neighbor graph&quot;</span><span class="p">)</span>
+        <span class="n">nbrs</span> <span class="o">=</span> <span class="n">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">knn</span><span class="p">),</span> <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+            <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="n">use_rep</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">sparse_distance_matrix</span> <span class="o">=</span> <span class="n">nbrs</span><span class="o">.</span><span class="n">kneighbors_graph</span><span class="p">(</span>
+            <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="n">use_rep</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span>
+        <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Using pre-computed nearest neighbor graph&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">neighbors_key</span> <span class="o">!=</span> <span class="s1">&#39;neighbors&#39;</span><span class="p">:</span>
-            <span class="n">sparse_distance_matrix</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsp</span><span class="p">[</span><span class="n">neighbors_key</span> <span class="o">+</span> <span class="s1">&#39;_distances&#39;</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using pre-computed nearest neighbor graph&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">neighbors_key</span> <span class="o">!=</span> <span class="s2">&quot;neighbors&quot;</span><span class="p">:</span>
+            <span class="n">sparse_distance_matrix</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsp</span><span class="p">[</span><span class="n">neighbors_key</span> <span class="o">+</span> <span class="s2">&quot;_distances&quot;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">sparse_distance_matrix</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsp</span><span class="p">[</span><span class="s1">&#39;distances&#39;</span><span class="p">]</span>
-        <span class="n">knn</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="n">neighbors_key</span><span class="p">][</span><span class="s1">&#39;params&#39;</span><span class="p">][</span><span class="s1">&#39;n_neighbors&#39;</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Found pre-computed distance matrix with parameters: knn = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">knn</span><span class="p">))</span>
-        
-    <span class="c1"># find the nearest neighbor index to compute the distance to (ka in the description above)                                                                                                                </span>
-    <span class="n">ka_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">knn</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Using knn_affinity = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ka_val</span><span class="p">))</span>
-            
-    <span class="c1"># find the row, column indexes and distances from the distance matrix    </span>
+            <span class="n">sparse_distance_matrix</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsp</span><span class="p">[</span><span class="s2">&quot;distances&quot;</span><span class="p">]</span>
+        <span class="n">knn</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="n">neighbors_key</span><span class="p">][</span><span class="s2">&quot;params&quot;</span><span class="p">][</span><span class="s2">&quot;n_neighbors&quot;</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found pre-computed distance matrix with parameters: knn = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">knn</span><span class="p">))</span>
+
+    <span class="c1"># find the nearest neighbor index to compute the distance to (ka in the description above)</span>
+    <span class="n">ka_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">knn</span> <span class="o">/</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using knn_affinity = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ka_val</span><span class="p">))</span>
+
+    <span class="c1"># find the row, column indexes and distances from the distance matrix</span>
     <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">sparse_distance_matrix</span><span class="p">)</span>
-    
+
     <span class="c1"># find the distance to rescale (this is the sigma parameter in the description above)</span>
     <span class="n">ka_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">row</span> <span class="o">==</span> <span class="n">j</span><span class="p">])[</span><span class="n">ka_val</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">row</span><span class="p">)])</span>
-    
+
     <span class="c1"># rescale the distance matrix</span>
-    <span class="n">scaled_distance_matrix</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">(</span><span class="n">sparse_distance_matrix</span><span class="o">/</span><span class="n">ka_list</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">])</span>
-        
+    <span class="n">scaled_distance_matrix</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">(</span>
+        <span class="n">sparse_distance_matrix</span> <span class="o">/</span> <span class="n">ka_list</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="p">)</span>
+
     <span class="c1"># convert to affinity matrix</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">scaled_dists</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">scaled_distance_matrix</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Creating Kernel&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creating Kernel&quot;</span><span class="p">)</span>
     <span class="n">W</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">scaled_dists</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)),</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">])</span>
-    
+
     <span class="c1"># Ensure that the affinity between each cell to itself is the highest (= 1)</span>
     <span class="n">W</span><span class="o">.</span><span class="n">setdiag</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    
+
     <span class="c1"># Symmetrize</span>
     <span class="n">kernel</span> <span class="o">=</span> <span class="n">W</span> <span class="o">+</span> <span class="n">W</span><span class="o">.</span><span class="n">T</span>
-    
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Creating Markov Matrix&#39;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creating Markov Matrix&quot;</span><span class="p">)</span>
     <span class="c1"># Markov</span>
     <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">kernel</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
     <span class="n">D</span><span class="p">[</span><span class="n">D</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">D</span><span class="p">[</span><span class="n">D</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
     <span class="n">T</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">((</span><span class="n">D</span><span class="p">,</span> <span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">))),</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">])</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">kernel</span><span class="p">)</span>
-    
+
     <span class="c1"># Eigen value dcomposition</span>
     <span class="n">D</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n_components</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
     <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
@@ -1922,13 +2010,12 @@ plot_branch_selection(ad: anndata._core.anndata.AnnData, pseudo_time_key: str = 
     <span class="c1"># Normalize</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
         <span class="n">V</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">V</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
-        
-        
-    <span class="c1"># Alternatively: </span>
+
+    <span class="c1"># Alternatively:</span>
     <span class="c1"># For large data sets you can run MAGIC as follows as well:</span>
     <span class="c1"># The following code simply avoids constructing a dense Markov matrix</span>
     <span class="k">if</span> <span class="n">impute</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Imputing&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Imputing&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">layer</span><span class="p">:</span>
             <span class="n">imputed_data_temp</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="n">layer</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1937,13 +2024,13 @@ plot_branch_selection(ad: anndata._core.anndata.AnnData, pseudo_time_key: str = 
         <span class="k">for</span> <span class="n">steps</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
             <span class="n">imputed_data_temp</span> <span class="o">=</span> <span class="n">T</span> <span class="o">*</span> <span class="n">imputed_data_temp</span>
 
-        <span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="n">key_added</span> <span class="o">+</span> <span class="s1">&#39;_imputed_data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">imputed_data_temp</span>
+        <span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="n">key_added</span> <span class="o">+</span> <span class="s2">&quot;_imputed_data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">imputed_data_temp</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Diffusion maps computed, impute set to False&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Diffusion maps computed, impute set to False&quot;</span><span class="p">)</span>
     <span class="c1"># Create are results dictionary</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Markov_matrix&#39;</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="s1">&#39;EigenVectors&#39;</span><span class="p">:</span> <span class="n">V</span><span class="p">,</span> <span class="s1">&#39;EigenValues&#39;</span><span class="p">:</span> <span class="n">D</span><span class="p">,</span> <span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="n">kernel</span><span class="p">}</span>    
-    <span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="n">key_added</span> <span class="o">+</span> <span class="s1">&#39;_diffmap_results&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span>
-    
+    <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Markov_matrix&quot;</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="s2">&quot;EigenVectors&quot;</span><span class="p">:</span> <span class="n">V</span><span class="p">,</span> <span class="s2">&quot;EigenValues&quot;</span><span class="p">:</span> <span class="n">D</span><span class="p">,</span> <span class="s2">&quot;kernel&quot;</span><span class="p">:</span> <span class="n">kernel</span><span class="p">}</span>
+    <span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="n">key_added</span> <span class="o">+</span> <span class="s2">&quot;_diffmap_results&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span>
+
     <span class="k">return</span> <span class="n">adata</span>
 </pre></div>
 </div>
@@ -1968,7 +2055,15 @@ plot_branch_selection(ad: anndata._core.anndata.AnnData, pseudo_time_key: str = 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_MAGIC</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">use_rep</span><span class="o">=</span> <span class="s1">&#39;X_pca&#39;</span><span class="p">,</span> <span class="n">n_components</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">metric</span> <span class="o">=</span> <span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">key_added</span> <span class="o">=</span> <span class="s1">&#39;magic&#39;</span><span class="p">,</span> <span class="n">impute</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_MAGIC</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="p">,</span>
+    <span class="n">t</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">use_rep</span><span class="o">=</span><span class="s2">&quot;X_pca&quot;</span><span class="p">,</span>
+    <span class="n">n_components</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span>
+    <span class="n">key_added</span><span class="o">=</span><span class="s2">&quot;magic&quot;</span><span class="p">,</span>
+    <span class="n">impute</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1993,7 +2088,9 @@ Imputing
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gene_trends</span> <span class="o">=</span> <span class="n">palantir</span><span class="o">.</span><span class="n">presults</span><span class="o">.</span><span class="n">compute_gene_trends</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">expression_key</span><span class="o">=</span><span class="s2">&quot;magic_imputed_data&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gene_trends</span> <span class="o">=</span> <span class="n">palantir</span><span class="o">.</span><span class="n">presults</span><span class="o">.</span><span class="n">compute_gene_trends</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="p">,</span> <span class="n">expression_key</span><span class="o">=</span><span class="s2">&quot;magic_imputed_data&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2075,6 +2172,7 @@ Branch6
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
 <span class="n">sample_genes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">var_names</span><span class="p">),</span> <span class="mi">1000</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -2127,9 +2225,9 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">communities</span> <span class="o">=</span> <span class="n">palantir</span><span class="o">.</span><span class="n">presults</span><span class="o">.</span><span class="n">cluster_gene_trends</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> 
-                                                    <span class="n">branch_name</span> <span class="o">=</span> <span class="s2">&quot;Branch1&quot;</span><span class="p">,</span> 
-                                                    <span class="n">genes</span> <span class="o">=</span> <span class="n">sample_genes</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">communities</span> <span class="o">=</span> <span class="n">palantir</span><span class="o">.</span><span class="n">presults</span><span class="o">.</span><span class="n">cluster_gene_trends</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="p">,</span> <span class="n">branch_name</span><span class="o">=</span><span class="s2">&quot;Branch1&quot;</span><span class="p">,</span> <span class="n">genes</span><span class="o">=</span><span class="n">sample_genes</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2173,7 +2271,7 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;clusters&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;clusters&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2183,17 +2281,23 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We are computing 300 principal components as that is what the authors used. </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We are computing 300 principal components as that is what the authors used.</span>
 <span class="c1"># The rationale was that they wanted to consider enough PCs to explain 75% of the variance in the data</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">n_comps</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">n_comps</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute nearest neighbors </span>
-<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">use_rep</span> <span class="o">=</span> <span class="s1">&#39;X_pca&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">key_added</span><span class="o">=</span><span class="s1">&#39;neighbors_30&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute nearest neighbors</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="p">,</span>
+    <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">use_rep</span><span class="o">=</span><span class="s2">&quot;X_pca&quot;</span><span class="p">,</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span>
+    <span class="n">key_added</span><span class="o">=</span><span class="s2">&quot;neighbors_30&quot;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2203,7 +2307,7 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 <p>Since we have already computed k-nearest neighbor distance graph on the PCA, we can simply invoke that result.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">paga</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="s1">&#39;clusters&#39;</span><span class="p">,</span> <span class="n">neighbors_key</span> <span class="o">=</span> <span class="s1">&#39;neighbors_30&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">paga</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="s2">&quot;clusters&quot;</span><span class="p">,</span> <span class="n">neighbors_key</span><span class="o">=</span><span class="s2">&quot;neighbors_30&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2229,7 +2333,7 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;paga&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;paga&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -2245,7 +2349,7 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">paga</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">],</span> <span class="n">node_size_scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">paga</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;clusters&quot;</span><span class="p">],</span> <span class="n">node_size_scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2262,7 +2366,7 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 <p>We can also highlight the expression of select genes onto the PAGA plot as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">paga</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CD34&#39;</span><span class="p">,</span> <span class="s1">&#39;MPO&#39;</span><span class="p">,</span> <span class="s1">&#39;GATA1&#39;</span><span class="p">],</span> <span class="n">node_size_scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">paga</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CD34&quot;</span><span class="p">,</span> <span class="s2">&quot;MPO&quot;</span><span class="p">,</span> <span class="s2">&quot;GATA1&quot;</span><span class="p">],</span> <span class="n">node_size_scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2295,17 +2399,17 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">diffmap</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">n_comps</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">neighbors_key</span> <span class="o">=</span> <span class="s1">&#39;neighbors_30&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">diffmap</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">n_comps</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">neighbors_key</span><span class="o">=</span><span class="s2">&quot;neighbors_30&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;diffmap_evals&#39;</span><span class="p">])),</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;diffmap_evals&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Index&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;EigenValue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;diffmap_evals&quot;</span><span class="p">])),</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;diffmap_evals&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Index&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;EigenValue&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s2">&quot;on&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2316,15 +2420,15 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 <p>Based on the above plot, we will consider only the top 7 components:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;diffmap_evecs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_diffmap&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
-<span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;diffmap_evals&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;diffmap_evals&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;diffmap_evecs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_diffmap&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;diffmap_evals&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;diffmap_evals&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;diffmap_evecs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;diffmap_evecs&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -2337,7 +2441,9 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 <p>Compute neighbors in diffusion components space:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">use_rep</span><span class="o">=</span><span class="s1">&#39;diffmap_evecs&#39;</span><span class="p">,</span> <span class="n">key_added</span> <span class="o">=</span> <span class="s1">&#39;diff_neighbors&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">use_rep</span><span class="o">=</span><span class="s2">&quot;diffmap_evecs&quot;</span><span class="p">,</span> <span class="n">key_added</span><span class="o">=</span><span class="s2">&quot;diff_neighbors&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2345,7 +2451,7 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 <p>Re-do PAGA on diffusion map space:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">paga</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="s1">&#39;clusters&#39;</span><span class="p">,</span> <span class="n">neighbors_key</span> <span class="o">=</span> <span class="s1">&#39;diff_neighbors&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">paga</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="s2">&quot;clusters&quot;</span><span class="p">,</span> <span class="n">neighbors_key</span><span class="o">=</span><span class="s2">&quot;diff_neighbors&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2371,7 +2477,7 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">paga</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">node_size_scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">paga</span><span class="p">(</span><span class="n">adata_bm</span><span class="p">,</span> <span class="n">node_size_scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2387,9 +2493,11 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 <p>You can extract the similarity between clusters using diffusion maps space as follows. We see 0 when two clusters are not connected to each other in PAGA.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;paga&#39;</span><span class="p">][</span><span class="s1">&#39;connectivities&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span>
-             <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cluster-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">])],</span> 
-             <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cluster-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">])])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;paga&quot;</span><span class="p">][</span><span class="s2">&quot;connectivities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Cluster-&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;clusters&quot;</span><span class="p">])],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Cluster-&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;clusters&quot;</span><span class="p">])],</span>
+<span class="p">)</span>
 
 <span class="n">df</span>
 </pre></div>
@@ -2585,7 +2693,7 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;diffmap_evecs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;diffmap_evecs&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -2597,8 +2705,8 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cells_C0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">cells_C1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cells_C0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;clusters&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">cells_C1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;clusters&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -2618,9 +2726,12 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">pairwise_distances</span>
-<span class="n">distance_pairwise_C0</span> <span class="o">=</span> <span class="n">pairwise_distances</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;diffmap_evecs&#39;</span><span class="p">][</span><span class="n">cells_C0</span><span class="p">,</span> <span class="p">:])</span>
-<span class="n">distance_pairwise_C0_C1</span> <span class="o">=</span> <span class="n">pairwise_distances</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;diffmap_evecs&#39;</span><span class="p">][</span><span class="n">cells_C0</span><span class="p">,</span> <span class="p">:],</span> 
-                                             <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;diffmap_evecs&#39;</span><span class="p">][</span><span class="n">cells_C1</span><span class="p">,</span> <span class="p">:])</span>
+
+<span class="n">distance_pairwise_C0</span> <span class="o">=</span> <span class="n">pairwise_distances</span><span class="p">(</span><span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;diffmap_evecs&quot;</span><span class="p">][</span><span class="n">cells_C0</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">distance_pairwise_C0_C1</span> <span class="o">=</span> <span class="n">pairwise_distances</span><span class="p">(</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;diffmap_evecs&quot;</span><span class="p">][</span><span class="n">cells_C0</span><span class="p">,</span> <span class="p">:],</span>
+    <span class="n">adata_bm</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;diffmap_evecs&quot;</span><span class="p">][</span><span class="n">cells_C1</span><span class="p">,</span> <span class="p">:],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2641,7 +2752,7 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 <p>We can visualize the distances as a boxplot for comparison. Also, note that <code class="docutils literal notranslate"><span class="pre">distance_pairwise_C0</span></code> is a symmetric matrix as distance from cell1 in cluster 0 to cell2 in cluster 0 is the same as distance from cell2 in cluster0 to cell1 in cluster 0. So we will only look at the upper traingle of the <code class="docutils literal notranslate"><span class="pre">distance_pairwise_C0</span></code> matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">within_C0</span> <span class="o">=</span> <span class="n">distance_pairwise_C0</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">triu_indices</span><span class="p">(</span><span class="n">distance_pairwise_C0</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">within_C0</span> <span class="o">=</span> <span class="n">distance_pairwise_C0</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">triu_indices</span><span class="p">(</span><span class="n">distance_pairwise_C0</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 <span class="n">between_C0_C1</span> <span class="o">=</span> <span class="n">distance_pairwise_C0_C1</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -2649,9 +2760,9 @@ cluster_gene_trends(data: Union[anndata._core.anndata.AnnData, pandas.core.frame
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="n">within_C0</span><span class="p">,</span> <span class="n">between_C0_C1</span><span class="p">]);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Distance inside C0&#39;</span><span class="p">,</span> <span class="s1">&#39;Distance between C0 and C1&#39;</span><span class="p">]);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Distance in diffusion space&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="n">within_C0</span><span class="p">,</span> <span class="n">between_C0_C1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Distance inside C0&quot;</span><span class="p">,</span> <span class="s2">&quot;Distance between C0 and C1&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Distance in diffusion space&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

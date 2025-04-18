@@ -842,7 +842,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify highly variable genes</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">highly_variable_genes</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">flavor</span><span class="o">=</span><span class="s2">&quot;seurat_v3&quot;</span><span class="p">,</span> <span class="n">n_top_genes</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">batch_key</span><span class="o">=</span><span class="s2">&quot;individual&quot;</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">highly_variable_genes</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span> <span class="n">flavor</span><span class="o">=</span><span class="s2">&quot;seurat_v3&quot;</span><span class="p">,</span> <span class="n">n_top_genes</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">batch_key</span><span class="o">=</span><span class="s2">&quot;individual&quot;</span>
+<span class="p">)</span>
 
 <span class="c1"># Scale the data</span>
 <span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -878,11 +880,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdata</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">get_pseudobulk</span><span class="p">(</span>
     <span class="n">adata</span><span class="p">,</span>
-    <span class="n">sample_col</span><span class="o">=</span><span class="s2">&quot;individual&quot;</span><span class="p">,</span> <span class="c1"># so we have multiple samples</span>
-    <span class="n">groups_col</span><span class="o">=</span><span class="s2">&quot;cell_type&quot;</span><span class="p">,</span> <span class="c1"># defines contrasts</span>
-    <span class="n">layer</span><span class="o">=</span><span class="s2">&quot;counts&quot;</span><span class="p">,</span> <span class="c1"># use normalized counts</span>
-    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="c1"># sum up counts for each group</span>
-    <span class="n">min_cells</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+    <span class="n">sample_col</span><span class="o">=</span><span class="s2">&quot;individual&quot;</span><span class="p">,</span>  <span class="c1"># so we have multiple samples</span>
+    <span class="n">groups_col</span><span class="o">=</span><span class="s2">&quot;cell_type&quot;</span><span class="p">,</span>  <span class="c1"># defines contrasts</span>
+    <span class="n">layer</span><span class="o">=</span><span class="s2">&quot;counts&quot;</span><span class="p">,</span>  <span class="c1"># use normalized counts</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span>  <span class="c1"># sum up counts for each group</span>
+    <span class="n">min_cells</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">min_counts</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
@@ -1710,7 +1712,9 @@ ZZZ3         0.960365
 <span class="n">msigdb</span> <span class="o">=</span> <span class="n">msigdb</span><span class="p">[</span><span class="o">~</span><span class="n">msigdb</span><span class="o">.</span><span class="n">duplicated</span><span class="p">([</span><span class="s2">&quot;geneset&quot;</span><span class="p">,</span> <span class="s2">&quot;genesymbol&quot;</span><span class="p">])]</span>
 
 <span class="k">if</span> <span class="n">collection</span> <span class="o">==</span> <span class="s2">&quot;hallmark&quot;</span><span class="p">:</span>
-    <span class="n">msigdb</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;geneset&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;HALLMARK_&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">msigdb</span><span class="p">[</span><span class="s2">&quot;geneset&quot;</span><span class="p">]]</span>
+    <span class="n">msigdb</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;geneset&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;HALLMARK_&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">msigdb</span><span class="p">[</span><span class="s2">&quot;geneset&quot;</span><span class="p">]</span>
+    <span class="p">]</span>
 <span class="k">elif</span> <span class="n">collection</span> <span class="o">==</span> <span class="s2">&quot;go_biological_process&quot;</span><span class="p">:</span>
     <span class="n">msigdb</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;geneset&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;GOBP_&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">msigdb</span><span class="p">[</span><span class="s2">&quot;geneset&quot;</span><span class="p">]]</span>
 

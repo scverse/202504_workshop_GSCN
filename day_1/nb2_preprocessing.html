@@ -509,7 +509,7 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
-<span class="c1">#single cell library</span>
+<span class="c1"># single cell library</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">scanpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sc</span>
 </pre></div>
 </div>
@@ -522,14 +522,14 @@ document.write(`
 <p>⚠️ Adjust the variable below to the data path on your specific workstation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_path</span> <span class="o">=</span> <span class="s1">&#39;../../../../scWorkshop/data_day1/&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;../../../../scWorkshop/data_day1/&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">read_h5ad</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s1">&#39;processed/processed_data.h5ad&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">read_h5ad</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s2">&quot;processed/processed_data.h5ad&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -557,7 +557,9 @@ document.write(`
 <p>Typically between 1000 and 5000 genes are selected. Here, we extract the top 4000 most variable genes for further processing. If particular genes of importance are known, one could assess how many highly variable genes are necessary to include all, or the majority, of these.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">highly_variable_genes</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">layer</span> <span class="o">=</span> <span class="s1">&#39;raw_data&#39;</span><span class="p">,</span> <span class="n">n_top_genes</span> <span class="o">=</span> <span class="mi">4000</span><span class="p">,</span> <span class="n">flavor</span> <span class="o">=</span> <span class="s1">&#39;seurat_v3&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">highly_variable_genes</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s2">&quot;raw_data&quot;</span><span class="p">,</span> <span class="n">n_top_genes</span><span class="o">=</span><span class="mi">4000</span><span class="p">,</span> <span class="n">flavor</span><span class="o">=</span><span class="s2">&quot;seurat_v3&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -585,7 +587,9 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="p">[[</span><span class="s1">&#39;highly_variable&#39;</span><span class="p">,</span> <span class="s1">&#39;highly_variable_rank&#39;</span><span class="p">,</span> <span class="s1">&#39;means&#39;</span><span class="p">,</span> <span class="s1">&#39;variances&#39;</span><span class="p">,</span> <span class="s1">&#39;variances_norm&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;highly_variable&quot;</span><span class="p">,</span> <span class="s2">&quot;highly_variable_rank&quot;</span><span class="p">,</span> <span class="s2">&quot;means&quot;</span><span class="p">,</span> <span class="s2">&quot;variances&quot;</span><span class="p">,</span> <span class="s2">&quot;variances_norm&quot;</span><span class="p">]</span>
+<span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -716,10 +720,14 @@ document.write(`
 <p>To choose the optimal number of principal components, we can visualize the cumulative variance explained:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;pca&#39;</span><span class="p">][</span><span class="s1">&#39;variance_ratio&#39;</span><span class="p">])),</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;pca&#39;</span><span class="p">][</span><span class="s1">&#39;variance_ratio&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Principal Component&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;% Variance Explained&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;pca&quot;</span><span class="p">][</span><span class="s2">&quot;variance_ratio&quot;</span><span class="p">])),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;pca&quot;</span><span class="p">][</span><span class="s2">&quot;variance_ratio&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">&quot;.-&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Principal Component&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;% Variance Explained&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -735,14 +743,14 @@ document.write(`
 <p>For now, we will proceed with 30 components.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_pca&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_pca&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_pca&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_pca&quot;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_pca&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_pca&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -755,7 +763,7 @@ document.write(`
 <p>Similarly, we want to update the loadings <code class="docutils literal notranslate"><span class="pre">adata.uns['loadings']</span></code> and <code class="docutils literal notranslate"><span class="pre">adata.varm['PCs']</span></code> to reflect only the top 30 principal components.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s1">&#39;PCs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s1">&#39;PCs&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s2">&quot;PCs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s2">&quot;PCs&quot;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -766,9 +774,11 @@ document.write(`
 <p>We will sort the gene names by their loadings for the top 30 PCA. First let’s create a pandas dataframe of PCA loadings and the corresponding highly variable genes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_loadings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s1">&#39;PCs&#39;</span><span class="p">],</span> 
-                           <span class="n">index</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> 
-                           <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PC-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">)])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_loadings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">adata</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s2">&quot;PCs&quot;</span><span class="p">],</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;PC-&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">)],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -950,7 +960,7 @@ document.write(`
 <p>Since we ran PCA on HVG, let’s make sure that we look at the loadings specific to HVG only. For this we will only consider genes in the HVG.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_loadings_hvg</span> <span class="o">=</span> <span class="n">df_loadings</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">adata</span><span class="o">.</span><span class="n">var_names</span><span class="p">[</span><span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="p">[</span><span class="s1">&#39;highly_variable&#39;</span><span class="p">]]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_loadings_hvg</span> <span class="o">=</span> <span class="n">df_loadings</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">adata</span><span class="o">.</span><span class="n">var_names</span><span class="p">[</span><span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="p">[</span><span class="s2">&quot;highly_variable&quot;</span><span class="p">]]]</span>
 </pre></div>
 </div>
 </div>
@@ -1277,7 +1287,7 @@ document.write(`
 <p>A note on the sign of the loadings: Since both the positive and negative extreme values of each principal components are treated equally in data interpretion, it stands to reason that we want to look at the absolute value of the loadings.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df_loadings_hvg</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;PC-0&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;PC-0&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df_loadings_hvg</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;PC-0&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s2">&quot;PC-0&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1302,8 +1312,13 @@ Name: PC-0, Length: 4000, dtype: float64
 <p>Whether these genes are relevant/important for your study is something you will have to decide. Why might we want to study the loadings? The reason is sometimes we notice that some of the principal components are driven by the expression of mitochondrial genes or ribosomal genes. And depending on the question you are trying to answer it might be of interest to remove the effect of such genes. This way you can identify if the principal components are being influenced by these nuisance genes and if you need to adjust your set of hvg (for example remove mitochondrial genes or ribosomal genes from the list of hvg or add some new set of context specific genes) for downstream computation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;LYZ&#39;</span><span class="p">,</span> <span class="s1">&#39;MS4A1&#39;</span><span class="p">,</span> <span class="s1">&#39;CD3E&#39;</span><span class="p">,</span> <span class="s1">&#39;NKG7&#39;</span><span class="p">,</span> <span class="s1">&#39;mt_pct_content&#39;</span><span class="p">,</span> <span class="s1">&#39;log1p_total_counts&#39;</span><span class="p">],</span> 
-          <span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">vmin</span> <span class="o">=</span> <span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="s1">&#39;p99&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;LYZ&quot;</span><span class="p">,</span> <span class="s2">&quot;MS4A1&quot;</span><span class="p">,</span> <span class="s2">&quot;CD3E&quot;</span><span class="p">,</span> <span class="s2">&quot;NKG7&quot;</span><span class="p">,</span> <span class="s2">&quot;mt_pct_content&quot;</span><span class="p">,</span> <span class="s2">&quot;log1p_total_counts&quot;</span><span class="p">],</span>
+    <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">vmin</span><span class="o">=</span><span class="s2">&quot;p1&quot;</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="o">=</span><span class="s2">&quot;p99&quot;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1323,7 +1338,9 @@ Name: PC-0, Length: 4000, dtype: float64
 <p>Majority of the visualization, clustering and trajectory inference tools build on top of the above constructed graph. While the thus constructed graph may need to be further adjusted to account for the inherent noise in the data it forms the backbone of most of the tools we will discuss henceforth. We use Scanpy’s inbuilt method to construct graph:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">use_rep</span><span class="o">=</span><span class="s1">&#39;X_pca&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">key_added</span><span class="o">=</span><span class="s1">&#39;neighbors_30&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">use_rep</span><span class="o">=</span><span class="s2">&quot;X_pca&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span> <span class="n">key_added</span><span class="o">=</span><span class="s2">&quot;neighbors_30&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1362,7 +1379,7 @@ Name: PC-0, Length: 4000, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">obsp</span><span class="p">[</span><span class="s1">&#39;neighbors_30_distances&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">obsp</span><span class="p">[</span><span class="s2">&quot;neighbors_30_distances&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1376,7 +1393,7 @@ Name: PC-0, Length: 4000, dtype: float64
 <p>The distances (which measure dissimilarity between cells) are represented as a sparse matrix for 11984 cells as shown above. Scanpy also converts the distances into similarities and outputs them as connectivities.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">obsp</span><span class="p">[</span><span class="s1">&#39;neighbors_30_connectivities&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">obsp</span><span class="p">[</span><span class="s2">&quot;neighbors_30_connectivities&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1398,7 +1415,7 @@ Name: PC-0, Length: 4000, dtype: float64
 <p>Note: UMAP preserves high-dimensional distances on the projected space, which suggests that one can do further analysis on UMAP features. However, this should be done with care and we strongly recommend against it. Specifically because we have the tools needed to perform efficient analytic computations (such as clustering, trajectory detection etc.) in the high dimensions itself; thereby precluding the need to do computations on UMAP. For some FAQs on UMAP, please see this page: <a class="reference external" href="https://bit.ly/2NfgAxY">https://bit.ly/2NfgAxY</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">neighbors_key</span> <span class="o">=</span> <span class="s1">&#39;neighbors_30&#39;</span><span class="p">,</span> <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">neighbors_key</span><span class="o">=</span><span class="s2">&quot;neighbors_30&quot;</span><span class="p">,</span> <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1425,7 +1442,7 @@ Name: PC-0, Length: 4000, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_umap&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1443,7 +1460,7 @@ Name: PC-0, Length: 4000, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_umap&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -1491,8 +1508,18 @@ Name: PC-0, Length: 4000, dtype: float64
 <h2>Color by metadata<a class="headerlink" href="#color-by-metadata" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;log1p_total_counts&#39;</span><span class="p">,</span> <span class="s1">&#39;log1p_n_genes_by_counts&#39;</span><span class="p">,</span> <span class="s1">&#39;mt_pct_content&#39;</span><span class="p">,</span> <span class="s1">&#39;ribo_pct_content&#39;</span><span class="p">],</span> 
-           <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;plasma&#39;</span><span class="p">,</span> <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;log1p_total_counts&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;log1p_n_genes_by_counts&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mt_pct_content&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ribo_pct_content&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">,</span>
+    <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1509,8 +1536,21 @@ Name: PC-0, Length: 4000, dtype: float64
 <p>We can make these visuals using Scanpy’s inbuilt UMAP plot function. Important note: By default, Scanpy’s inbuilt function may rely on <code class="docutils literal notranslate"><span class="pre">adata.raw</span></code> to extract gene expression if you have <code class="docutils literal notranslate"><span class="pre">adata.raw</span></code> saved. So please be careful that you set <code class="docutils literal notranslate"><span class="pre">use_raw</span> <span class="pre">=</span> <span class="pre">False</span></code> if you have adata.raw set to store the original raw counts as you may rather want to visualize log-normalized counts which is stored in <code class="docutils literal notranslate"><span class="pre">adata.X</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CD3E&#39;</span><span class="p">,</span> <span class="s1">&#39;CD8A&#39;</span><span class="p">,</span> <span class="s1">&#39;CD4&#39;</span><span class="p">,</span> <span class="s1">&#39;IL7R&#39;</span><span class="p">,</span> <span class="s1">&#39;MS4A1&#39;</span><span class="p">,</span> <span class="s1">&#39;CD19&#39;</span><span class="p">,</span> <span class="s1">&#39;LYZ&#39;</span><span class="p">,</span> <span class="s1">&#39;FCGR3A&#39;</span><span class="p">,</span> <span class="s1">&#39;NKG7&#39;</span><span class="p">,</span> <span class="s1">&#39;CST3&#39;</span><span class="p">,</span> <span class="s1">&#39;PPBP&#39;</span><span class="p">,</span> <span class="s1">&#39;PTPRC&#39;</span><span class="p">]</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">genes</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;plasma&#39;</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;CD3E&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD8A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IL7R&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MS4A1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD19&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LYZ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FCGR3A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NKG7&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CST3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PPBP&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PTPRC&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">genes</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1521,8 +1561,23 @@ Name: PC-0, Length: 4000, dtype: float64
 <p>A note: Sometimes it helps to trim the expression levels of genes to certain percentiles to avoid visualization being biased by a few super-high or super-low values. For this we can utilizie vmin and vmax parameter during plotting as shown below. We will set vmin = 1 percentile of gene expression and vmax = 99 percentile of gene expression, which means min gene expression is going to be 1 percentile of the original expression and analogously for max expression.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CD3E&#39;</span><span class="p">,</span> <span class="s1">&#39;CD8A&#39;</span><span class="p">,</span> <span class="s1">&#39;CD4&#39;</span><span class="p">,</span> <span class="s1">&#39;IL7R&#39;</span><span class="p">,</span> <span class="s1">&#39;MS4A1&#39;</span><span class="p">,</span> <span class="s1">&#39;CD19&#39;</span><span class="p">,</span> <span class="s1">&#39;LYZ&#39;</span><span class="p">,</span> <span class="s1">&#39;FCGR3A&#39;</span><span class="p">,</span> <span class="s1">&#39;NKG7&#39;</span><span class="p">,</span> <span class="s1">&#39;CST3&#39;</span><span class="p">,</span> <span class="s1">&#39;PPBP&#39;</span><span class="p">,</span> <span class="s1">&#39;PTPRC&#39;</span><span class="p">]</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">genes</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;plasma&#39;</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">vmin</span> <span class="o">=</span> <span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="s1">&#39;p99&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;CD3E&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD8A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IL7R&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MS4A1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD19&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LYZ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FCGR3A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NKG7&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CST3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PPBP&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PTPRC&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">genes</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="s2">&quot;p1&quot;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="s2">&quot;p99&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1534,26 +1589,44 @@ Name: PC-0, Length: 4000, dtype: float64
 <h3>Alternate code (more manual)<a class="headerlink" href="#alternate-code-more-manual" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CD3E&#39;</span><span class="p">,</span> <span class="s1">&#39;CD8A&#39;</span><span class="p">,</span> <span class="s1">&#39;CD4&#39;</span><span class="p">,</span> <span class="s1">&#39;IL7R&#39;</span><span class="p">,</span> <span class="s1">&#39;MS4A1&#39;</span><span class="p">,</span> <span class="s1">&#39;CD19&#39;</span><span class="p">,</span> <span class="s1">&#39;LYZ&#39;</span><span class="p">,</span> <span class="s1">&#39;FCGR3A&#39;</span><span class="p">,</span> <span class="s1">&#39;NKG7&#39;</span><span class="p">,</span> <span class="s1">&#39;CST3&#39;</span><span class="p">,</span> <span class="s1">&#39;PPBP&#39;</span><span class="p">,</span> <span class="s1">&#39;PTPRC&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;CD3E&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD8A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IL7R&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MS4A1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD19&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LYZ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FCGR3A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NKG7&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CST3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PPBP&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PTPRC&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 
 <span class="n">fig_nrow</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">fig_ncol</span> <span class="o">=</span> <span class="mi">4</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">fig_ncol</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="n">fig_nrow</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">fig_ncol</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">fig_nrow</span><span class="p">))</span>
 <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">gene_name</span> <span class="ow">in</span> <span class="n">genes</span><span class="p">:</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">fig_nrow</span><span class="p">,</span> <span class="n">fig_ncol</span><span class="p">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">col_gene</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">toarray</span><span class="p">()[:,</span> <span class="n">adata</span><span class="o">.</span><span class="n">var_names</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">gene_name</span><span class="p">)]</span>
-    <span class="n">im1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">col_gene</span><span class="p">,</span> 
-                    <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;UMAP-1&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;UMAP-2&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;UMAP colored by &#39;</span> <span class="o">+</span> <span class="n">gene_name</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+    <span class="n">im1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_umap&quot;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_umap&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">col_gene</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;UMAP-1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;UMAP-2&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;UMAP colored by &quot;</span> <span class="o">+</span> <span class="n">gene_name</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">)</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
-    
+
 <span class="c1"># To save, please uncomment the following line of code:</span>
 <span class="c1"># fig.savefig(output_directory, &#39;UMAP_colored_by_genes.png&#39;, dpi = 150, bbox_inches = &#39;tight&#39;)</span>
 </pre></div>
@@ -1567,26 +1640,46 @@ Name: PC-0, Length: 4000, dtype: float64
 <p>Similarly, alternate code to trim the gene expression at 1 percentile and 99 percentile.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CD3E&#39;</span><span class="p">,</span> <span class="s1">&#39;CD8A&#39;</span><span class="p">,</span> <span class="s1">&#39;CD4&#39;</span><span class="p">,</span> <span class="s1">&#39;IL7R&#39;</span><span class="p">,</span> <span class="s1">&#39;MS4A1&#39;</span><span class="p">,</span> <span class="s1">&#39;CD19&#39;</span><span class="p">,</span> <span class="s1">&#39;LYZ&#39;</span><span class="p">,</span> <span class="s1">&#39;FCGR3A&#39;</span><span class="p">,</span> <span class="s1">&#39;NKG7&#39;</span><span class="p">,</span> <span class="s1">&#39;CST3&#39;</span><span class="p">,</span> <span class="s1">&#39;PPBP&#39;</span><span class="p">,</span> <span class="s1">&#39;PTPRC&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;CD3E&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD8A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IL7R&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MS4A1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD19&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LYZ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FCGR3A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NKG7&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CST3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PPBP&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PTPRC&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 
 <span class="n">fig_nrow</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">fig_ncol</span> <span class="o">=</span> <span class="mi">4</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">fig_ncol</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="n">fig_nrow</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">fig_ncol</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">fig_nrow</span><span class="p">))</span>
 <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">gene_name</span> <span class="ow">in</span> <span class="n">genes</span><span class="p">:</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">fig_nrow</span><span class="p">,</span> <span class="n">fig_ncol</span><span class="p">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">col_gene</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">toarray</span><span class="p">()[:,</span> <span class="n">adata</span><span class="o">.</span><span class="n">var_names</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">gene_name</span><span class="p">)]</span>
-    <span class="n">im1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">col_gene</span><span class="p">,</span> 
-                    <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;plasma&#39;</span><span class="p">,</span> <span class="n">vmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">col_gene</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">col_gene</span><span class="p">,</span> <span class="mi">99</span><span class="p">))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;UMAP-1&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;UMAP-2&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;UMAP colored by &#39;</span> <span class="o">+</span> <span class="n">gene_name</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+    <span class="n">im1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_umap&quot;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_umap&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">col_gene</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">,</span>
+        <span class="n">vmin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">col_gene</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">col_gene</span><span class="p">,</span> <span class="mi">99</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;UMAP-1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;UMAP-2&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;UMAP colored by &quot;</span> <span class="o">+</span> <span class="n">gene_name</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">)</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
-    
+
 <span class="c1"># To save, please uncomment the following line of code:</span>
 <span class="c1"># fig.savefig(output_directory, &#39;UMAP_colored_by_genes.png&#39;, dpi = 150, bbox_inches = &#39;tight&#39;)</span>
 </pre></div>
@@ -1604,7 +1697,7 @@ Name: PC-0, Length: 4000, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the file</span>
-<span class="n">geneset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="o">+</span><span class="s1">&#39;HALLMARK_G2M_CHECKPOINT.v2023.2.Hs.grp&#39;</span><span class="p">)</span>
+<span class="n">geneset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s2">&quot;HALLMARK_G2M_CHECKPOINT.v2023.2.Hs.grp&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1689,7 +1782,7 @@ Name: PC-0, Length: 4000, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">=</span> <span class="n">geneset</span><span class="p">[</span><span class="s1">&#39;HALLMARK_G2M_CHECKPOINT&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">=</span> <span class="n">geneset</span><span class="p">[</span><span class="s2">&quot;HALLMARK_G2M_CHECKPOINT&quot;</span><span class="p">]</span>
 <span class="n">genes</span>
 </pre></div>
 </div>
@@ -1726,7 +1819,9 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute a gene signature score using Scanpy&#39;s inbuilt function</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">score_genes</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">genes</span><span class="p">,</span> <span class="n">score_name</span><span class="o">=</span><span class="s1">&#39;G2_M_checkpoint&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">use_raw</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">score_genes</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span> <span class="n">genes</span><span class="p">,</span> <span class="n">score_name</span><span class="o">=</span><span class="s2">&quot;G2_M_checkpoint&quot;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1761,7 +1856,7 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;G2_M_checkpoint&#39;</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;G2_M_checkpoint&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1771,7 +1866,7 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;G2_M_checkpoint&#39;</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;plasma&#39;</span><span class="p">,</span> <span class="n">vmin</span> <span class="o">=</span> <span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="s1">&#39;p99&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;G2_M_checkpoint&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="s2">&quot;p1&quot;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="s2">&quot;p99&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1793,8 +1888,20 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 <h2>Leiden clustering<a class="headerlink" href="#leiden-clustering" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">leiden</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">resolution</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">neighbors_key</span><span class="o">=</span><span class="s1">&#39;neighbors_30&#39;</span><span class="p">,</span> <span class="n">key_added</span><span class="o">=</span><span class="s1">&#39;leiden_r1.5&#39;</span><span class="p">)</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">leiden</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">resolution</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">neighbors_key</span><span class="o">=</span><span class="s1">&#39;neighbors_30&#39;</span><span class="p">,</span> <span class="n">key_added</span><span class="o">=</span><span class="s1">&#39;leiden_r0.5&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">leiden</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span>
+    <span class="n">resolution</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">neighbors_key</span><span class="o">=</span><span class="s2">&quot;neighbors_30&quot;</span><span class="p">,</span>
+    <span class="n">key_added</span><span class="o">=</span><span class="s2">&quot;leiden_r1.5&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">leiden</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span>
+    <span class="n">resolution</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">neighbors_key</span><span class="o">=</span><span class="s2">&quot;neighbors_30&quot;</span><span class="p">,</span>
+    <span class="n">key_added</span><span class="o">=</span><span class="s2">&quot;leiden_r0.5&quot;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1828,7 +1935,7 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;leiden_r0.5&#39;</span><span class="p">],</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;leiden_r1.5&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;leiden_r0.5&quot;</span><span class="p">],</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;leiden_r1.5&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -2290,8 +2397,8 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Visualize the clustering </span>
-<span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;leiden_r1.5&#39;</span><span class="p">,</span> <span class="s1">&#39;leiden_r0.5&#39;</span><span class="p">],</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize the clustering</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;leiden_r1.5&quot;</span><span class="p">,</span> <span class="s2">&quot;leiden_r0.5&quot;</span><span class="p">],</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2322,10 +2429,15 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;leiden&#39;</span><span class="p">:</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;leiden_r1.5&#39;</span><span class="p">],</span> 
-                        <span class="s1">&#39;%-Mito&#39;</span><span class="p">:</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;mt_pct_content&#39;</span><span class="p">],</span> 
-                        <span class="s1">&#39;library_size&#39;</span><span class="p">:</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;log1p_total_counts&#39;</span><span class="p">],</span> 
-                        <span class="s1">&#39;n_genes_per_cell&#39;</span><span class="p">:</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;log1p_n_genes_by_counts&#39;</span><span class="p">]},</span> <span class="n">index</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;leiden&quot;</span><span class="p">:</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;leiden_r1.5&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;%-Mito&quot;</span><span class="p">:</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;mt_pct_content&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;library_size&quot;</span><span class="p">:</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;log1p_total_counts&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;n_genes_per_cell&quot;</span><span class="p">:</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;log1p_n_genes_by_counts&quot;</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2447,24 +2559,43 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;leiden&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;%-Mito&quot;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;leiden&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> 
-            <span class="n">palette</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">palettes</span><span class="o">.</span><span class="n">zeileis_28</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;leiden&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;%-Mito&quot;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;leiden&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df_temp</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">palettes</span><span class="o">.</span><span class="n">zeileis_28</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s2">&quot;on&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;leiden&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;library_size&quot;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;leiden&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> 
-            <span class="n">palette</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">palettes</span><span class="o">.</span><span class="n">zeileis_28</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;leiden&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;library_size&quot;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;leiden&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df_temp</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">palettes</span><span class="o">.</span><span class="n">zeileis_28</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s2">&quot;on&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;leiden&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;n_genes_per_cell&quot;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;leiden&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> 
-            <span class="n">palette</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">palettes</span><span class="o">.</span><span class="n">zeileis_28</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower left&quot;</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;leiden&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;n_genes_per_cell&quot;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;leiden&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df_temp</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">palettes</span><span class="o">.</span><span class="n">zeileis_28</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s2">&quot;on&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower left&quot;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2493,16 +2624,21 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 <h3>Highlight clusters of interest<a class="headerlink" href="#highlight-clusters-of-interest" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clusters_interest</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="c1">#explore</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clusters_interest</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>  <span class="c1"># explore</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_umap&quot;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_umap&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">counter</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">clusters_interest</span><span class="p">):</span>
-    <span class="n">cells_in_cluster</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;leiden_r1.5&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">item</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][</span><span class="n">cells_in_cluster</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][</span><span class="n">cells_in_cluster</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> 
-                <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">counter</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Cluster-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
-    
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">markerscale</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">cells_in_cluster</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;leiden_r1.5&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">item</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_umap&quot;</span><span class="p">][</span><span class="n">cells_in_cluster</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;X_umap&quot;</span><span class="p">][</span><span class="n">cells_in_cluster</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">counter</span><span class="p">],</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Cluster-&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">),</span>
+    <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">markerscale</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2518,7 +2654,7 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 <h3>Remove the clusters<a class="headerlink" href="#remove-the-clusters" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_clean</span> <span class="o">=</span> <span class="n">adata</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;leiden_r1.5&#39;</span><span class="p">],</span> <span class="n">clusters_interest</span><span class="p">),</span> <span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_clean</span> <span class="o">=</span> <span class="n">adata</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;leiden_r1.5&quot;</span><span class="p">],</span> <span class="n">clusters_interest</span><span class="p">),</span> <span class="p">:]</span>
 </pre></div>
 </div>
 </div>
@@ -2550,7 +2686,9 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HVG</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">highly_variable_genes</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">layer</span> <span class="o">=</span> <span class="s1">&#39;raw_data&#39;</span><span class="p">,</span> <span class="n">n_top_genes</span> <span class="o">=</span> <span class="mi">4000</span><span class="p">,</span> <span class="n">flavor</span> <span class="o">=</span> <span class="s1">&#39;seurat_v3&#39;</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">highly_variable_genes</span><span class="p">(</span>
+    <span class="n">adata_clean</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s2">&quot;raw_data&quot;</span><span class="p">,</span> <span class="n">n_top_genes</span><span class="o">=</span><span class="mi">4000</span><span class="p">,</span> <span class="n">flavor</span><span class="o">=</span><span class="s2">&quot;seurat_v3&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2572,7 +2710,7 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nearest Neighbors</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">use_rep</span> <span class="o">=</span> <span class="s1">&#39;X_pca&#39;</span><span class="p">,</span> <span class="n">key_added</span><span class="o">=</span> <span class="s1">&#39;neighbors_30&#39;</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">use_rep</span><span class="o">=</span><span class="s2">&quot;X_pca&quot;</span><span class="p">,</span> <span class="n">key_added</span><span class="o">=</span><span class="s2">&quot;neighbors_30&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2580,7 +2718,7 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># UMAP</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">neighbors_key</span> <span class="o">=</span> <span class="s1">&#39;neighbors_30&#39;</span><span class="p">,</span> <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">neighbors_key</span><span class="o">=</span><span class="s2">&quot;neighbors_30&quot;</span><span class="p">,</span> <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2588,7 +2726,7 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clustering</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">leiden</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">resolution</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">neighbors_key</span><span class="o">=</span><span class="s1">&#39;neighbors_30&#39;</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">leiden</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">neighbors_key</span><span class="o">=</span><span class="s2">&quot;neighbors_30&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2614,7 +2752,7 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;leiden&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;leiden&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2670,8 +2808,8 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Calculate marker genes</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">rank_genes_groups</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="s1">&#39;leiden&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate marker genes</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">rank_genes_groups</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="s2">&quot;leiden&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2683,7 +2821,7 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plot marker genes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot marker genes</span>
 <span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">rank_genes_groups</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2700,8 +2838,14 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 <p>On log normalized data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">rank_genes_groups</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">groupby</span> <span class="o">=</span> <span class="s1">&#39;leiden&#39;</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s1">&#39;rest&#39;</span><span class="p">,</span> 
-                        <span class="n">key_added</span><span class="o">=</span><span class="s1">&#39;on_norm_log&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;wilcoxon&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">rank_genes_groups</span><span class="p">(</span>
+    <span class="n">adata_clean</span><span class="p">,</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="s2">&quot;leiden&quot;</span><span class="p">,</span>
+    <span class="n">groups</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+    <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;rest&quot;</span><span class="p">,</span>
+    <span class="n">key_added</span><span class="o">=</span><span class="s2">&quot;on_norm_log&quot;</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;wilcoxon&quot;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2709,7 +2853,7 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 <p>Example output for Cluster 0:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_wt</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">rank_genes_groups_df</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;on_norm_log&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_wt</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">rank_genes_groups_df</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;on_norm_log&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2843,9 +2987,9 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 <p>Get the results for each cluster and save:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;leiden&#39;</span><span class="p">]):</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">rank_genes_groups_df</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">cluster</span><span class="p">),</span> <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;on_norm_log&#39;</span><span class="p">)</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;path/to/save/wilcoxon_cluster_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_vs_rest.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;leiden&quot;</span><span class="p">]):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">rank_genes_groups_df</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">cluster</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;on_norm_log&quot;</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;path/to/save/wilcoxon_cluster_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_vs_rest.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2900,9 +3044,25 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">marker_genes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;IL7R&#39;</span><span class="p">,</span> <span class="s1">&#39;CD79A&#39;</span><span class="p">,</span> <span class="s1">&#39;MS4A1&#39;</span><span class="p">,</span> <span class="s1">&#39;CD8A&#39;</span><span class="p">,</span> <span class="s1">&#39;CD8B&#39;</span><span class="p">,</span> <span class="s1">&#39;LYZ&#39;</span><span class="p">,</span> <span class="s1">&#39;CD14&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;LGALS3&#39;</span><span class="p">,</span> <span class="s1">&#39;S100A8&#39;</span><span class="p">,</span> <span class="s1">&#39;GNLY&#39;</span><span class="p">,</span> <span class="s1">&#39;NKG7&#39;</span><span class="p">,</span> <span class="s1">&#39;KLRB1&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;FCGR3A&#39;</span><span class="p">,</span> <span class="s1">&#39;MS4A7&#39;</span><span class="p">,</span> <span class="s1">&#39;FCER1A&#39;</span><span class="p">,</span> <span class="s1">&#39;CST3&#39;</span><span class="p">,</span> <span class="s1">&#39;PPBP&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">marker_genes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;IL7R&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD79A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MS4A1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD8A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD8B&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LYZ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD14&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LGALS3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;S100A8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GNLY&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NKG7&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;KLRB1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FCGR3A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MS4A7&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FCER1A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CST3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PPBP&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -2926,7 +3086,7 @@ You can use auxiliary plots like <code class="docutils literal notranslate"><spa
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plots</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plots</span>
 </pre></div>
 </div>
 </div>
@@ -3019,22 +3179,40 @@ You can use auxiliary plots like <code class="docutils literal notranslate"><spa
 <p>Use the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> data frame functionality to rename your clusters and visualize your annotation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;louvain_r1.5&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">add_categories</span><span class="p">([</span><span class="s1">&#39;CD4 T cells&#39;</span><span class="p">,</span> 
-                        <span class="s1">&#39;CD14+ Monocytes&#39;</span><span class="p">,</span> <span class="s1">&#39;B cells&#39;</span><span class="p">,</span> <span class="s1">&#39;CD8 T cells&#39;</span><span class="p">,</span> 
-                        <span class="s1">&#39;FCGR3A+ Monocytes&#39;</span><span class="p">,</span> <span class="s1">&#39;NK cells&#39;</span><span class="p">,</span> <span class="s1">&#39;Dendritic cells&#39;</span><span class="p">,</span> <span class="s1">&#39;Megakaryocytes&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;louvain_r1.5&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">add_categories</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;CD4 T cells&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;CD14+ Monocytes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;B cells&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;CD8 T cells&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;FCGR3A+ Monocytes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;NK cells&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Dendritic cells&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Megakaryocytes&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">)</span>
 
-<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">],</span> <span class="p">[</span> <span class="c1">#add cluster name here (as string)    </span>
-                                                            <span class="p">])]</span> <span class="o">=</span> <span class="s1">&#39;CD4 T cells&#39;</span>
-<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">],</span> <span class="p">[])]</span> <span class="o">=</span> <span class="s1">&#39;CD14+ Monocytes&#39;</span>
-<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">],</span> <span class="p">[])]</span> <span class="o">=</span> <span class="s1">&#39;B cells&#39;</span>
-<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">],</span> <span class="p">[])]</span> <span class="o">=</span> <span class="s1">&#39;CD8 T cells&#39;</span>
-<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">],</span> <span class="p">[])]</span> <span class="o">=</span> <span class="s1">&#39;FCGR3A+ Monocytes&#39;</span>
-<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">],</span> <span class="p">[])]</span> <span class="o">=</span> <span class="s1">&#39;NK cells&#39;</span>
-<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">],</span> <span class="p">[])]</span> <span class="o">=</span> <span class="s1">&#39;Dendritic cells&#39;</span>
-<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">],</span> <span class="p">[])]</span> <span class="o">=</span> <span class="s1">&#39;Megakaryocytes&#39;</span>
+<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">][</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">],</span> <span class="p">[])</span>  <span class="c1"># add cluster name here (as string)</span>
+<span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;CD4 T cells&quot;</span>
+<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">][</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">],</span> <span class="p">[])</span>
+<span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;CD14+ Monocytes&quot;</span>
+<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">],</span> <span class="p">[])]</span> <span class="o">=</span> <span class="s2">&quot;B cells&quot;</span>
+<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">],</span> <span class="p">[])]</span> <span class="o">=</span> <span class="s2">&quot;CD8 T cells&quot;</span>
+<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">][</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">],</span> <span class="p">[])</span>
+<span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;FCGR3A+ Monocytes&quot;</span>
+<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">],</span> <span class="p">[])]</span> <span class="o">=</span> <span class="s2">&quot;NK cells&quot;</span>
+<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">][</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">],</span> <span class="p">[])</span>
+<span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Dendritic cells&quot;</span>
+<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">][</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">],</span> <span class="p">[])</span>
+<span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Megakaryocytes&quot;</span>
 
-<span class="c1">#remove unused categories from annotation</span>
-<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">remove_unused_categories</span><span class="p">()</span>
+<span class="c1"># remove unused categories from annotation</span>
+<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">remove_unused_categories</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -3042,7 +3220,7 @@ You can use auxiliary plots like <code class="docutils literal notranslate"><spa
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check how many cells per cell type annotated</span>
-<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;annotated&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -3122,7 +3300,7 @@ You can use auxiliary plots like <code class="docutils literal notranslate"><spa
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_clean</span> <span class="o">=</span> <span class="n">adata_clean</span><span class="o">.</span><span class="n">write_h5ad</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s1">&#39;processed/annotated_data.h5ad&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_clean</span> <span class="o">=</span> <span class="n">adata_clean</span><span class="o">.</span><span class="n">write_h5ad</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s2">&quot;processed/annotated_data.h5ad&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

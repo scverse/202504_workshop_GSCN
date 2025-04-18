@@ -483,6 +483,7 @@ In this notebook we showcase how to use liana in its most basic form with toy da
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import liana</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">liana</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">li</span>
+
 <span class="c1"># needed for visualization and toy data</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">scanpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sc</span>
 </pre></div>
@@ -508,7 +509,7 @@ In this notebook we showcase how to use liana in its most basic form with toy da
 <p>The example single-cell data consists processed data with PBMCs cell types</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;bulk_labels&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;bulk_labels&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -672,7 +673,15 @@ the <code class="docutils literal notranslate"><span class="pre">magnitude</span
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import all individual methods</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">liana.method</span><span class="w"> </span><span class="kn">import</span> <span class="n">singlecellsignalr</span><span class="p">,</span> <span class="n">connectome</span><span class="p">,</span> <span class="n">cellphonedb</span><span class="p">,</span> <span class="n">natmi</span><span class="p">,</span> <span class="n">logfc</span><span class="p">,</span> <span class="n">cellchat</span><span class="p">,</span> <span class="n">geometric_mean</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">liana.method</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">singlecellsignalr</span><span class="p">,</span>
+    <span class="n">connectome</span><span class="p">,</span>
+    <span class="n">cellphonedb</span><span class="p">,</span>
+    <span class="n">natmi</span><span class="p">,</span>
+    <span class="n">logfc</span><span class="p">,</span>
+    <span class="n">cellchat</span><span class="p">,</span>
+    <span class="n">geometric_mean</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -687,12 +696,15 @@ This resource was created as a consensus from the resources literature-curated r
 </div>  <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run cellphonedb</span>
-<span class="n">cellphonedb</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span>
-            <span class="n">groupby</span><span class="o">=</span><span class="s1">&#39;bulk_labels&#39;</span><span class="p">,</span> 
-            <span class="c1"># NOTE by default the resource uses HUMAN gene symbols</span>
-            <span class="n">resource_name</span><span class="o">=</span><span class="s1">&#39;consensus&#39;</span><span class="p">,</span>
-            <span class="n">expr_prop</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-            <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">key_added</span><span class="o">=</span><span class="s1">&#39;cpdb_res&#39;</span><span class="p">)</span>
+<span class="n">cellphonedb</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="s2">&quot;bulk_labels&quot;</span><span class="p">,</span>
+    <span class="c1"># NOTE by default the resource uses HUMAN gene symbols</span>
+    <span class="n">resource_name</span><span class="o">=</span><span class="s2">&quot;consensus&quot;</span><span class="p">,</span>
+    <span class="n">expr_prop</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">key_added</span><span class="o">=</span><span class="s2">&quot;cpdb_res&quot;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -717,7 +729,7 @@ Note that the high proportion of missing entities here is expected, as we are wo
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># by default, liana&#39;s output is saved in place:</span>
-<span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;cpdb_res&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;cpdb_res&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -855,18 +867,19 @@ under the assumption that since CCC occurs between cell types, a sufficient prop
 <p>LIANA provides some basic, but flexible plotting functionalities. Here, we will generate a dotplot of relevant ligand-receptor interactions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">li</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">dotplot</span><span class="p">(</span><span class="n">adata</span> <span class="o">=</span> <span class="n">adata</span><span class="p">,</span> 
-              <span class="n">colour</span><span class="o">=</span><span class="s1">&#39;lr_means&#39;</span><span class="p">,</span>
-              <span class="n">size</span><span class="o">=</span><span class="s1">&#39;cellphone_pvals&#39;</span><span class="p">,</span>
-              <span class="n">inverse_size</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># we inverse sign since we want small p-values to have large sizes</span>
-              <span class="n">source_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">,</span> <span class="s1">&#39;CD14+ Monocyte&#39;</span><span class="p">],</span>
-              <span class="n">target_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">],</span>
-              <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
-              <span class="c1"># finally, since cpdbv2 suggests using a filter to FPs</span>
-              <span class="c1"># we filter the pvals column to &lt;= 0.05</span>
-              <span class="n">filter_fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;cellphone_pvals&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">0.05</span><span class="p">,</span>
-              <span class="n">uns_key</span><span class="o">=</span><span class="s1">&#39;cpdb_res&#39;</span> <span class="c1"># uns_key to use, default is &#39;liana_res&#39; </span>
-             <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">li</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">dotplot</span><span class="p">(</span>
+    <span class="n">adata</span><span class="o">=</span><span class="n">adata</span><span class="p">,</span>
+    <span class="n">colour</span><span class="o">=</span><span class="s2">&quot;lr_means&quot;</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="s2">&quot;cellphone_pvals&quot;</span><span class="p">,</span>
+    <span class="n">inverse_size</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># we inverse sign since we want small p-values to have large sizes</span>
+    <span class="n">source_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CD34+&quot;</span><span class="p">,</span> <span class="s2">&quot;CD56+ NK&quot;</span><span class="p">,</span> <span class="s2">&quot;CD14+ Monocyte&quot;</span><span class="p">],</span>
+    <span class="n">target_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CD34+&quot;</span><span class="p">,</span> <span class="s2">&quot;CD56+ NK&quot;</span><span class="p">],</span>
+    <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+    <span class="c1"># finally, since cpdbv2 suggests using a filter to FPs</span>
+    <span class="c1"># we filter the pvals column to &lt;= 0.05</span>
+    <span class="n">filter_fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;cellphone_pvals&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">0.05</span><span class="p">,</span>
+    <span class="n">uns_key</span><span class="o">=</span><span class="s2">&quot;cpdb_res&quot;</span><span class="p">,</span>  <span class="c1"># uns_key to use, default is &#39;liana_res&#39;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -884,22 +897,23 @@ under the assumption that since CCC occurs between cell types, a sufficient prop
 <p>While dotplots are useful to visualize the most relevant interactions, LIANA’s tileplots are more useful when visualizing the statistics of ligands and receptors, individually.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_plot</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tileplot</span><span class="p">(</span><span class="n">adata</span> <span class="o">=</span> <span class="n">adata</span><span class="p">,</span> 
-                         <span class="c1"># NOTE: fill &amp; label need to exist for both</span>
-                         <span class="c1"># ligand_ and receptor_ columns</span>
-                         <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;means&#39;</span><span class="p">,</span>
-                         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;props&#39;</span><span class="p">,</span>
-                         <span class="n">label_fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
-                         <span class="n">top_n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
-                         <span class="n">orderby</span><span class="o">=</span><span class="s1">&#39;cellphone_pvals&#39;</span><span class="p">,</span>
-                         <span class="n">orderby_ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                         <span class="n">source_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">,</span> <span class="s1">&#39;CD14+ Monocyte&#39;</span><span class="p">],</span>
-                         <span class="n">target_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">],</span>
-                         <span class="n">uns_key</span><span class="o">=</span><span class="s1">&#39;cpdb_res&#39;</span><span class="p">,</span> <span class="c1"># NOTE: default is &#39;liana_res&#39;</span>
-                         <span class="n">source_title</span><span class="o">=</span><span class="s1">&#39;Ligand&#39;</span><span class="p">,</span>
-                         <span class="n">target_title</span><span class="o">=</span><span class="s1">&#39;Receptor&#39;</span><span class="p">,</span>
-                         <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-                         <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_plot</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tileplot</span><span class="p">(</span>
+    <span class="n">adata</span><span class="o">=</span><span class="n">adata</span><span class="p">,</span>
+    <span class="c1"># NOTE: fill &amp; label need to exist for both</span>
+    <span class="c1"># ligand_ and receptor_ columns</span>
+    <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;means&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;props&quot;</span><span class="p">,</span>
+    <span class="n">label_fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">top_n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">orderby</span><span class="o">=</span><span class="s2">&quot;cellphone_pvals&quot;</span><span class="p">,</span>
+    <span class="n">orderby_ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">source_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CD34+&quot;</span><span class="p">,</span> <span class="s2">&quot;CD56+ NK&quot;</span><span class="p">,</span> <span class="s2">&quot;CD14+ Monocyte&quot;</span><span class="p">],</span>
+    <span class="n">target_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CD34+&quot;</span><span class="p">,</span> <span class="s2">&quot;CD56+ NK&quot;</span><span class="p">],</span>
+    <span class="n">uns_key</span><span class="o">=</span><span class="s2">&quot;cpdb_res&quot;</span><span class="p">,</span>  <span class="c1"># NOTE: default is &#39;liana_res&#39;</span>
+    <span class="n">source_title</span><span class="o">=</span><span class="s2">&quot;Ligand&quot;</span><span class="p">,</span>
+    <span class="n">target_title</span><span class="o">=</span><span class="s2">&quot;Receptor&quot;</span><span class="p">,</span>
+    <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+<span class="p">)</span>
 <span class="n">my_plot</span>
 </pre></div>
 </div>
@@ -925,11 +939,9 @@ This is done by ranking and aggregating (<a class="reference external" href="htt
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run rank_aggregate</span>
-<span class="n">li</span><span class="o">.</span><span class="n">mt</span><span class="o">.</span><span class="n">rank_aggregate</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> 
-                     <span class="n">groupby</span><span class="o">=</span><span class="s1">&#39;bulk_labels&#39;</span><span class="p">,</span>
-                     <span class="n">resource_name</span><span class="o">=</span><span class="s1">&#39;consensus&#39;</span><span class="p">,</span>
-                     <span class="n">expr_prop</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-                     <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">li</span><span class="o">.</span><span class="n">mt</span><span class="o">.</span><span class="n">rank_aggregate</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="s2">&quot;bulk_labels&quot;</span><span class="p">,</span> <span class="n">resource_name</span><span class="o">=</span><span class="s2">&quot;consensus&quot;</span><span class="p">,</span> <span class="n">expr_prop</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -960,7 +972,7 @@ Running SingleCellSignalR
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;liana_res&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;liana_res&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1101,18 +1113,19 @@ Running SingleCellSignalR
 <p>We will now plot the most ‘relevant’ interactions ordered to the <code class="docutils literal notranslate"><span class="pre">magnitude_rank</span></code> results from aggregated_rank.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">li</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">dotplot</span><span class="p">(</span><span class="n">adata</span> <span class="o">=</span> <span class="n">adata</span><span class="p">,</span> 
-              <span class="n">colour</span><span class="o">=</span><span class="s1">&#39;magnitude_rank&#39;</span><span class="p">,</span>
-              <span class="n">size</span><span class="o">=</span><span class="s1">&#39;specificity_rank&#39;</span><span class="p">,</span>
-              <span class="n">inverse_size</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-              <span class="n">inverse_colour</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-              <span class="n">source_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">,</span> <span class="s1">&#39;CD14+ Monocyte&#39;</span><span class="p">],</span>
-              <span class="n">target_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">],</span>
-              <span class="n">top_n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
-              <span class="n">orderby</span><span class="o">=</span><span class="s1">&#39;magnitude_rank&#39;</span><span class="p">,</span>
-              <span class="n">orderby_ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-              <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-             <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">li</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">dotplot</span><span class="p">(</span>
+    <span class="n">adata</span><span class="o">=</span><span class="n">adata</span><span class="p">,</span>
+    <span class="n">colour</span><span class="o">=</span><span class="s2">&quot;magnitude_rank&quot;</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="s2">&quot;specificity_rank&quot;</span><span class="p">,</span>
+    <span class="n">inverse_size</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">inverse_colour</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">source_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CD34+&quot;</span><span class="p">,</span> <span class="s2">&quot;CD56+ NK&quot;</span><span class="p">,</span> <span class="s2">&quot;CD14+ Monocyte&quot;</span><span class="p">],</span>
+    <span class="n">target_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CD34+&quot;</span><span class="p">,</span> <span class="s2">&quot;CD56+ NK&quot;</span><span class="p">],</span>
+    <span class="n">top_n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">orderby</span><span class="o">=</span><span class="s2">&quot;magnitude_rank&quot;</span><span class="p">,</span>
+    <span class="n">orderby_ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1132,15 +1145,16 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 according to how robustly and highly ranked they are across the different methods.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_plot</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">dotplot</span><span class="p">(</span><span class="n">adata</span> <span class="o">=</span> <span class="n">adata</span><span class="p">,</span> 
-                        <span class="n">colour</span><span class="o">=</span><span class="s1">&#39;magnitude_rank&#39;</span><span class="p">,</span>
-                        <span class="n">inverse_colour</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                        <span class="n">size</span><span class="o">=</span><span class="s1">&#39;specificity_rank&#39;</span><span class="p">,</span>
-                        <span class="n">inverse_size</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                        <span class="n">source_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">,</span> <span class="s1">&#39;CD14+ Monocyte&#39;</span><span class="p">],</span>
-                        <span class="n">target_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">],</span>
-                        <span class="n">filter_fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;specificity_rank&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">0.01</span><span class="p">,</span>
-                       <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_plot</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">dotplot</span><span class="p">(</span>
+    <span class="n">adata</span><span class="o">=</span><span class="n">adata</span><span class="p">,</span>
+    <span class="n">colour</span><span class="o">=</span><span class="s2">&quot;magnitude_rank&quot;</span><span class="p">,</span>
+    <span class="n">inverse_colour</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="s2">&quot;specificity_rank&quot;</span><span class="p">,</span>
+    <span class="n">inverse_size</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">source_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CD34+&quot;</span><span class="p">,</span> <span class="s2">&quot;CD56+ NK&quot;</span><span class="p">,</span> <span class="s2">&quot;CD14+ Monocyte&quot;</span><span class="p">],</span>
+    <span class="n">target_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CD34+&quot;</span><span class="p">,</span> <span class="s2">&quot;CD56+ NK&quot;</span><span class="p">],</span>
+    <span class="n">filter_fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;specificity_rank&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">0.01</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="n">my_plot</span>
 </pre></div>
 </div>
@@ -1156,15 +1170,16 @@ according to how robustly and highly ranked they are across the different method
 <p>While the majority of liana’s plots are in plotnine, thanks to &#64;WeipengMo, we also provide a circle plot (drawn in networkx):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">li</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">circle_plot</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span>
-                  <span class="n">groupby</span><span class="o">=</span><span class="s1">&#39;bulk_labels&#39;</span><span class="p">,</span>
-                  <span class="n">score_key</span><span class="o">=</span><span class="s1">&#39;magnitude_rank&#39;</span><span class="p">,</span>
-                  <span class="n">inverse_score</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                  <span class="n">source_labels</span><span class="o">=</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span>
-                  <span class="n">filter_fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;specificity_rank&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">0.05</span><span class="p">,</span>
-                  <span class="n">pivot_mode</span><span class="o">=</span><span class="s1">&#39;counts&#39;</span><span class="p">,</span> <span class="c1"># NOTE: this will simply count the interactions, &#39;mean&#39; is also available</span>
-                  <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-                  <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">li</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">circle_plot</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="s2">&quot;bulk_labels&quot;</span><span class="p">,</span>
+    <span class="n">score_key</span><span class="o">=</span><span class="s2">&quot;magnitude_rank&quot;</span><span class="p">,</span>
+    <span class="n">inverse_score</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">source_labels</span><span class="o">=</span><span class="s2">&quot;CD34+&quot;</span><span class="p">,</span>
+    <span class="n">filter_fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;specificity_rank&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">0.05</span><span class="p">,</span>
+    <span class="n">pivot_mode</span><span class="o">=</span><span class="s2">&quot;counts&quot;</span><span class="p">,</span>  <span class="c1"># NOTE: this will simply count the interactions, &#39;mean&#39; is also available</span>
+    <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1192,15 +1207,16 @@ according to how robustly and highly ranked they are across the different method
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_rank_aggregate</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span>
-                   <span class="n">groupby</span><span class="o">=</span><span class="s1">&#39;bulk_labels&#39;</span><span class="p">,</span>
-                   <span class="n">expr_prop</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
-                   <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                   <span class="c1"># Note that with this option, we don&#39;t perform permutations</span>
-                   <span class="c1"># and hence we exclude the p-value for geometric_mean, as well as specificity_rank</span>
-                   <span class="n">n_perms</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                   <span class="n">use_raw</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                   <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_rank_aggregate</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="s2">&quot;bulk_labels&quot;</span><span class="p">,</span>
+    <span class="n">expr_prop</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="c1"># Note that with this option, we don&#39;t perform permutations</span>
+    <span class="c1"># and hence we exclude the p-value for geometric_mean, as well as specificity_rank</span>
+    <span class="n">n_perms</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">use_raw</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1224,7 +1240,7 @@ Running Geometric Mean
 <p>Check the results</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;liana_res&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;liana_res&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
