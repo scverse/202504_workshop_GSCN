@@ -1,4 +1,4 @@
-# scverse workshop in collaboration with the GSCN
+# Overview
 
 ## Before the event
 
