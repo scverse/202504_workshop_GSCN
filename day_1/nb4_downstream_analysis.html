@@ -1,0 +1,2079 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Downstream: DGEA and GSEA &#8212; GSCN Workshop 2025</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'day_1/nb4_downstream_analysis';</script>
+    <link rel="canonical" href="/202504_workshop_GSCN/day_1/nb4_downstream_analysis.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="nb5_trajectory_inference.html" />
+    <link rel="prev" title="Batch Correction" href="nb3_batch_correction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">GSCN Workshop 2025</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    scverse workshop in collaboration with the GSCN
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Day 1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nb1_qc_normalization.html">QC and Normalisation</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="nb2_preprocessing.html">Dimensionality reduction, clustering and annotation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="nb3_batch_correction.html">Batch Correction</a></li>
+
+
+
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Downstream Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nb5_trajectory_inference.html">Introduction</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../day_2/README.html">Day 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../day_2/nb1_ligand_recepter_interactions.html">Ligand-Receptor Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day_2/nb2_differential_cellular_abundance.html">Introduction</a></li>
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="../day_2/spatialdata/README.html">Spatial Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../day_2/spatialdata/beginner/nb1_spatialdata_objects.html">1. SpatialData Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../day_2/spatialdata/beginner/nb2_static_plotting.html">2. Static Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../day_2/spatialdata/beginner/nb3_interactive_plotting_with_napari.html">3. Interactive Plotting with Napari</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../day_2/spatialdata/beginner/nb4_simple_analysis_using_scverse_tools.html">4. Simple Analysis using scverse Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../day_2/spatialdata/advanced/transformations.html">5. Transformations (advanced)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../day_2/spatialdata/advanced/tutorial_niche_calculation.html">6. Niche Calculation Tutorial (advanced)</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_3/README.html">Day 3</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/scverse/202504_workshop_GSCN" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scverse/202504_workshop_GSCN/edit/main/notebooks/day_1/nb4_downstream_analysis.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scverse/202504_workshop_GSCN/issues/new?title=Issue%20on%20page%20%2Fday_1/nb4_downstream_analysis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/day_1/nb4_downstream_analysis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Downstream: DGEA and GSEA</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-pseudobulk-analysis">Understanding Pseudobulk Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-pseudobulks">Generate Pseudobulks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aligning-gene-identifiers">Aligning gene identifiers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assess-the-quality-of-our-pseudo-bulks">Assess the quality of our pseudo-bulks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#denoising-the-pseudo-bulks">Denoising the pseudo-bulks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-expression-analysis-of-the-pseudo-bulks-using-pydeseq2">Differential expression analysis of the pseudo-bulks using <code class="docutils literal notranslate"><span class="pre">pydeseq2</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-inspection-of-differentially-expressed-genes">Visual inspection of differentially expressed genes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-adjusted-p-value">Why the adjusted p-value?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enrichment-with-over-representation-analysis-ora">Enrichment with Over Representation Analysis (ORA)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="downstream-dgea-and-gsea">
+<h1>Downstream: DGEA and GSEA<a class="headerlink" href="#downstream-dgea-and-gsea" title="Link to this heading">#</a></h1>
+<p>Differential gene expression (DGE) analysis is a crucial tool for identifying genes that are significantly over- or underexpressed between different conditions (e.g., healthy vs. disease) within specific cell types. While many tools exist for DGE analysis, recent studies suggest that pseudobulk methods (which aggregate cell-type-specific expression values per individual) perform particularly well for single-cell data, helping to avoid issues like pseudoreplication and inflated false discovery rates. In this tutorial, we’ll show how to perform both, primarily using the packages <code class="docutils literal notranslate"><span class="pre">decoupleR</span></code> and <code class="docutils literal notranslate"><span class="pre">pybiomart</span></code> for gene symbol conversion. If you haven’t yet installed it, you can do so with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">decoupler</span> <span class="n">pybiomart</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scanpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">decoupler</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># for differential expression analysis</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydeseq2.dds</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeseqDataSet</span><span class="p">,</span> <span class="n">DefaultInference</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydeseq2.ds</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeseqStats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">adjustText</span>
+
+<span class="n">sc</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">njobs</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="understanding-pseudobulk-analysis">
+<h2>Understanding Pseudobulk Analysis<a class="headerlink" href="#understanding-pseudobulk-analysis" title="Link to this heading">#</a></h2>
+<p>When working with single-cell data across multiple conditions, performing differential expression at the single-cell level can lead to inflated p-values because each cell is treated as an independent sample. However, cells from the same sample are not truly independent since they share the same environment. Additionally, uneven cell numbers between samples can bias results.</p>
+<p>The pseudobulk approach addresses these issues by:</p>
+<ol class="arabic simple">
+<li><p>Aggregating cells from the same sample and cell type</p></li>
+<li><p>Working with raw counts rather than normalized data</p></li>
+<li><p>Requiring multiple biological replicates per condition</p></li>
+<li><p>Accounting for sample-level variation</p></li>
+</ol>
+</section>
+<section id="generate-pseudobulks">
+<h2>Generate Pseudobulks<a class="headerlink" href="#generate-pseudobulks" title="Link to this heading">#</a></h2>
+<p>We’ll now create pseudobulk profiles by summing counts across cells from the same sample and cell type. This helps recover lowly expressed genes that might be affected by dropout in single-cell analysis and provides a more robust foundation for differential expression testing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_raw</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">ebi_expression_atlas</span><span class="p">(</span><span class="s2">&quot;E-MTAB-9221&quot;</span><span class="p">,</span> <span class="n">filter_boring</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Rename meta-data</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Sample Characteristic[sex]&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sample Characteristic[individual]&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sample Characteristic[disease]&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Factor Value[inferred cell type - ontology labels]&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">adata_raw</span><span class="o">.</span><span class="n">obs</span> <span class="o">=</span> <span class="n">adata_raw</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span>
+<span class="n">adata_raw</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="s2">&quot;individual&quot;</span><span class="p">,</span> <span class="s2">&quot;disease&quot;</span><span class="p">,</span> <span class="s2">&quot;cell_type&quot;</span><span class="p">]</span>
+<span class="n">adata_raw</span>
+
+<span class="n">adata_raw</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 6807 × 20522
+    obs: &#39;sex&#39;, &#39;individual&#39;, &#39;disease&#39;, &#39;cell_type&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_raw</span><span class="o">.</span><span class="n">to_df</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ENSG00000000003</th>
+      <th>ENSG00000000419</th>
+      <th>ENSG00000000457</th>
+      <th>ENSG00000000460</th>
+      <th>ENSG00000000938</th>
+      <th>ENSG00000000971</th>
+      <th>ENSG00000001036</th>
+      <th>ENSG00000001084</th>
+      <th>ENSG00000001167</th>
+      <th>ENSG00000001460</th>
+      <th>...</th>
+      <th>ENSG00000289568</th>
+      <th>ENSG00000289604</th>
+      <th>ENSG00000289685</th>
+      <th>ENSG00000289690</th>
+      <th>ENSG00000289694</th>
+      <th>ENSG00000289695</th>
+      <th>ENSG00000289697</th>
+      <th>ENSG00000289700</th>
+      <th>ENSG00000289701</th>
+      <th>ENSG00000289716</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SAMEA6979313-AAACCCAAGACTCAAA</th>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>SAMEA6979313-AAAGAACCACCTGCTT</th>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>SAMEA6979313-AAAGGATGTCCCTCAT</th>
+      <td>0.0</td>
+      <td>1.082781</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>9.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>SAMEA6979313-AAAGGGTGTCCCTCAT</th>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>SAMEA6979313-AAAGGTTGTCCCTCAT</th>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 20522 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="preprocessing">
+<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Link to this heading">#</a></h2>
+<section id="aligning-gene-identifiers">
+<h3>Aligning gene identifiers<a class="headerlink" href="#aligning-gene-identifiers" title="Link to this heading">#</a></h3>
+<p>One common challenge in bioinformatics is dealing with different gene identifier systems. We’ll use ENSEBML IDs for the following steps since these are usually more precise than gene symbols.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">annot</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">queries</span><span class="o">.</span><span class="n">biomart_annotations</span><span class="p">(</span>
+    <span class="s2">&quot;hsapiens&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;ensembl_gene_id&quot;</span><span class="p">,</span> <span class="s2">&quot;external_gene_name&quot;</span><span class="p">],</span> <span class="n">use_cache</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;ensembl_gene_id&quot;</span><span class="p">)</span>
+<span class="n">annot</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>external_gene_name</th>
+    </tr>
+    <tr>
+      <th>ensembl_gene_id</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ENSG00000210049</th>
+      <td>MT-TF</td>
+    </tr>
+    <tr>
+      <th>ENSG00000211459</th>
+      <td>MT-RNR1</td>
+    </tr>
+    <tr>
+      <th>ENSG00000210077</th>
+      <td>MT-TV</td>
+    </tr>
+    <tr>
+      <th>ENSG00000210082</th>
+      <td>MT-RNR2</td>
+    </tr>
+    <tr>
+      <th>ENSG00000209082</th>
+      <td>MT-TL1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter genes not in annotation</span>
+<span class="n">adata</span> <span class="o">=</span> <span class="n">adata_raw</span><span class="p">[:,</span> <span class="n">adata_raw</span><span class="o">.</span><span class="n">var</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">annot</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)]</span>
+
+<span class="c1"># Assign gene symbols</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="p">[</span><span class="s2">&quot;gene_symbol&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">annot</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ensembl_id</span><span class="p">,</span> <span class="s2">&quot;external_gene_name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">ensembl_id</span> <span class="ow">in</span> <span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="o">.</span><span class="n">index</span>
+<span class="p">]</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">var</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="s2">&quot;ensembl_gene_id&quot;</span><span class="p">})</span>
+    <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;gene_symbol&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Remove genes with no gene symbol</span>
+<span class="n">adata</span> <span class="o">=</span> <span class="n">adata</span><span class="p">[:,</span> <span class="o">~</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
+
+<span class="c1"># Remove duplicate genes</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">var_names_make_unique</span><span class="p">()</span>
+
+<span class="n">adata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/qg/qgc908995g3fc8qtss2fsbhhxyxxj4/T/ipykernel_69686/339012641.py:6: ImplicitModificationWarning: Trying to modify attribute `.var` of view, initializing view as actual.
+  adata.var[&quot;gene_symbol&quot;] = [
+/Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages/anndata/_core/anndata.py:1758: UserWarning: Variable names are not unique. To make them unique, call `.var_names_make_unique`.
+  utils.warn_names_duplicates(&quot;var&quot;)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 6807 × 19123
+    obs: &#39;sex&#39;, &#39;individual&#39;, &#39;disease&#39;, &#39;cell_type&#39;
+    var: &#39;ensembl_gene_id&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s remove cells without an annotated celltype for easier downstream analysis</span>
+<span class="n">adata</span> <span class="o">=</span> <span class="n">adata</span><span class="p">[</span><span class="o">~</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;cell_type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will need the raw counts for subsequent pseudo-bulk analysis, so let’s save them in another <code class="docutils literal notranslate"><span class="pre">AnnData</span></code> layer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s2">&quot;counts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">X</span>
+
+<span class="c1"># Normalize and log-transform</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">normalize_total</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">target_sum</span><span class="o">=</span><span class="mf">1e4</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s2">&quot;normalized&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">X</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/qg/qgc908995g3fc8qtss2fsbhhxyxxj4/T/ipykernel_69686/2867543197.py:1: ImplicitModificationWarning: Modifying `X` on a view results in data being overridden
+  adata.X = np.round(adata.X)
+/var/folders/qg/qgc908995g3fc8qtss2fsbhhxyxxj4/T/ipykernel_69686/2867543197.py:2: ImplicitModificationWarning: Setting element `.layers[&#39;counts&#39;]` of view, initializing view as actual.
+  adata.layers[&quot;counts&quot;] = adata.X
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify highly variable genes</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">highly_variable_genes</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">flavor</span><span class="o">=</span><span class="s2">&quot;seurat_v3&quot;</span><span class="p">,</span> <span class="n">n_top_genes</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">batch_key</span><span class="o">=</span><span class="s2">&quot;individual&quot;</span><span class="p">)</span>
+
+<span class="c1"># Scale the data</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Generate PCA features</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">svd_solver</span><span class="o">=</span><span class="s2">&quot;arpack&quot;</span><span class="p">,</span> <span class="n">use_highly_variable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Compute distances in the PCA space, and find cell neighbors</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
+
+<span class="c1"># Generate UMAP features</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
+
+<span class="c1"># Visualize</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;disease&quot;</span><span class="p">,</span> <span class="s2">&quot;cell_type&quot;</span><span class="p">,</span> <span class="s2">&quot;individual&quot;</span><span class="p">],</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages/scanpy/preprocessing/_highly_variable_genes.py:73: UserWarning: `flavor=&#39;seurat_v3&#39;` expects raw count data, but non-integers were found.
+  warnings.warn(
+</pre></div>
+</div>
+<img alt="../_images/6935bcda1485a1e850de20bfb33c6767775002c50bbcea985177173e375e91e7.png" src="../_images/6935bcda1485a1e850de20bfb33c6767775002c50bbcea985177173e375e91e7.png" />
+</div>
+</div>
+<p>We can see that we have fairly good mixing of disease conditions (COVID-19/normal) and individuals in our data while the cell types are mostly separated.</p>
+</section>
+<section id="assess-the-quality-of-our-pseudo-bulks">
+<h3>Assess the quality of our pseudo-bulks<a class="headerlink" href="#assess-the-quality-of-our-pseudo-bulks" title="Link to this heading">#</a></h3>
+<p>When generating pseudobulk profiles, we need to ensure that each aggregated sample has sufficient data for reliable analysis. Samples with too few cells or low total counts may introduce noise and bias into downstream analyses. While the specific thresholds depend on the dataset, requiring at least 10 cells and 1000 total counts per sample helps maintain statistical power while filtering out potentially unreliable measurements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdata</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">get_pseudobulk</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span>
+    <span class="n">sample_col</span><span class="o">=</span><span class="s2">&quot;individual&quot;</span><span class="p">,</span> <span class="c1"># so we have multiple samples</span>
+    <span class="n">groups_col</span><span class="o">=</span><span class="s2">&quot;cell_type&quot;</span><span class="p">,</span> <span class="c1"># defines contrasts</span>
+    <span class="n">layer</span><span class="o">=</span><span class="s2">&quot;counts&quot;</span><span class="p">,</span> <span class="c1"># use normalized counts</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="c1"># sum up counts for each group</span>
+    <span class="n">min_cells</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+    <span class="n">min_counts</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+
+<span class="n">dc</span><span class="o">.</span><span class="n">plot_psbulk_samples</span><span class="p">(</span><span class="n">pdata</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="s2">&quot;individual&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5bd7a8d903a53ef5f2fa30b5499a786d716dc7bc8ca3de66dd16b3093d41eaa8.png" src="../_images/5bd7a8d903a53ef5f2fa30b5499a786d716dc7bc8ca3de66dd16b3093d41eaa8.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+
+<span class="n">dc</span><span class="o">.</span><span class="n">plot_psbulk_samples</span><span class="p">(</span><span class="n">pdata</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="s2">&quot;cell_type&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f24c192a98730f7983f4d3963b390f05a1cc42d448e9dd239f7f3bbcf1f24866.png" src="../_images/f24c192a98730f7983f4d3963b390f05a1cc42d448e9dd239f7f3bbcf1f24866.png" />
+</div>
+</div>
+<p>We’ll filter out celltype-individual pseudo-bulks that don’t contain at least 10 cells and 1000 total counts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdata</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">get_pseudobulk</span><span class="p">(</span>
+    <span class="n">adata</span><span class="p">,</span>
+    <span class="n">sample_col</span><span class="o">=</span><span class="s2">&quot;individual&quot;</span><span class="p">,</span>  <span class="c1"># so we have multiple samples</span>
+    <span class="n">groups_col</span><span class="o">=</span><span class="s2">&quot;cell_type&quot;</span><span class="p">,</span>  <span class="c1"># defines contrasts</span>
+    <span class="n">layer</span><span class="o">=</span><span class="s2">&quot;counts&quot;</span><span class="p">,</span>  <span class="c1"># use normalized counts</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span>  <span class="c1"># sum up counts for each group</span>
+    <span class="n">min_cells</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">min_counts</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span><span class="o">.</span><span class="n">plot_psbulk_samples</span><span class="p">(</span><span class="n">pdata</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;individual&quot;</span><span class="p">,</span> <span class="s2">&quot;cell_type&quot;</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4f4980ff036b16c4f2b58aa57fd4d60e02513d8ba3adad39b130d4003b7b46ba.png" src="../_images/4f4980ff036b16c4f2b58aa57fd4d60e02513d8ba3adad39b130d4003b7b46ba.png" />
+</div>
+</div>
+<p>We can see that we now end up with 34 observations which represent the filtered <code class="docutils literal notranslate"><span class="pre">individual_celltype</span></code> combinations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 34 × 18463
+    obs: &#39;individual&#39;, &#39;cell_type&#39;, &#39;sex&#39;, &#39;disease&#39;, &#39;psbulk_n_cells&#39;, &#39;psbulk_counts&#39;
+    var: &#39;ensembl_gene_id&#39;, &#39;highly_variable&#39;, &#39;highly_variable_rank&#39;, &#39;means&#39;, &#39;variances&#39;, &#39;variances_norm&#39;, &#39;highly_variable_nbatches&#39;, &#39;mean&#39;, &#39;std&#39;
+    uns: &#39;log1p&#39;, &#39;pca&#39;
+    obsm: &#39;X_pca&#39;
+    varm: &#39;PCs&#39;
+    layers: &#39;psbulk_props&#39;, &#39;counts&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdata</span><span class="o">.</span><span class="n">to_df</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>gene_symbol</th>
+      <th>5S_rRNA</th>
+      <th>A1BG</th>
+      <th>A2M</th>
+      <th>A2MP1</th>
+      <th>A4GALT</th>
+      <th>AAAS</th>
+      <th>AACS</th>
+      <th>AAGAB</th>
+      <th>AAK1</th>
+      <th>AAMDC</th>
+      <th>...</th>
+      <th>ZWILCH</th>
+      <th>ZWINT</th>
+      <th>ZXDA</th>
+      <th>ZXDB</th>
+      <th>ZXDC</th>
+      <th>ZYG11A</th>
+      <th>ZYG11B</th>
+      <th>ZYX</th>
+      <th>ZZEF1</th>
+      <th>ZZZ3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Control #1_B cell</th>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>28.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Control #2_B cell</th>
+      <td>0.0</td>
+      <td>7.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>9.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>8.0</td>
+      <td>2.0</td>
+      <td>60.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Control #3_B cell</th>
+      <td>0.0</td>
+      <td>6.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>8.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>25.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>SARS-CoV2 pos Mild_B cell</th>
+      <td>0.0</td>
+      <td>17.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>7.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>31.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>4.0</td>
+      <td>34.0</td>
+      <td>3.0</td>
+      <td>201.0</td>
+      <td>14.0</td>
+    </tr>
+    <tr>
+      <th>SARS-CoV2 pos Severe #1_B cell</th>
+      <td>0.0</td>
+      <td>20.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>15.0</td>
+      <td>14.0</td>
+      <td>25.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>6.0</td>
+      <td>4.0</td>
+      <td>9.0</td>
+      <td>0.0</td>
+      <td>52.0</td>
+      <td>8.0</td>
+      <td>275.0</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>SARS-CoV2 pos Severe #2_B cell</th>
+      <td>0.0</td>
+      <td>28.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>11.0</td>
+      <td>15.0</td>
+      <td>6.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>8.0</td>
+      <td>14.0</td>
+      <td>1.0</td>
+      <td>27.0</td>
+      <td>8.0</td>
+      <td>211.0</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>SARS-CoV2 pos Severe #3_B cell</th>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>8.0</td>
+      <td>0.0</td>
+      <td>49.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Control #1_T cell</th>
+      <td>1.0</td>
+      <td>70.0</td>
+      <td>44.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>11.0</td>
+      <td>28.0</td>
+      <td>33.0</td>
+      <td>704.0</td>
+      <td>14.0</td>
+      <td>...</td>
+      <td>14.0</td>
+      <td>4.0</td>
+      <td>12.0</td>
+      <td>14.0</td>
+      <td>38.0</td>
+      <td>3.0</td>
+      <td>99.0</td>
+      <td>58.0</td>
+      <td>822.0</td>
+      <td>45.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 18463 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s save the raw counts for later use</span>
+<span class="n">pdata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s2">&quot;counts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pdata</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Normalize, scale and compute pca</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">normalize_total</span><span class="p">(</span><span class="n">pdata</span><span class="p">,</span> <span class="n">target_sum</span><span class="o">=</span><span class="mf">1e4</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">pdata</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">pdata</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">pdata</span><span class="p">)</span>
+
+<span class="c1"># Return raw counts to X</span>
+<span class="n">dc</span><span class="o">.</span><span class="n">swap_layer</span><span class="p">(</span><span class="n">pdata</span><span class="p">,</span> <span class="s2">&quot;counts&quot;</span><span class="p">,</span> <span class="n">X_layer_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">pdata</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;disease&quot;</span><span class="p">,</span> <span class="s2">&quot;cell_type&quot;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fe4e260cf45c1eb529ca94998f6523aae9363e73b79ab8b79f7e2d190417b3a4.png" src="../_images/fe4e260cf45c1eb529ca94998f6523aae9363e73b79ab8b79f7e2d190417b3a4.png" />
+</div>
+</div>
+<p>We see in the PCA that our data seems to cluster well by celltype whereas conditions are mixed. In the plot below we see that PC1 and PC2 explain the majority of the variance which explains why the above plots are separated so well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">pca_variance_ratio</span><span class="p">(</span><span class="n">pdata</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/86861a8941ab29a22666e52df485e4345792e476e24ef723e0aff9decb931a5a.png" src="../_images/86861a8941ab29a22666e52df485e4345792e476e24ef723e0aff9decb931a5a.png" />
+</div>
+</div>
+</section>
+<section id="denoising-the-pseudo-bulks">
+<h3>Denoising the pseudo-bulks<a class="headerlink" href="#denoising-the-pseudo-bulks" title="Link to this heading">#</a></h3>
+<p>After filtering low-quality samples, we need to ensure that the genes we analyze are reliably expressed. Since different cell types express distinct sets of genes, we perform this filtering separately for each cell type.</p>
+<p>In the next steps, we’ll focus on T cells.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tcells</span> <span class="o">=</span> <span class="n">pdata</span><span class="p">[</span><span class="n">pdata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;cell_type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;T cell&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We expect a bimodal distribution in these genes with one cluster of genes being expressed very little and only by very few samples. We will adjust the <code class="docutils literal notranslate"><span class="pre">min_count</span></code> and <code class="docutils literal notranslate"><span class="pre">min_total_count</span></code> parameters to filter these out.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span><span class="o">.</span><span class="n">plot_filter_by_expr</span><span class="p">(</span><span class="n">tcells</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s2">&quot;disease&quot;</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_total_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/656fb4e0349e3a092945ee49d7e59879c6001f27c3391e6ad18b0620730a3c95.png" src="../_images/656fb4e0349e3a092945ee49d7e59879c6001f27c3391e6ad18b0620730a3c95.png" />
+</div>
+</div>
+<p>Once we’ve found sufficiently good values, we’ll use these to subset the genes in the T cell <code class="docutils literal notranslate"><span class="pre">AnnData</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">filter_by_expr</span><span class="p">(</span><span class="n">tcells</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s2">&quot;disease&quot;</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">min_total_count</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="c1"># Filter by these genes</span>
+<span class="n">tcells</span> <span class="o">=</span> <span class="n">tcells</span><span class="p">[:,</span> <span class="n">genes</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">tcells</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 7 × 10393
+    obs: &#39;individual&#39;, &#39;cell_type&#39;, &#39;sex&#39;, &#39;disease&#39;, &#39;psbulk_n_cells&#39;, &#39;psbulk_counts&#39;
+    var: &#39;ensembl_gene_id&#39;, &#39;highly_variable&#39;, &#39;highly_variable_rank&#39;, &#39;means&#39;, &#39;variances&#39;, &#39;variances_norm&#39;, &#39;highly_variable_nbatches&#39;, &#39;mean&#39;, &#39;std&#39;
+    uns: &#39;log1p&#39;, &#39;pca&#39;
+    obsm: &#39;X_pca&#39;
+    varm: &#39;PCs&#39;
+    layers: &#39;psbulk_props&#39;, &#39;counts&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="differential-expression-analysis-of-the-pseudo-bulks-using-pydeseq2">
+<h2>Differential expression analysis of the pseudo-bulks using <code class="docutils literal notranslate"><span class="pre">pydeseq2</span></code><a class="headerlink" href="#differential-expression-analysis-of-the-pseudo-bulks-using-pydeseq2" title="Link to this heading">#</a></h2>
+<p>In this dataset, a natural contrast to explore is how the gene expression of T cells differes between healthy patients and patienst suffering from COVID-19. To do so, we’ll use PyDESeq2, a Python implementation of the popular R packages.</p>
+<p>More details can be found in the <a class="reference external" href="https://pydeseq2.readthedocs.io/en/latest/">PyDESeq2 documentation</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inference</span> <span class="o">=</span> <span class="n">DefaultInference</span><span class="p">(</span><span class="n">n_cpus</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="n">dds</span> <span class="o">=</span> <span class="n">DeseqDataSet</span><span class="p">(</span>
+    <span class="n">adata</span><span class="o">=</span><span class="n">tcells</span><span class="p">,</span>
+    <span class="n">design_factors</span><span class="o">=</span><span class="s2">&quot;disease&quot;</span><span class="p">,</span>
+    <span class="n">ref_level</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;disease&quot;</span><span class="p">,</span> <span class="s2">&quot;normal&quot;</span><span class="p">],</span>
+    <span class="n">refit_cooks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">inference</span><span class="o">=</span><span class="n">inference</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/qg/qgc908995g3fc8qtss2fsbhhxyxxj4/T/ipykernel_69686/4050698110.py:2: DeprecationWarning: ref_level is deprecated and no longer has any effect. It will beremoved in a future release.
+  dds = DeseqDataSet(
+/var/folders/qg/qgc908995g3fc8qtss2fsbhhxyxxj4/T/ipykernel_69686/4050698110.py:2: DeprecationWarning: design_factors is deprecated and will soon be removed.Please consider providing a formulaic formula using the design argumentinstead.
+  dds = DeseqDataSet(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">.</span><span class="n">deseq2</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using None as control genes, passed at DeseqDataSet initialization
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting size factors...
+... done in 0.00 seconds.
+
+Fitting dispersions...
+... done in 0.78 seconds.
+
+Fitting dispersion trend curve...
+... done in 0.28 seconds.
+
+Fitting MAP dispersions...
+... done in 0.98 seconds.
+
+Fitting LFCs...
+... done in 0.71 seconds.
+
+Calculating cook&#39;s distance...
+... done in 0.01 seconds.
+
+Replacing 0 outlier genes.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_res</span> <span class="o">=</span> <span class="n">DeseqStats</span><span class="p">(</span>
+    <span class="n">dds</span><span class="p">,</span>
+    <span class="n">contrast</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;disease&quot;</span><span class="p">,</span> <span class="s2">&quot;COVID-19&quot;</span><span class="p">,</span> <span class="s2">&quot;normal&quot;</span><span class="p">],</span>
+    <span class="n">inference</span><span class="o">=</span><span class="n">inference</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running Wald tests...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Log2 fold change &amp; Wald test p-value: disease COVID-19 vs normal
+               baseMean  log2FoldChange     lfcSE      stat    pvalue  \
+gene_symbol                                                             
+A1BG          70.478830       -0.203063  0.259224 -0.783351  0.433421   
+A2M           36.737832       -1.260093  0.355132 -3.548244  0.000388   
+A2MP1         15.628439        0.601803  0.701386  0.858020  0.390881   
+AAAS          18.307198        0.254639  0.453519  0.561474  0.574475   
+AACS          24.634494        0.259215  0.383214  0.676423  0.498772   
+...                 ...             ...       ...       ...       ...   
+ZXDC          30.185259       -0.289675  0.373567 -0.775429  0.438086   
+ZYG11B       101.897349        0.269827  0.298309  0.904523  0.365718   
+ZYX           81.607418        0.303738  0.264875  1.146723  0.251496   
+ZZEF1        820.875555        0.027797  0.224519  0.123809  0.901467   
+ZZZ3          59.934519       -0.075166  0.303987 -0.247268  0.804701   
+
+                 padj  
+gene_symbol            
+A1BG         0.847593  
+A2M          0.031502  
+A2MP1        0.828224  
+AAAS         0.900516  
+AACS         0.873693  
+...               ...  
+ZXDC         0.850122  
+ZYG11B       0.813746  
+ZYX          0.742821  
+ZZEF1        0.983509  
+ZZZ3         0.960365  
+
+[10393 rows x 6 columns]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>... done in 0.45 seconds.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results_df</span> <span class="o">=</span> <span class="n">stat_res</span><span class="o">.</span><span class="n">results_df</span>
+<span class="n">results_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>baseMean</th>
+      <th>log2FoldChange</th>
+      <th>lfcSE</th>
+      <th>stat</th>
+      <th>pvalue</th>
+      <th>padj</th>
+    </tr>
+    <tr>
+      <th>gene_symbol</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A1BG</th>
+      <td>70.478830</td>
+      <td>-0.203063</td>
+      <td>0.259224</td>
+      <td>-0.783351</td>
+      <td>0.433421</td>
+      <td>0.847593</td>
+    </tr>
+    <tr>
+      <th>A2M</th>
+      <td>36.737832</td>
+      <td>-1.260093</td>
+      <td>0.355132</td>
+      <td>-3.548244</td>
+      <td>0.000388</td>
+      <td>0.031502</td>
+    </tr>
+    <tr>
+      <th>A2MP1</th>
+      <td>15.628439</td>
+      <td>0.601803</td>
+      <td>0.701386</td>
+      <td>0.858020</td>
+      <td>0.390881</td>
+      <td>0.828224</td>
+    </tr>
+    <tr>
+      <th>AAAS</th>
+      <td>18.307198</td>
+      <td>0.254639</td>
+      <td>0.453519</td>
+      <td>0.561474</td>
+      <td>0.574475</td>
+      <td>0.900516</td>
+    </tr>
+    <tr>
+      <th>AACS</th>
+      <td>24.634494</td>
+      <td>0.259215</td>
+      <td>0.383214</td>
+      <td>0.676423</td>
+      <td>0.498772</td>
+      <td>0.873693</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>ZXDC</th>
+      <td>30.185259</td>
+      <td>-0.289675</td>
+      <td>0.373567</td>
+      <td>-0.775429</td>
+      <td>0.438086</td>
+      <td>0.850122</td>
+    </tr>
+    <tr>
+      <th>ZYG11B</th>
+      <td>101.897349</td>
+      <td>0.269827</td>
+      <td>0.298309</td>
+      <td>0.904523</td>
+      <td>0.365718</td>
+      <td>0.813746</td>
+    </tr>
+    <tr>
+      <th>ZYX</th>
+      <td>81.607418</td>
+      <td>0.303738</td>
+      <td>0.264875</td>
+      <td>1.146723</td>
+      <td>0.251496</td>
+      <td>0.742821</td>
+    </tr>
+    <tr>
+      <th>ZZEF1</th>
+      <td>820.875555</td>
+      <td>0.027797</td>
+      <td>0.224519</td>
+      <td>0.123809</td>
+      <td>0.901467</td>
+      <td>0.983509</td>
+    </tr>
+    <tr>
+      <th>ZZZ3</th>
+      <td>59.934519</td>
+      <td>-0.075166</td>
+      <td>0.303987</td>
+      <td>-0.247268</td>
+      <td>0.804701</td>
+      <td>0.960365</td>
+    </tr>
+  </tbody>
+</table>
+<p>10393 rows × 6 columns</p>
+</div></div></div>
+</div>
+<section id="visual-inspection-of-differentially-expressed-genes">
+<h3>Visual inspection of differentially expressed genes<a class="headerlink" href="#visual-inspection-of-differentially-expressed-genes" title="Link to this heading">#</a></h3>
+<p>Volcano plots visualize differential expression results by plotting statistical significance (-log10 p-value) against effect size (log2 fold change). They help quickly identify genes that show both significant and substantial expression changes between conditions, making them a valuable tool for prioritizing genes for further investigation.</p>
+<p>Typically, one adds visual guiding lines at 1.3 for the y-axis (-log10(0.05)) and +/- 1 log2(2) foldchange for the x-axis.</p>
+<section id="why-the-adjusted-p-value">
+<h4>Why the adjusted p-value?<a class="headerlink" href="#why-the-adjusted-p-value" title="Link to this heading">#</a></h4>
+<p>When performing differential expression analysis across thousands of genes, we use adjusted p-values (typically Benjamini-Hochberg correction) to control for multiple testing. This is crucial because testing many genes simultaneously increases the chance of false positives - if we used raw p-values and tested 10,000 genes at p &lt; 0.05, we’d expect about 500 false positives by chance alone. The adjusted p-value (or FDR - False Discovery Rate) helps control this problem by adjusting the significance threshold based on the number of tests performed, giving us more confidence that our findings represent true biological differences rather than statistical artifacts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span><span class="o">.</span><span class="n">plot_volcano_df</span><span class="p">(</span><span class="n">results_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;log2FoldChange&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;padj&quot;</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5b903668de54f767048c7d1520218b6da1d9f61ac76fcdbbd7afecc1e989824a.png" src="../_images/5b903668de54f767048c7d1520218b6da1d9f61ac76fcdbbd7afecc1e989824a.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="enrichment-with-over-representation-analysis-ora">
+<h2>Enrichment with Over Representation Analysis (ORA)<a class="headerlink" href="#enrichment-with-over-representation-analysis-ora" title="Link to this heading">#</a></h2>
+<p>Once we have identified differentially expressed genes, we can interpret their biological significance through enrichment analysis. This helps us understand which pathways or biological processes are altered between conditions. We’ll use:</p>
+<ol class="arabic simple">
+<li><p>Over-Representation Analysis (ORA): Tests whether genes in a pathway appear more frequently than expected by chance in our set of differential genes</p></li>
+<li><p>MSigDB gene sets: A comprehensive collection of annotated gene sets for various biological processes</p></li>
+<li><p>Visualization of enrichment results to identify key pathways</p></li>
+</ol>
+<p>This analysis helps translate our gene-level findings into biological insights about pathway regulation and cellular processes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msigdb_all</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span><span class="s2">&quot;MSigDB&quot;</span><span class="p">)</span>
+<span class="n">msigdb_all</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>genesymbol</th>
+      <th>collection</th>
+      <th>geneset</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A1BG</td>
+      <td>immunesigdb</td>
+      <td>GSE25088_CTRL_VS_IL4_AND_ROSIGLITAZONE_STIM_MA...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A1BG</td>
+      <td>tf_targets_legacy</td>
+      <td>TGTTTGY_HNF3_Q6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A1BG</td>
+      <td>positional</td>
+      <td>chr19q13</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A1BG</td>
+      <td>cell_type_signatures</td>
+      <td>GAO_LARGE_INTESTINE_ADULT_CI_MESENCHYMAL_CELLS</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>A1BG</td>
+      <td>go_cellular_component</td>
+      <td>GOCC_EXTERNAL_ENCAPSULATING_STRUCTURE</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5522261</th>
+      <td>ZZZ3</td>
+      <td>go_biological_process</td>
+      <td>GOBP_MACROMOLECULE_DEACYLATION</td>
+    </tr>
+    <tr>
+      <th>5522262</th>
+      <td>ZZZ3</td>
+      <td>go_biological_process</td>
+      <td>GOBP_CELL_CYCLE</td>
+    </tr>
+    <tr>
+      <th>5522263</th>
+      <td>ZZZ3</td>
+      <td>tf_targets_gtrf</td>
+      <td>ZNF507_TARGET_GENES</td>
+    </tr>
+    <tr>
+      <th>5522264</th>
+      <td>ZZZ3</td>
+      <td>immunesigdb</td>
+      <td>GSE3982_NEUTROPHIL_VS_EFF_MEMORY_CD4_TCELL_DN</td>
+    </tr>
+    <tr>
+      <th>5522265</th>
+      <td>ZZZ3</td>
+      <td>immunesigdb</td>
+      <td>GSE18893_CTRL_VS_TNF_TREATED_TCONV_24H_UP</td>
+    </tr>
+  </tbody>
+</table>
+<p>5522266 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;go_biological_process&quot;</span>
+
+<span class="n">msigdb</span> <span class="o">=</span> <span class="n">msigdb_all</span><span class="p">[</span><span class="n">msigdb_all</span><span class="p">[</span><span class="s2">&quot;collection&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">collection</span><span class="p">]</span>
+
+<span class="c1"># Remove duplicated entries</span>
+<span class="n">msigdb</span> <span class="o">=</span> <span class="n">msigdb</span><span class="p">[</span><span class="o">~</span><span class="n">msigdb</span><span class="o">.</span><span class="n">duplicated</span><span class="p">([</span><span class="s2">&quot;geneset&quot;</span><span class="p">,</span> <span class="s2">&quot;genesymbol&quot;</span><span class="p">])]</span>
+
+<span class="k">if</span> <span class="n">collection</span> <span class="o">==</span> <span class="s2">&quot;hallmark&quot;</span><span class="p">:</span>
+    <span class="n">msigdb</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;geneset&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;HALLMARK_&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">msigdb</span><span class="p">[</span><span class="s2">&quot;geneset&quot;</span><span class="p">]]</span>
+<span class="k">elif</span> <span class="n">collection</span> <span class="o">==</span> <span class="s2">&quot;go_biological_process&quot;</span><span class="p">:</span>
+    <span class="n">msigdb</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;geneset&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;GOBP_&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">msigdb</span><span class="p">[</span><span class="s2">&quot;geneset&quot;</span><span class="p">]]</span>
+
+<span class="n">msigdb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>genesymbol</th>
+      <th>collection</th>
+      <th>geneset</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>73</th>
+      <td>A1CF</td>
+      <td>go_biological_process</td>
+      <td>MRNA_METABOLIC_PROCESS</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>A1CF</td>
+      <td>go_biological_process</td>
+      <td>EMBRYO_IMPLANTATION</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>A1CF</td>
+      <td>go_biological_process</td>
+      <td>MACROMOLECULE_CATABOLIC_PROCESS</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>A1CF</td>
+      <td>go_biological_process</td>
+      <td>MRNA_MODIFICATION</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>A1CF</td>
+      <td>go_biological_process</td>
+      <td>RNA_PROCESSING</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5522215</th>
+      <td>ZZZ3</td>
+      <td>go_biological_process</td>
+      <td>PROTEIN_ACYLATION</td>
+    </tr>
+    <tr>
+      <th>5522223</th>
+      <td>ZZZ3</td>
+      <td>go_biological_process</td>
+      <td>HISTONE_H3_ACETYLATION</td>
+    </tr>
+    <tr>
+      <th>5522241</th>
+      <td>ZZZ3</td>
+      <td>go_biological_process</td>
+      <td>REGULATION_OF_MULTICELLULAR_ORGANISMAL_DEVELOP...</td>
+    </tr>
+    <tr>
+      <th>5522261</th>
+      <td>ZZZ3</td>
+      <td>go_biological_process</td>
+      <td>MACROMOLECULE_DEACYLATION</td>
+    </tr>
+    <tr>
+      <th>5522262</th>
+      <td>ZZZ3</td>
+      <td>go_biological_process</td>
+      <td>CELL_CYCLE</td>
+    </tr>
+  </tbody>
+</table>
+<p>1026039 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_genes</span> <span class="o">=</span> <span class="n">results_df</span><span class="p">[</span><span class="n">results_df</span><span class="p">[</span><span class="s2">&quot;padj&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">]</span>
+
+<span class="n">enr_pvals</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">get_ora_df</span><span class="p">(</span>
+    <span class="n">df</span><span class="o">=</span><span class="n">top_genes</span><span class="p">,</span> <span class="n">net</span><span class="o">=</span><span class="n">msigdb</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;geneset&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;genesymbol&quot;</span>
+<span class="p">)</span>
+
+<span class="n">enr_pvals</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Term</th>
+      <th>Set size</th>
+      <th>Overlap ratio</th>
+      <th>p-value</th>
+      <th>FDR p-value</th>
+      <th>Odds ratio</th>
+      <th>Combined score</th>
+      <th>Features</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2_OXOGLUTARATE_METABOLIC_PROCESS</td>
+      <td>26</td>
+      <td>0.038462</td>
+      <td>0.189642</td>
+      <td>0.620302</td>
+      <td>7.044437</td>
+      <td>11.712207</td>
+      <td>L2HGDH</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3_UTR_MEDIATED_MRNA_DESTABILIZATION</td>
+      <td>28</td>
+      <td>0.035714</td>
+      <td>0.202653</td>
+      <td>0.628345</td>
+      <td>6.549434</td>
+      <td>10.454592</td>
+      <td>ZC3H12A</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ACIDIC_AMINO_ACID_TRANSPORT</td>
+      <td>88</td>
+      <td>0.022727</td>
+      <td>0.158084</td>
+      <td>0.597507</td>
+      <td>3.526646</td>
+      <td>6.505362</td>
+      <td>P2RX7;TNF</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ACID_SECRETION</td>
+      <td>66</td>
+      <td>0.030303</td>
+      <td>0.098998</td>
+      <td>0.559738</td>
+      <td>4.698541</td>
+      <td>10.866114</td>
+      <td>P2RX7;TNF</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ACTIN_FILAMENT_BASED_PROCESS</td>
+      <td>1274</td>
+      <td>0.003925</td>
+      <td>0.978775</td>
+      <td>0.999998</td>
+      <td>0.516375</td>
+      <td>0.011078</td>
+      <td>ACTG1;CORO1A;OPHN1;STMN1;TNF</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span><span class="o">.</span><span class="n">plot_dotplot</span><span class="p">(</span>
+    <span class="n">enr_pvals</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;Combined score&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Combined score&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Term&quot;</span><span class="p">,</span>
+    <span class="n">s</span><span class="o">=</span><span class="s2">&quot;Odds ratio&quot;</span><span class="p">,</span>
+    <span class="n">c</span><span class="o">=</span><span class="s2">&quot;FDR p-value&quot;</span><span class="p">,</span>
+    <span class="n">scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/645cf954a76139a6efc996d4d58f25e6028a36b5b4b5129bdac0febf70239fbe.png" src="../_images/645cf954a76139a6efc996d4d58f25e6028a36b5b4b5129bdac0febf70239fbe.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./day_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="nb3_batch_correction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Batch Correction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="nb5_trajectory_inference.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-pseudobulk-analysis">Understanding Pseudobulk Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-pseudobulks">Generate Pseudobulks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aligning-gene-identifiers">Aligning gene identifiers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assess-the-quality-of-our-pseudo-bulks">Assess the quality of our pseudo-bulks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#denoising-the-pseudo-bulks">Denoising the pseudo-bulks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-expression-analysis-of-the-pseudo-bulks-using-pydeseq2">Differential expression analysis of the pseudo-bulks using <code class="docutils literal notranslate"><span class="pre">pydeseq2</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-inspection-of-differentially-expressed-genes">Visual inspection of differentially expressed genes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-adjusted-p-value">Why the adjusted p-value?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enrichment-with-over-representation-analysis-ora">Enrichment with Over Representation Analysis (ORA)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GSCN Workshop Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

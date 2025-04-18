@@ -1,0 +1,2514 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Batch Correction &#8212; GSCN Workshop 2025</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'day_1/nb3_batch_correction';</script>
+    <link rel="canonical" href="/202504_workshop_GSCN/day_1/nb3_batch_correction.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Downstream: DGEA and GSEA" href="nb4_downstream_analysis.html" />
+    <link rel="prev" title="Dimensionality reduction, clustering and annotation" href="nb2_preprocessing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">GSCN Workshop 2025</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    scverse workshop in collaboration with the GSCN
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Day 1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nb1_qc_normalization.html">QC and Normalisation</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="nb2_preprocessing.html">Dimensionality reduction, clustering and annotation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Batch Correction</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="nb4_downstream_analysis.html">Downstream Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nb5_trajectory_inference.html">Introduction</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../day_2/README.html">Day 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../day_2/nb1_ligand_recepter_interactions.html">Ligand-Receptor Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day_2/nb2_differential_cellular_abundance.html">Introduction</a></li>
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="../day_2/spatialdata/README.html">Spatial Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../day_2/spatialdata/beginner/nb1_spatialdata_objects.html">1. SpatialData Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../day_2/spatialdata/beginner/nb2_static_plotting.html">2. Static Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../day_2/spatialdata/beginner/nb3_interactive_plotting_with_napari.html">3. Interactive Plotting with Napari</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../day_2/spatialdata/beginner/nb4_simple_analysis_using_scverse_tools.html">4. Simple Analysis using scverse Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../day_2/spatialdata/advanced/transformations.html">5. Transformations (advanced)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../day_2/spatialdata/advanced/tutorial_niche_calculation.html">6. Niche Calculation Tutorial (advanced)</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_3/README.html">Day 3</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/scverse/202504_workshop_GSCN" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scverse/202504_workshop_GSCN/edit/main/notebooks/day_1/nb3_batch_correction.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scverse/202504_workshop_GSCN/issues/new?title=Issue%20on%20page%20%2Fday_1/nb3_batch_correction.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/day_1/nb3_batch_correction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Batch Correction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Batch Correction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-packages">Load packages</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-multiple-samples-into-scanpy">Loading multiple samples into Scanpy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-1">batch-1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-2">batch-2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenate">Concatenate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-qc-and-normalization">Basic QC and normalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#highly-variable-genes-pca-nearest-neighbor-graph-umap">Highly variable genes, PCA, Nearest Neighbor Graph, UMAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-results">Visualize the results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-some-genes">Visualize some genes</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-effect-correction">Batch Effect Correction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-effect-correction-scanorama">Batch effect correction - Scanorama</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nearest-neighbors-and-umap">Nearest neighbors and UMAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize">Visualize</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#true-celltypes">True celltypes</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-effect-correction-harmony">Batch effect correction - Harmony</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-integrations-using-scib-metrics">Compare integrations using scib-metrics</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="batch-correction">
+<h1>Batch Correction<a class="headerlink" href="#batch-correction" title="Link to this heading">#</a></h1>
+<p>In this notebook, we will work with multiple samples, and discuss batch effect issues.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="load-packages">
+<h1>Load packages<a class="headerlink" href="#load-packages" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scanpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="loading-multiple-samples-into-scanpy">
+<h1>Loading multiple samples into Scanpy<a class="headerlink" href="#loading-multiple-samples-into-scanpy" title="Link to this heading">#</a></h1>
+<p>All of the computation we have done so far has been on a single sample. However, most real world data are likely not going to be a single sample and often require us to merge multiple data. We will use Scanpy to concatenate multiple data into one unified anndata object and discuss the issue of technical effect and its correction.</p>
+<p>For the purposes of illustration we will use the PBMC data (dataset 5) used in this publication: <a class="reference external" href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1850-9">https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1850-9</a>. The authors provide the data in an easily usable format (<a class="github reference external" href="https://github.com/JinmiaoChenLab/Batch-effect-removal-benchmarking">JinmiaoChenLab/Batch-effect-removal-benchmarking</a>).</p>
+<p>⚠️ Adjust the variable below to the data path on your specific workstation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_path</span> <span class="o">=</span> <span class="s1">&#39;./data_day1/&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="batch-1">
+<h2>batch-1<a class="headerlink" href="#batch-1" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_batch1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s1">&#39;b1_exprs.txt&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">celltype_batch1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s1">&#39;b1_celltype.txt&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_batch1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>data_3p-AAACCTGAGCATCATC-0</th>
+      <th>data_3p-AAACCTGAGCTAGTGG-0</th>
+      <th>data_3p-AAACCTGCACATTAGC-0</th>
+      <th>data_3p-AAACCTGCACTGTTAG-0</th>
+      <th>data_3p-AAACCTGCATAGTAAG-0</th>
+      <th>data_3p-AAACCTGCATGAACCT-0</th>
+      <th>data_3p-AAACCTGGTAAGAGGA-0</th>
+      <th>data_3p-AAACCTGGTAGAAGGA-0</th>
+      <th>data_3p-AAACCTGGTCCAGTGC-0</th>
+      <th>data_3p-AAACCTGGTGTCTGAT-0</th>
+      <th>...</th>
+      <th>data_3p-TTTGTCACAGGGATTG-0</th>
+      <th>data_3p-TTTGTCAGTAGCAAAT-0</th>
+      <th>data_3p-TTTGTCAGTCAGATAA-0</th>
+      <th>data_3p-TTTGTCAGTCGCGTGT-0</th>
+      <th>data_3p-TTTGTCAGTTACCGAT-0</th>
+      <th>data_3p-TTTGTCATCATGTCCC-0</th>
+      <th>data_3p-TTTGTCATCCGATATG-0</th>
+      <th>data_3p-TTTGTCATCGTCTGAA-0</th>
+      <th>data_3p-TTTGTCATCTCGAGTA-0</th>
+      <th>data_3p-TTTGTCATCTGCTTGC-0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>RP11-34P13.3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FAM138A</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>OR4F5</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>RP11-34P13.7</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>RP11-34P13.8</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 8098 columns</p>
+</div></div></div>
+</div>
+<p>We see above that the rows are genes and the columns are cells. We will have to keep this in mind when we create an anndata object out of the data.</p>
+<p>Let’s create an anndata object for batch1:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Notes: </span>
+<span class="c1"># We transpose the data to ensure rows are cells and columns are genes</span>
+<span class="c1"># We consider columns of the dataframe above as the cell names</span>
+<span class="c1"># We consider rows of the dataframe above as the gene names</span>
+<span class="n">adata1</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">AnnData</span><span class="p">(</span><span class="n">data_batch1</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
+                    <span class="n">obs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">data_batch1</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> 
+                    <span class="n">var</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">data_batch1</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 8098 × 33694
+</pre></div>
+</div>
+</div>
+</div>
+<p>Add the author provided celltype information:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">celltype_batch1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sample</th>
+      <th>n_counts</th>
+      <th>n_genes</th>
+      <th>batch</th>
+      <th>louvain</th>
+      <th>anno</th>
+      <th>Method</th>
+      <th>CellType</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>data_3p-AAACCTGAGCATCATC-0</th>
+      <td>data_3p</td>
+      <td>2394</td>
+      <td>871</td>
+      <td>0</td>
+      <td>9</td>
+      <td>B cell</td>
+      <td>10X_3prime</td>
+      <td>B cell</td>
+    </tr>
+    <tr>
+      <th>data_3p-AAACCTGAGCTAGTGG-0</th>
+      <td>data_3p</td>
+      <td>4520</td>
+      <td>1316</td>
+      <td>0</td>
+      <td>5</td>
+      <td>CD4 T cell</td>
+      <td>10X_3prime</td>
+      <td>CD4 T cell</td>
+    </tr>
+    <tr>
+      <th>data_3p-AAACCTGCACATTAGC-0</th>
+      <td>data_3p</td>
+      <td>2788</td>
+      <td>898</td>
+      <td>0</td>
+      <td>1</td>
+      <td>CD4 T cell</td>
+      <td>10X_3prime</td>
+      <td>CD4 T cell</td>
+    </tr>
+    <tr>
+      <th>data_3p-AAACCTGCACTGTTAG-0</th>
+      <td>data_3p</td>
+      <td>4667</td>
+      <td>1526</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Monocyte_CD14</td>
+      <td>10X_3prime</td>
+      <td>Monocyte_CD14</td>
+    </tr>
+    <tr>
+      <th>data_3p-AAACCTGCATAGTAAG-0</th>
+      <td>data_3p</td>
+      <td>4440</td>
+      <td>1495</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Monocyte_CD14</td>
+      <td>10X_3prime</td>
+      <td>Monocyte_CD14</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>data_3p-TTTGTCATCATGTCCC-0</th>
+      <td>data_3p</td>
+      <td>3141</td>
+      <td>1176</td>
+      <td>0</td>
+      <td>4</td>
+      <td>CD8 T cell</td>
+      <td>10X_3prime</td>
+      <td>CD8 T cell</td>
+    </tr>
+    <tr>
+      <th>data_3p-TTTGTCATCCGATATG-0</th>
+      <td>data_3p</td>
+      <td>5401</td>
+      <td>1379</td>
+      <td>0</td>
+      <td>4</td>
+      <td>CD8 T cell</td>
+      <td>10X_3prime</td>
+      <td>CD8 T cell</td>
+    </tr>
+    <tr>
+      <th>data_3p-TTTGTCATCGTCTGAA-0</th>
+      <td>data_3p</td>
+      <td>6081</td>
+      <td>1802</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Monocyte_CD14</td>
+      <td>10X_3prime</td>
+      <td>Monocyte_CD14</td>
+    </tr>
+    <tr>
+      <th>data_3p-TTTGTCATCTCGAGTA-0</th>
+      <td>data_3p</td>
+      <td>3970</td>
+      <td>1317</td>
+      <td>0</td>
+      <td>7</td>
+      <td>CD8 T cell</td>
+      <td>10X_3prime</td>
+      <td>CD8 T cell</td>
+    </tr>
+    <tr>
+      <th>data_3p-TTTGTCATCTGCTTGC-0</th>
+      <td>data_3p</td>
+      <td>4027</td>
+      <td>1259</td>
+      <td>0</td>
+      <td>4</td>
+      <td>CD8 T cell</td>
+      <td>10X_3prime</td>
+      <td>CD8 T cell</td>
+    </tr>
+  </tbody>
+</table>
+<p>8098 rows × 8 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">celltype_batch1</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">adata1</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">=</span> <span class="n">celltype_batch1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">adata1</span><span class="o">.</span><span class="n">obs_names</span><span class="p">][</span><span class="n">item</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 8098 × 33694
+    obs: &#39;Sample&#39;, &#39;n_counts&#39;, &#39;n_genes&#39;, &#39;batch&#39;, &#39;louvain&#39;, &#39;anno&#39;, &#39;Method&#39;, &#39;CellType&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="batch-2">
+<h2>batch-2<a class="headerlink" href="#batch-2" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_batch2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s1">&#39;b2_exprs.txt&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">celltype_batch2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s1">&#39;b2_celltype.txt&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_batch2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>data_5p-AAACCTGAGCGATAGC-1</th>
+      <th>data_5p-AAACCTGAGCTAAACA-1</th>
+      <th>data_5p-AAACCTGAGGGAGTAA-1</th>
+      <th>data_5p-AAACCTGAGTCTTGCA-1</th>
+      <th>data_5p-AAACCTGAGTTCGATC-1</th>
+      <th>data_5p-AAACCTGCACACTGCG-1</th>
+      <th>data_5p-AAACCTGCACGGTGTC-1</th>
+      <th>data_5p-AAACCTGCAGATGGGT-1</th>
+      <th>data_5p-AAACCTGCAGGTGGAT-1</th>
+      <th>data_5p-AAACCTGGTAAGCACG-1</th>
+      <th>...</th>
+      <th>data_5p-TTTGTCACAGCTGGCT-1</th>
+      <th>data_5p-TTTGTCACAGGTGGAT-1</th>
+      <th>data_5p-TTTGTCAGTCCGAAGA-1</th>
+      <th>data_5p-TTTGTCAGTTGATTGC-1</th>
+      <th>data_5p-TTTGTCATCACAAACC-1</th>
+      <th>data_5p-TTTGTCATCCACGTTC-1</th>
+      <th>data_5p-TTTGTCATCGCGTAGC-1</th>
+      <th>data_5p-TTTGTCATCTTAACCT-1</th>
+      <th>data_5p-TTTGTCATCTTACCGC-1</th>
+      <th>data_5p-TTTGTCATCTTGTTTG-1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>RP11-34P13.3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FAM138A</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>OR4F5</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>RP11-34P13.7</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>RP11-34P13.8</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 7378 columns</p>
+</div></div></div>
+</div>
+<p>Similar to batch-1, we see above that the rows are genes and the columns are cells. We will have to keep this in mind when we create an anndata object out of the data.</p>
+<p>Let’s create an anndata object for batch-2:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Notes: </span>
+<span class="c1"># We transpose the data to ensure rows are cells and columns are genes</span>
+<span class="c1"># We consider columns of the dataframe above as the cell names</span>
+<span class="c1"># We consider rows of the dataframe above as the gene names</span>
+<span class="n">adata2</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">AnnData</span><span class="p">(</span><span class="n">data_batch2</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
+                    <span class="n">obs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">data_batch2</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> 
+                    <span class="n">var</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">data_batch2</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 7378 × 33694
+</pre></div>
+</div>
+</div>
+</div>
+<p>Add the author provided celltype information:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">celltype_batch2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sample</th>
+      <th>n_counts</th>
+      <th>n_genes</th>
+      <th>batch</th>
+      <th>louvain</th>
+      <th>anno</th>
+      <th>Method</th>
+      <th>CellType</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>data_5p-AAACCTGAGCGATAGC-1</th>
+      <td>data_5p</td>
+      <td>2712</td>
+      <td>1318</td>
+      <td>1</td>
+      <td>18</td>
+      <td>NK cell</td>
+      <td>10X_5prime</td>
+      <td>NK cell</td>
+    </tr>
+    <tr>
+      <th>data_5p-AAACCTGAGCTAAACA-1</th>
+      <td>data_5p</td>
+      <td>6561</td>
+      <td>2164</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Monocyte_CD14</td>
+      <td>10X_5prime</td>
+      <td>Monocyte_CD14</td>
+    </tr>
+    <tr>
+      <th>data_5p-AAACCTGAGGGAGTAA-1</th>
+      <td>data_5p</td>
+      <td>6322</td>
+      <td>2112</td>
+      <td>1</td>
+      <td>8</td>
+      <td>Monocyte_CD14</td>
+      <td>10X_5prime</td>
+      <td>Monocyte_CD14</td>
+    </tr>
+    <tr>
+      <th>data_5p-AAACCTGAGTCTTGCA-1</th>
+      <td>data_5p</td>
+      <td>4528</td>
+      <td>1526</td>
+      <td>1</td>
+      <td>16</td>
+      <td>CD8 T cell</td>
+      <td>10X_5prime</td>
+      <td>CD8 T cell</td>
+    </tr>
+    <tr>
+      <th>data_5p-AAACCTGAGTTCGATC-1</th>
+      <td>data_5p</td>
+      <td>3426</td>
+      <td>1332</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Monocyte_CD14</td>
+      <td>10X_5prime</td>
+      <td>Monocyte_CD14</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>data_5p-TTTGTCATCCACGTTC-1</th>
+      <td>data_5p</td>
+      <td>6547</td>
+      <td>2044</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Monocyte_CD14</td>
+      <td>10X_5prime</td>
+      <td>Monocyte_CD14</td>
+    </tr>
+    <tr>
+      <th>data_5p-TTTGTCATCGCGTAGC-1</th>
+      <td>data_5p</td>
+      <td>3615</td>
+      <td>1397</td>
+      <td>1</td>
+      <td>10</td>
+      <td>B cell</td>
+      <td>10X_5prime</td>
+      <td>B cell</td>
+    </tr>
+    <tr>
+      <th>data_5p-TTTGTCATCTTAACCT-1</th>
+      <td>data_5p</td>
+      <td>3828</td>
+      <td>1480</td>
+      <td>1</td>
+      <td>16</td>
+      <td>CD8 T cell</td>
+      <td>10X_5prime</td>
+      <td>CD8 T cell</td>
+    </tr>
+    <tr>
+      <th>data_5p-TTTGTCATCTTACCGC-1</th>
+      <td>data_5p</td>
+      <td>6444</td>
+      <td>2388</td>
+      <td>1</td>
+      <td>28</td>
+      <td>Plasmacytoid dendritic cell</td>
+      <td>10X_5prime</td>
+      <td>Plasmacytoid dendritic cell</td>
+    </tr>
+    <tr>
+      <th>data_5p-TTTGTCATCTTGTTTG-1</th>
+      <td>data_5p</td>
+      <td>4457</td>
+      <td>1662</td>
+      <td>1</td>
+      <td>11</td>
+      <td>CD8 T cell</td>
+      <td>10X_5prime</td>
+      <td>CD8 T cell</td>
+    </tr>
+  </tbody>
+</table>
+<p>7378 rows × 8 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">celltype_batch2</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">adata2</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">=</span> <span class="n">celltype_batch2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">adata2</span><span class="o">.</span><span class="n">obs_names</span><span class="p">][</span><span class="n">item</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 7378 × 33694
+    obs: &#39;Sample&#39;, &#39;n_counts&#39;, &#39;n_genes&#39;, &#39;batch&#39;, &#39;louvain&#39;, &#39;anno&#39;, &#39;Method&#39;, &#39;CellType&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="concatenate">
+<h2>Concatenate<a class="headerlink" href="#concatenate" title="Link to this heading">#</a></h2>
+<p>Now that we have loaded data from both the batches, we can combine them to create one anndata object.</p>
+<p>For details on the parameters used for the function below, please see: <a class="reference external" href="https://anndata.readthedocs.io/en/latest/generated/anndata.concat.html">https://anndata.readthedocs.io/en/latest/generated/anndata.concat.html</a></p>
+<p>For discussion/examples of concatenation, please see:
+<a class="reference external" href="https://anndata.readthedocs.io/en/latest/concatenation.html">https://anndata.readthedocs.io/en/latest/concatenation.html</a></p>
+<p>Special Note: Please pay attention to <code class="docutils literal notranslate"><span class="pre">join</span> <span class="pre">=</span> <span class="pre">'outer'</span></code> parameter. We are choosing to consider any gene that is expressed in either of the data. This means there may be some genes that are expressed in one data set but not in the other. What expression counts do these genes get in cells where they are not expressed? It depends on the input data matrix: if it is in sparse format they get 0, else NaN. So to ensure no NaN, we set <code class="docutils literal notranslate"><span class="pre">fill_value</span> <span class="pre">=</span> <span class="pre">0</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">anndata</span>
+<span class="n">adata</span> <span class="o">=</span> <span class="n">anndata</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">adata1</span><span class="p">,</span> <span class="n">adata2</span><span class="p">],</span> 
+                       <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>                        
+                       <span class="n">join</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> 
+                       <span class="n">label</span><span class="o">=</span><span class="s1">&#39;batch_id&#39;</span><span class="p">,</span> 
+                       <span class="n">index_unique</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> 
+                       <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+
+<span class="c1"># If you have more than 2 samples:</span>
+<span class="c1">#adata = adata1_corr.concatenate(adata2_corr, adata3_corr, adata4_corr, </span>
+<span class="c1">#                                axis = 0,</span>
+<span class="c1">#                                join=&#39;outer&#39;, </span>
+<span class="c1">#                                label=&#39;batch_id&#39;, </span>
+<span class="c1">#                                index_unique=&#39;-&#39;, </span>
+<span class="c1">#                                fill_value=0)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 15476 × 33694
+    obs: &#39;Sample&#39;, &#39;n_counts&#39;, &#39;n_genes&#39;, &#39;batch&#39;, &#39;louvain&#39;, &#39;anno&#39;, &#39;Method&#39;, &#39;CellType&#39;, &#39;batch_id&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below we see the <code class="docutils literal notranslate"><span class="pre">.obs['batch_id']</span></code> of the adata and see that the first batch is called “0” and the second batch is called “1”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch_id&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_3p-AAACCTGAGCATCATC-0-0    0
+data_3p-AAACCTGAGCTAGTGG-0-0    0
+data_3p-AAACCTGCACATTAGC-0-0    0
+data_3p-AAACCTGCACTGTTAG-0-0    0
+data_3p-AAACCTGCATAGTAAG-0-0    0
+                               ..
+data_5p-TTTGTCATCCACGTTC-1-1    1
+data_5p-TTTGTCATCGCGTAGC-1-1    1
+data_5p-TTTGTCATCTTAACCT-1-1    1
+data_5p-TTTGTCATCTTACCGC-1-1    1
+data_5p-TTTGTCATCTTGTTTG-1-1    1
+Name: batch_id, Length: 15476, dtype: category
+Categories (2, object): [&#39;0&#39;, &#39;1&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">X</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0, 0, ..., 0, 0, 0],
+       [0, 0, 0, ..., 0, 0, 0],
+       [0, 0, 0, ..., 0, 0, 0],
+       ...,
+       [0, 0, 0, ..., 0, 0, 0],
+       [0, 0, 0, ..., 0, 0, 0],
+       [0, 0, 0, ..., 0, 0, 0]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check for NaN:</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>As seen above, there are no NaN in the combined data, so we can proceed normally.</p>
+</section>
+<section id="basic-qc-and-normalization">
+<h2>Basic QC and normalization<a class="headerlink" href="#basic-qc-and-normalization" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">calculate_qc_metrics</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Distribution of library size (total counts); number of genes per cell</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;log1p_total_counts&#39;</span><span class="p">][</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">],</span> <span class="mi">100</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;batch-0&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;log1p_total_counts&#39;</span><span class="p">][</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">],</span> <span class="mi">100</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;batch-1&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Log-library size&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;log1p_n_genes_by_counts&#39;</span><span class="p">][</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">],</span> <span class="mi">100</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;batch-0&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;log1p_n_genes_by_counts&#39;</span><span class="p">][</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">],</span> <span class="mi">100</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;batch-1&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Log-N genes per cell&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2a82fb7c0&gt;
+</pre></div>
+</div>
+<img alt="../_images/e555c51dd4db264fc38722ce5bcc47bf75709b00d47e9091299ea368221fc32f.png" src="../_images/e555c51dd4db264fc38722ce5bcc47bf75709b00d47e9091299ea368221fc32f.png" />
+</div>
+</div>
+<p>If you have more than 2 batch, you can run a for loop to visualize the distribution of each batch compared to the whole data. For this, you can adapt the following example code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Distribution of library size (total counts)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch_id&#39;</span><span class="p">])):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;log1p_total_counts&#39;</span><span class="p">],</span> <span class="mi">100</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;All cells&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;log1p_total_counts&#39;</span><span class="p">][</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">item</span><span class="p">],</span> <span class="mi">100</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;batch-&#39;</span> <span class="o">+</span> <span class="n">item</span><span class="p">,</span> 
+            <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Log-library size&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d59baa2d637fd1746ae49ecc34915e817e3dd438b973f8ea622eefd033dc2a7c.png" src="../_images/d59baa2d637fd1746ae49ecc34915e817e3dd438b973f8ea622eefd033dc2a7c.png" />
+</div>
+</div>
+<p>We see that on average batch-1 cells have higher library size and higher number of genes expressed per cell. We will keep this mind as we analyze the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Distribution of number of genes a cell is expressed in</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="p">[</span><span class="s1">&#39;n_cells_by_counts&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Log-N cells per gene&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="p">[</span><span class="s1">&#39;n_cells_by_counts&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Log-N cells per gene&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency, trimmed axis&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 500.0)
+</pre></div>
+</div>
+<img alt="../_images/5dfc88548683300b927acd5e03f51fbae505ebba25769e8feeefff21a307f6b8.png" src="../_images/5dfc88548683300b927acd5e03f51fbae505ebba25769e8feeefff21a307f6b8.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove genes expressed in less than 64 cells:</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">filter_genes</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">min_cells</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 15476 × 13386
+    obs: &#39;Sample&#39;, &#39;n_counts&#39;, &#39;n_genes&#39;, &#39;batch&#39;, &#39;louvain&#39;, &#39;anno&#39;, &#39;Method&#39;, &#39;CellType&#39;, &#39;batch_id&#39;, &#39;n_genes_by_counts&#39;, &#39;log1p_n_genes_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;pct_counts_in_top_50_genes&#39;, &#39;pct_counts_in_top_100_genes&#39;, &#39;pct_counts_in_top_200_genes&#39;, &#39;pct_counts_in_top_500_genes&#39;
+    var: &#39;n_cells_by_counts&#39;, &#39;mean_counts&#39;, &#39;log1p_mean_counts&#39;, &#39;pct_dropout_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;n_cells&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalizing + log transformation</span>
+
+<span class="c1"># Store raw counts for future</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s1">&#39;raw_counts&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Normalize with median library size</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">normalize_total</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Store the normalized counts for future</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s1">&#39;norm_counts&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Take log2 of the normalized counts</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">X</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 15476 × 13386
+    obs: &#39;Sample&#39;, &#39;n_counts&#39;, &#39;n_genes&#39;, &#39;batch&#39;, &#39;louvain&#39;, &#39;anno&#39;, &#39;Method&#39;, &#39;CellType&#39;, &#39;batch_id&#39;, &#39;n_genes_by_counts&#39;, &#39;log1p_n_genes_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;pct_counts_in_top_50_genes&#39;, &#39;pct_counts_in_top_100_genes&#39;, &#39;pct_counts_in_top_200_genes&#39;, &#39;pct_counts_in_top_500_genes&#39;
+    var: &#39;n_cells_by_counts&#39;, &#39;mean_counts&#39;, &#39;log1p_mean_counts&#39;, &#39;pct_dropout_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;n_cells&#39;
+    layers: &#39;raw_counts&#39;, &#39;norm_counts&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="highly-variable-genes-pca-nearest-neighbor-graph-umap">
+<h2>Highly variable genes, PCA, Nearest Neighbor Graph, UMAP<a class="headerlink" href="#highly-variable-genes-pca-nearest-neighbor-graph-umap" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HVG</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">highly_variable_genes</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">n_top_genes</span> <span class="o">=</span> <span class="mi">4000</span><span class="p">)</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;id_hvg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="p">[</span><span class="s1">&#39;highly_variable&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PCA</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">n_comps</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">use_highly_variable</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;pca&#39;</span><span class="p">][</span><span class="s1">&#39;variance_ratio&#39;</span><span class="p">])),</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;pca&#39;</span><span class="p">][</span><span class="s1">&#39;variance_ratio&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Principal Component&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;% Variance Explained&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;% Variance Explained&#39;)
+</pre></div>
+</div>
+<img alt="../_images/0a742b826fbbf6ba54531274253bf20883f037c67822a4b05376bccee3d16110.png" src="../_images/0a742b826fbbf6ba54531274253bf20883f037c67822a4b05376bccee3d16110.png" />
+</div>
+</div>
+<p>Based on the plot above, we will select 30 principal components.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_pca&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_pca&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nearest neighbors on PCA</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">use_rep</span><span class="o">=</span><span class="s1">&#39;X_pca&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">key_added</span><span class="o">=</span><span class="s1">&#39;neighbors_30&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># UMAP using the nearest neighbors</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">neighbors_key</span> <span class="o">=</span> <span class="s1">&#39;neighbors_30&#39;</span><span class="p">,</span> <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clustering using leiden</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">leiden</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">resolution</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">neighbors_key</span> <span class="o">=</span> <span class="s1">&#39;neighbors_30&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/qg/qgc908995g3fc8qtss2fsbhhxyxxj4/T/ipykernel_16241/3585288984.py:2: FutureWarning: In the future, the default backend for leiden will be igraph instead of leidenalg.
+
+ To achieve the future defaults please pass: flavor=&quot;igraph&quot; and n_iterations=2.  directed must also be False to work with igraph&#39;s implementation.
+  sc.tl.leiden(adata, resolution = 0.5, neighbors_key = &#39;neighbors_30&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 15476 × 13386
+    obs: &#39;Sample&#39;, &#39;n_counts&#39;, &#39;n_genes&#39;, &#39;batch&#39;, &#39;louvain&#39;, &#39;anno&#39;, &#39;Method&#39;, &#39;CellType&#39;, &#39;batch_id&#39;, &#39;n_genes_by_counts&#39;, &#39;log1p_n_genes_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;pct_counts_in_top_50_genes&#39;, &#39;pct_counts_in_top_100_genes&#39;, &#39;pct_counts_in_top_200_genes&#39;, &#39;pct_counts_in_top_500_genes&#39;, &#39;leiden&#39;
+    var: &#39;n_cells_by_counts&#39;, &#39;mean_counts&#39;, &#39;log1p_mean_counts&#39;, &#39;pct_dropout_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;n_cells&#39;, &#39;highly_variable&#39;, &#39;means&#39;, &#39;dispersions&#39;, &#39;dispersions_norm&#39;
+    uns: &#39;hvg&#39;, &#39;id_hvg&#39;, &#39;pca&#39;, &#39;neighbors_30&#39;, &#39;umap&#39;, &#39;leiden&#39;
+    obsm: &#39;X_pca&#39;, &#39;X_umap&#39;
+    varm: &#39;PCs&#39;
+    layers: &#39;raw_counts&#39;, &#39;norm_counts&#39;
+    obsp: &#39;neighbors_30_distances&#39;, &#39;neighbors_30_connectivities&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualize-the-results">
+<h2>Visualize the results<a class="headerlink" href="#visualize-the-results" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;batch_id&#39;</span><span class="p">,</span> <span class="s1">&#39;leiden&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4b2f71b58b70d161d3231ac37b073bc2f8c63853c91d834b430459a669abfec5.png" src="../_images/4b2f71b58b70d161d3231ac37b073bc2f8c63853c91d834b430459a669abfec5.png" />
+</div>
+</div>
+</section>
+<section id="visualize-some-genes">
+<h2>Visualize some genes<a class="headerlink" href="#visualize-some-genes" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CD3E&#39;</span><span class="p">,</span> <span class="s1">&#39;CD8A&#39;</span><span class="p">,</span> <span class="s1">&#39;CD4&#39;</span><span class="p">,</span> <span class="s1">&#39;IL7R&#39;</span><span class="p">,</span> <span class="s1">&#39;MS4A1&#39;</span><span class="p">,</span> <span class="s1">&#39;CD19&#39;</span><span class="p">,</span> <span class="s1">&#39;LYZ&#39;</span><span class="p">,</span> <span class="s1">&#39;FCGR3A&#39;</span><span class="p">,</span> <span class="s1">&#39;NKG7&#39;</span><span class="p">,</span> <span class="s1">&#39;CST3&#39;</span><span class="p">,</span> <span class="s1">&#39;PPBP&#39;</span><span class="p">,</span> <span class="s1">&#39;PTPRC&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">set_figure_params</span><span class="p">(</span><span class="n">scanpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="mf">1.5</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ac</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">dotplot</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">genes</span><span class="p">,</span> <span class="n">groupby</span> <span class="o">=</span> <span class="s1">&#39;leiden&#39;</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                   <span class="n">layer</span> <span class="o">=</span> <span class="s1">&#39;norm_counts&#39;</span><span class="p">,</span> 
+                   <span class="n">show</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../_images/956ad29d82e9b52349a5800b2b369f0a2c34e684bc7d452c887beb53778dbbad.png"><img alt="../_images/956ad29d82e9b52349a5800b2b369f0a2c34e684bc7d452c887beb53778dbbad.png" src="../_images/956ad29d82e9b52349a5800b2b369f0a2c34e684bc7d452c887beb53778dbbad.png" style="width: 1037px; height: 623px;" />
+</a>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="batch-effect-correction">
+<h1>Batch Effect Correction<a class="headerlink" href="#batch-effect-correction" title="Link to this heading">#</a></h1>
+<p>Batch effect is a technical effect that can confound biological interpretations. We mostly design experiments in such a way that there is as little batch effect as possible. But often times, we wish to compare our data at hand against some other published data. It is natural to expect some batch effect in such cases. Therefore, we need to find computational solutions to correct such technical confounder. As such, this is one of the busiest areas for computational methods development.</p>
+<p>While there exists many methods to perform such correction, there is a common underlying assumption in all the methods: there must be some sub-populations with the same phenotype (cell type or state) across batches. Under this assumption, a majority of the methods begin by computing nearest neighbor cell or mutually nearest neighbor (MNN) between batches to identify the similar cells. While we have covered nearest neighbor cell in the previous sessions, we have not discussed mutually nearest neighbor cells. We define mutually nearest neighbor cells as follows: If a pair of cells from each batch is contained in each other’s set of nearest neighbors, those cells are considered to be mutual nearest neighbors. The methods interpret these pairs as consisting cells that belong to the same cell type or state despite being generated in different batches.</p>
+<p>Here, we will discuss some of the most popular methods for batch effect correction.</p>
+<p>Scanorama: <a class="github reference external" href="https://github.com/brianhie/scanorama">brianhie/scanorama</a></p>
+<ul class="simple">
+<li><p>Scanorama uses randomized singular value decomposition (SVD) - similar to PCA - to compress the gene expression profiles into a low-dimensional embedding.</p></li>
+<li><p>It then searches for MNNs in the dimensionality reduced spaces and uses them in a careful way (weighted by similarity) to guide batch integration.</p></li>
+<li><p>Note: Scanorama also corrects the expression of the genes in all the batches (i.e. outputs a batch corrected gene expression matrix) that can be utilized downstream for further analysis such as visualization, differential expression etc.</p></li>
+</ul>
+<p>FastMNN:</p>
+<ul class="simple">
+<li><p>FastMNN uses principal component analysis (PCA) to compress the gene expression profiles into a low-dimensional embedding.</p></li>
+<li><p>It then searches for MNNs in the dimensionality reduced spaces and uses them to compute a translation vector to align the datasets into a shared space.</p></li>
+<li><p>More details can be found here: <a class="reference external" href="https://marionilab.github.io/FurtherMNN2018/theory/description.html">https://marionilab.github.io/FurtherMNN2018/theory/description.html</a></p></li>
+<li><p>Note: The original version is <code class="docutils literal notranslate"><span class="pre">mnnCorrect</span></code>, but it is more computationally demanding in terms of CPU and memory as it uses the full high dimensional gene expression space. (<a class="reference external" href="https://rdrr.io/bioc/batchelor/man/mnnCorrect.html">https://rdrr.io/bioc/batchelor/man/mnnCorrect.html</a>)</p></li>
+<li><p>Note: FastMNN also corrects the expression of the genes in all the batches (i.e. outputs a batch corrected gene expression matrix) that can be utilized downstream for further analysis such as visualization, differential expression etc.</p></li>
+</ul>
+<p>Harmony: <a class="reference external" href="https://portals.broadinstitute.org/harmony/articles/quickstart.html">https://portals.broadinstitute.org/harmony/articles/quickstart.html</a></p>
+<ul class="simple">
+<li><p>Harmony uses Principal Component Analysis (PCA) to compress the gene expression profiles into a low-dimensional embedding.</p></li>
+<li><p>In the PCA space, Harmony iteratively removes batch effects present. At each iteration, it clusters similar cells from different batches and maximizes the diversity of batches within each cluster. It then calculates a correction factor for each cell to be applied. It is good for visualization.</p></li>
+<li><p>Note: Harmony <em>does not</em> correct the expression of the genes in all the batches.</p></li>
+<li><p>Note: Harmony has also been noted to mess up the structure of the data post-correction, so we recommend to use with caution and ensuring that biological interpretation remains consistent.</p></li>
+</ul>
+<p>Seurat Integrate: <a class="reference external" href="https://satijalab.org/seurat/articles/integration_introduction.html">https://satijalab.org/seurat/articles/integration_introduction.html</a></p>
+<ul class="simple">
+<li><p>Seurate Integrate uses canonical correlation analysis (CCA) to compress the gene expression profiles into a low-dimensional embedding.</p></li>
+<li><p>It then searches for MNNs in the dimensionally reduced spaces and uses them as “anchors” to guide batch correction.</p></li>
+<li><p>Note: Seurat Integrate <em>does not</em> correct the expression of the genes in all the batches.</p></li>
+</ul>
+<p>We provide example code to run four different batch correction methods.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="batch-effect-correction-scanorama">
+<h1>Batch effect correction - Scanorama<a class="headerlink" href="#batch-effect-correction-scanorama" title="Link to this heading">#</a></h1>
+<p>While Scanorama is integrated into Scanpy, the current implementation on Scanpy does not correct the gene expression matrix. Therefore we will use the original stand-alone implementation of Scanorama (i.e. we will not call the function via Scanpy).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>scanorama
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scanorama in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (1.7.4)
+Requirement already satisfied: annoy&gt;=1.11.5 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanorama) (1.17.3)
+Requirement already satisfied: fbpca&gt;=1.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanorama) (1.0)
+Requirement already satisfied: geosketch&gt;=1.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanorama) (1.3)
+Requirement already satisfied: intervaltree&gt;=3.1.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanorama) (3.1.0)
+Requirement already satisfied: matplotlib&gt;=2.0.2 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanorama) (3.10.1)
+Requirement already satisfied: numpy&gt;=1.12.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanorama) (2.1.3)
+Requirement already satisfied: scipy&gt;=1.0.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanorama) (1.15.2)
+Requirement already satisfied: scikit-learn&gt;=0.20rc1 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanorama) (1.5.2)
+Requirement already satisfied: sortedcontainers&lt;3.0,&gt;=2.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from intervaltree&gt;=3.1.0-&gt;scanorama) (2.4.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from matplotlib&gt;=2.0.2-&gt;scanorama) (1.3.1)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from matplotlib&gt;=2.0.2-&gt;scanorama) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from matplotlib&gt;=2.0.2-&gt;scanorama) (4.57.0)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from matplotlib&gt;=2.0.2-&gt;scanorama) (1.4.7)
+Requirement already satisfied: packaging&gt;=20.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from matplotlib&gt;=2.0.2-&gt;scanorama) (24.2)
+Requirement already satisfied: pillow&gt;=8 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from matplotlib&gt;=2.0.2-&gt;scanorama) (11.1.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from matplotlib&gt;=2.0.2-&gt;scanorama) (3.2.3)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from matplotlib&gt;=2.0.2-&gt;scanorama) (2.9.0.post0)
+Requirement already satisfied: joblib&gt;=1.2.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scikit-learn&gt;=0.20rc1-&gt;scanorama) (1.4.2)
+Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scikit-learn&gt;=0.20rc1-&gt;scanorama) (3.6.0)
+Requirement already satisfied: six&gt;=1.5 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&gt;=2.0.2-&gt;scanorama) (1.17.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scanorama</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 15476 × 13386
+    obs: &#39;Sample&#39;, &#39;n_counts&#39;, &#39;n_genes&#39;, &#39;batch&#39;, &#39;louvain&#39;, &#39;anno&#39;, &#39;Method&#39;, &#39;CellType&#39;, &#39;batch_id&#39;, &#39;n_genes_by_counts&#39;, &#39;log1p_n_genes_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;pct_counts_in_top_50_genes&#39;, &#39;pct_counts_in_top_100_genes&#39;, &#39;pct_counts_in_top_200_genes&#39;, &#39;pct_counts_in_top_500_genes&#39;, &#39;leiden&#39;
+    var: &#39;n_cells_by_counts&#39;, &#39;mean_counts&#39;, &#39;log1p_mean_counts&#39;, &#39;pct_dropout_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;n_cells&#39;, &#39;highly_variable&#39;, &#39;means&#39;, &#39;dispersions&#39;, &#39;dispersions_norm&#39;
+    uns: &#39;hvg&#39;, &#39;id_hvg&#39;, &#39;pca&#39;, &#39;neighbors_30&#39;, &#39;umap&#39;, &#39;leiden&#39;, &#39;batch_id_colors&#39;, &#39;leiden_colors&#39;
+    obsm: &#39;X_pca&#39;, &#39;X_umap&#39;
+    varm: &#39;PCs&#39;
+    layers: &#39;raw_counts&#39;, &#39;norm_counts&#39;
+    obsp: &#39;neighbors_30_distances&#39;, &#39;neighbors_30_connectivities&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, we need to divide the data into respective batches.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our batch variable is stored under &#39;batch&#39;</span>
+<span class="n">batch_id</span> <span class="o">=</span> <span class="s1">&#39;batch&#39;</span>
+
+<span class="n">adatas</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">batch_id</span><span class="p">]):</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">batch_id</span><span class="p">]</span> <span class="o">==</span> <span class="n">c</span>
+    <span class="n">adatas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">adata</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can run Scanorama to obtain corrected expression counts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corrected</span> <span class="o">=</span> <span class="n">scanorama</span><span class="o">.</span><span class="n">correct_scanpy</span><span class="p">(</span>
+    <span class="n">adatas</span><span class="p">,</span> 
+    <span class="n">return_dimred</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">dimred</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">knn</span><span class="o">=</span><span class="mi">30</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 13386 genes among all datasets
+Processing datasets (0, 1)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages/anndata/_core/anndata.py:787: ImplicitModificationWarning: Trying to modify index of attribute `.obs` of view, initializing view as actual.
+  getattr(self, attr).index = value
+/Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages/anndata/_core/anndata.py:787: ImplicitModificationWarning: Trying to modify index of attribute `.obs` of view, initializing view as actual.
+  getattr(self, attr).index = value
+</pre></div>
+</div>
+</div>
+</div>
+<p>A note on the code above (you can also view the help page for scanorama):</p>
+<ol class="arabic simple">
+<li><p>The first input is a list of the adata, or batches we want to correct. Note: Scanorama directly acts on <code class="docutils literal notranslate"><span class="pre">.X</span></code>.</p></li>
+<li><p>return_dimred = True implies that the method will return the reduced dimensions (like PCA) where the two batches have been co-embedded or co-aligned.</p></li>
+<li><p>verbose = True indicates whether to output the intermediate comments.</p></li>
+<li><p>dimred = 30 is the number of dimensions on which Scanorama will perform the cell nearest neighbor mathching. I set it to 30 because based on our analysis above, we find that 30 principal components capture enough variance.</p></li>
+<li><p>knn = 30 is the number of nearest neighbors to estimate. This number should be smaller if you know the size of your sub-populations that are shared across batches is smaller.</p></li>
+</ol>
+<p>Note: There is another parameter called <code class="docutils literal notranslate"><span class="pre">hvg</span></code> to specify the number of highly variable genes (automatically estimated by scanorama), which we welcome you to play with. The only catch is that if you specify this number, the output matrix will only be corrected with highly varying genes (i.e. not all the genes).</p>
+<p>The output is stored in <code class="docutils literal notranslate"><span class="pre">corrected</span></code> which stores output <code class="docutils literal notranslate"><span class="pre">anndata</span></code> as lists. For example, <code class="docutils literal notranslate"><span class="pre">corrected[0]</span></code> contains the corrected data for batch-0 and <code class="docutils literal notranslate"><span class="pre">corrected[1]</span></code> contains the corrected data for batch-1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corrected</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 8098 × 13386
+    obs: &#39;Sample&#39;, &#39;n_counts&#39;, &#39;n_genes&#39;, &#39;batch&#39;, &#39;louvain&#39;, &#39;anno&#39;, &#39;Method&#39;, &#39;CellType&#39;, &#39;batch_id&#39;, &#39;n_genes_by_counts&#39;, &#39;log1p_n_genes_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;pct_counts_in_top_50_genes&#39;, &#39;pct_counts_in_top_100_genes&#39;, &#39;pct_counts_in_top_200_genes&#39;, &#39;pct_counts_in_top_500_genes&#39;, &#39;leiden&#39;
+    var: &#39;n_cells_by_counts&#39;, &#39;mean_counts&#39;, &#39;log1p_mean_counts&#39;, &#39;pct_dropout_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;n_cells&#39;, &#39;highly_variable&#39;, &#39;means&#39;, &#39;dispersions&#39;, &#39;dispersions_norm&#39;
+    uns: &#39;hvg&#39;, &#39;id_hvg&#39;, &#39;pca&#39;, &#39;neighbors_30&#39;, &#39;umap&#39;, &#39;leiden&#39;, &#39;batch_id_colors&#39;, &#39;leiden_colors&#39;
+    obsm: &#39;X_pca&#39;, &#39;X_umap&#39;, &#39;X_scanorama&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corrected</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 7378 × 13386
+    obs: &#39;Sample&#39;, &#39;n_counts&#39;, &#39;n_genes&#39;, &#39;batch&#39;, &#39;louvain&#39;, &#39;anno&#39;, &#39;Method&#39;, &#39;CellType&#39;, &#39;batch_id&#39;, &#39;n_genes_by_counts&#39;, &#39;log1p_n_genes_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;pct_counts_in_top_50_genes&#39;, &#39;pct_counts_in_top_100_genes&#39;, &#39;pct_counts_in_top_200_genes&#39;, &#39;pct_counts_in_top_500_genes&#39;, &#39;leiden&#39;
+    var: &#39;n_cells_by_counts&#39;, &#39;mean_counts&#39;, &#39;log1p_mean_counts&#39;, &#39;pct_dropout_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;n_cells&#39;, &#39;highly_variable&#39;, &#39;means&#39;, &#39;dispersions&#39;, &#39;dispersions_norm&#39;
+    uns: &#39;hvg&#39;, &#39;id_hvg&#39;, &#39;pca&#39;, &#39;neighbors_30&#39;, &#39;umap&#39;, &#39;leiden&#39;, &#39;batch_id_colors&#39;, &#39;leiden_colors&#39;
+    obsm: &#39;X_pca&#39;, &#39;X_umap&#39;, &#39;X_scanorama&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can combine the results and create a new anndata called adata_corrected.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_corrected</span> <span class="o">=</span> <span class="n">anndata</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">corrected</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_corrected</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 15476 × 13386
+    obs: &#39;Sample&#39;, &#39;n_counts&#39;, &#39;n_genes&#39;, &#39;batch&#39;, &#39;louvain&#39;, &#39;anno&#39;, &#39;Method&#39;, &#39;CellType&#39;, &#39;batch_id&#39;, &#39;n_genes_by_counts&#39;, &#39;log1p_n_genes_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;pct_counts_in_top_50_genes&#39;, &#39;pct_counts_in_top_100_genes&#39;, &#39;pct_counts_in_top_200_genes&#39;, &#39;pct_counts_in_top_500_genes&#39;, &#39;leiden&#39;
+    obsm: &#39;X_pca&#39;, &#39;X_umap&#39;, &#39;X_scanorama&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: In the above combined adata_corrected data, we have X_pca and X_umap, which were computed previously and should not used for the corrected combined data. So we need to recompute them. But first let’s save them as something else so they don’t overwritten.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_corrected</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;old_UMAP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata_corrected</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_path</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;./data_day1/&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save for later:</span>
+<span class="n">adata_corrected</span><span class="o">.</span><span class="n">write_h5ad</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s1">&#39;processed/batch_data_scanorama_corrected.h5ad&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="nearest-neighbors-and-umap">
+<h2>Nearest neighbors and UMAP<a class="headerlink" href="#nearest-neighbors-and-umap" title="Link to this heading">#</a></h2>
+<p>Note: Corrected reduced dimensions - PCA analogous - have already been computed (they are stored in <code class="docutils literal notranslate"><span class="pre">.obsm['X_scanorama']</span></code>) so all we need to do is run nearest neighbors algorithm followed by UMAP for visualization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nearest neighbors on corrected PCA</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">adata_corrected</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">use_rep</span><span class="o">=</span><span class="s1">&#39;X_scanorama&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> 
+                <span class="n">key_added</span><span class="o">=</span><span class="s1">&#39;neighbors_30_corrected&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># UMAP, FDL using the nearest neighbors</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata_corrected</span><span class="p">,</span> <span class="n">neighbors_key</span> <span class="o">=</span> <span class="s1">&#39;neighbors_30_corrected&#39;</span><span class="p">,</span> <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualize">
+<h2>Visualize<a class="headerlink" href="#visualize" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">c0</span> <span class="o">=</span> <span class="n">adata_corrected</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">adata_corrected</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_corrected</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][</span><span class="n">c0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_corrected</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][</span><span class="n">c0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Batch-0&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_corrected</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][</span><span class="n">c1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_corrected</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][</span><span class="n">c1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Batch-1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;UMAP of corrected data&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">c0</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_corrected</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;old_UMAP&#39;</span><span class="p">][</span><span class="n">c0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_corrected</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;old_UMAP&#39;</span><span class="p">][</span><span class="n">c0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Batch-0&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_corrected</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;old_UMAP&#39;</span><span class="p">][</span><span class="n">c1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_corrected</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;old_UMAP&#39;</span><span class="p">][</span><span class="n">c1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Batch-1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;UMAP of un-corrected data&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;UMAP of un-corrected data&#39;)
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/5fa7f98c3fcef3e416b8e4fe078b71191fcbd2ac81910e9c144083d6a0298ed5.png"><img alt="../_images/5fa7f98c3fcef3e416b8e4fe078b71191fcbd2ac81910e9c144083d6a0298ed5.png" src="../_images/5fa7f98c3fcef3e416b8e4fe078b71191fcbd2ac81910e9c144083d6a0298ed5.png" style="width: 399px; height: 398px;" />
+</a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">scanorama</span><span class="o">.</span><span class="n">correct</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function correct in module scanorama.scanorama:
+
+correct(datasets_full, genes_list, return_dimred=False, batch_size=5000, verbose=2, ds_names=None, dimred=100, approx=True, sigma=15, alpha=0.1, knn=20, return_dense=False, hvg=None, union=False, seed=0)
+    Integrate and batch correct a list of data sets.
+    
+    Parameters
+    ----------
+    datasets_full : `list` of `scipy.sparse.csr_matrix` or of `numpy.ndarray`
+        Data sets to integrate and correct.
+    genes_list: `list` of `list` of `string`
+        List of genes for each data set.
+    return_dimred: `bool`, optional (default: `False`)
+        In addition to returning batch corrected matrices, also returns
+        integrated low-dimesional embeddings.
+    batch_size: `int`, optional (default: `5000`)
+        The batch size used in the alignment vector computation. Useful when
+        correcting very large (&gt;100k samples) data sets. Set to large value
+        that runs within available memory.
+    verbose: `bool` or `int`, optional (default: 2)
+        When `True` or not equal to 0, prints logging output.
+    ds_names: `list` of `string`, optional
+        When `verbose=True`, reports data set names in logging output.
+    dimred: `int`, optional (default: 100)
+        Dimensionality of integrated embedding.
+    approx: `bool`, optional (default: `True`)
+        Use approximate nearest neighbors, greatly speeds up matching runtime.
+    sigma: `float`, optional (default: 15)
+        Correction smoothing parameter on Gaussian kernel.
+    alpha: `float`, optional (default: 0.10)
+        Alignment score minimum cutoff.
+    knn: `int`, optional (default: 20)
+        Number of nearest neighbors to use for matching.
+    return_dense: `bool`, optional (default: `False`)
+        Return `numpy.ndarray` matrices instead of `scipy.sparse.csr_matrix`.
+    hvg: `int`, optional (default: None)
+        Use this number of top highly variable genes based on dispersion.
+    seed: `int`, optional (default: 0)
+        Random seed to use.
+    
+    Returns
+    -------
+    corrected, genes
+        By default (`return_dimred=False`), returns a two-tuple containing a
+        list of `scipy.sparse.csr_matrix` each with batch corrected values,
+        and a single list of genes containing the intersection of inputted
+        genes.
+    
+    integrated, corrected, genes
+        When `return_dimred=True`, returns a three-tuple containing a list
+        of `numpy.ndarray` with integrated low dimensional embeddings, a list
+        of `scipy.sparse.csr_matrix` each with batch corrected values, and a
+        a single list of genes containing the intersection of inputted genes.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="true-celltypes">
+<h2>True celltypes<a class="headerlink" href="#true-celltypes" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata_corrected</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;batch_id&#39;</span><span class="p">,</span> <span class="s1">&#39;CellType&#39;</span><span class="p">],</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../_images/cdc130600e11d41d6c0c66e272fd08225e90542176cc5d7375eb480ae9782398.png"><img alt="../_images/cdc130600e11d41d6c0c66e272fd08225e90542176cc5d7375eb480ae9782398.png" src="../_images/cdc130600e11d41d6c0c66e272fd08225e90542176cc5d7375eb480ae9782398.png" style="width: 971px; height: 299px;" />
+</a>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="batch-effect-correction-harmony">
+<h1>Batch effect correction - Harmony<a class="headerlink" href="#batch-effect-correction-harmony" title="Link to this heading">#</a></h1>
+<p>Harmony is another popular method for correcting batch effect in single-cell RNA-sequencing data. As discussed in the beginning, Harmony iteratively removes batch effects in the PCA space. In each iteration, it clusters similar cells from different batches and maximizing the diversity of batches within each cluster; it then calculates a correction factor for each cell to be applied. While it is a fast method, there are a couple caveats: 1) Since it operates only on the PCA space, any non-linear association between features could be missed or altered; and 2) Harmony does not provide a corrected gene expression matrix. Therefore, the output of Harmony can only be used for visualization and clustering but not for differential expression analysis or any gene centric analysis, since one does not get a corrected expression matrix back. One would need to be careful to perform downstream analysis with Harmony.</p>
+<p>Harmony is implemented in Scanpy: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.external.pp.harmony_integrate.html">https://scanpy.readthedocs.io/en/stable/generated/scanpy.external.pp.harmony_integrate.html</a>.</p>
+<p>Let’s first make a copy of <code class="docutils literal notranslate"><span class="pre">adata</span></code> for application of Harmony. Note we do not simply do <code class="docutils literal notranslate"><span class="pre">adata_harmony</span> <span class="pre">=</span> <span class="pre">adata</span></code> but specify <code class="docutils literal notranslate"><span class="pre">adata_harmony</span> <span class="pre">=</span> <span class="pre">adata.copy()</span></code> because of the issue of mutable variables in Python. See more here: <a class="reference external" href="https://www.geeksforgeeks.org/mutable-vs-immutable-objects-in-python/">https://www.geeksforgeeks.org/mutable-vs-immutable-objects-in-python/</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_harmony</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Please run this step if we did not install harmonypy</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>harmonypy
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: harmonypy in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (0.0.10)
+Requirement already satisfied: numpy in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from harmonypy) (2.1.3)
+Requirement already satisfied: pandas in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from harmonypy) (2.2.3)
+Requirement already satisfied: scikit-learn in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from harmonypy) (1.5.2)
+Requirement already satisfied: scipy in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from harmonypy) (1.15.2)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from pandas-&gt;harmonypy) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from pandas-&gt;harmonypy) (2024.1)
+Requirement already satisfied: tzdata&gt;=2022.7 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from pandas-&gt;harmonypy) (2025.2)
+Requirement already satisfied: joblib&gt;=1.2.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scikit-learn-&gt;harmonypy) (1.4.2)
+Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scikit-learn-&gt;harmonypy) (3.6.0)
+Requirement already satisfied: six&gt;=1.5 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas-&gt;harmonypy) (1.17.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">external</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">harmony_integrate</span><span class="p">(</span><span class="n">adata_harmony</span><span class="p">,</span> 
+                                 <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;batch_id&#39;</span><span class="p">,</span> 
+                                 <span class="n">basis</span><span class="o">=</span><span class="s1">&#39;X_pca&#39;</span><span class="p">,</span> 
+                                 <span class="n">adjusted_basis</span><span class="o">=</span><span class="s1">&#39;X_pca_harmony&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-04-17 15:59:58,897 - harmonypy - INFO - Computing initial centroids with sklearn.KMeans...
+2025-04-17 16:00:01,141 - harmonypy - INFO - sklearn.KMeans initialization complete.
+2025-04-17 16:00:01,183 - harmonypy - INFO - Iteration 1 of 10
+2025-04-17 16:00:02,599 - harmonypy - INFO - Iteration 2 of 10
+2025-04-17 16:00:04,071 - harmonypy - INFO - Iteration 3 of 10
+2025-04-17 16:00:05,472 - harmonypy - INFO - Iteration 4 of 10
+2025-04-17 16:00:07,030 - harmonypy - INFO - Iteration 5 of 10
+2025-04-17 16:00:08,542 - harmonypy - INFO - Iteration 6 of 10
+2025-04-17 16:00:10,087 - harmonypy - INFO - Converged after 6 iterations
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_harmony</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 15476 × 13386
+    obs: &#39;Sample&#39;, &#39;n_counts&#39;, &#39;n_genes&#39;, &#39;batch&#39;, &#39;louvain&#39;, &#39;anno&#39;, &#39;Method&#39;, &#39;CellType&#39;, &#39;batch_id&#39;, &#39;n_genes_by_counts&#39;, &#39;log1p_n_genes_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;pct_counts_in_top_50_genes&#39;, &#39;pct_counts_in_top_100_genes&#39;, &#39;pct_counts_in_top_200_genes&#39;, &#39;pct_counts_in_top_500_genes&#39;, &#39;leiden&#39;
+    var: &#39;n_cells_by_counts&#39;, &#39;mean_counts&#39;, &#39;log1p_mean_counts&#39;, &#39;pct_dropout_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;n_cells&#39;, &#39;highly_variable&#39;, &#39;means&#39;, &#39;dispersions&#39;, &#39;dispersions_norm&#39;
+    uns: &#39;hvg&#39;, &#39;id_hvg&#39;, &#39;pca&#39;, &#39;neighbors_30&#39;, &#39;umap&#39;, &#39;leiden&#39;, &#39;batch_id_colors&#39;, &#39;leiden_colors&#39;
+    obsm: &#39;X_pca&#39;, &#39;X_umap&#39;, &#39;X_pca_harmony&#39;
+    varm: &#39;PCs&#39;
+    layers: &#39;raw_counts&#39;, &#39;norm_counts&#39;
+    obsp: &#39;neighbors_30_distances&#39;, &#39;neighbors_30_connectivities&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we just need to recompute the neighbors and UMAP on the above computed X_pca_harmony:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save to prevent overwriting</span>
+<span class="n">adata_harmony</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;old_UMAP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata_harmony</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nearest neighbors on PCA_harmony</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span>
+    <span class="n">adata_harmony</span><span class="p">,</span>
+    <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">use_rep</span><span class="o">=</span><span class="s1">&#39;X_pca_harmony&#39;</span><span class="p">,</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> 
+    <span class="n">key_added</span><span class="o">=</span><span class="s1">&#39;neighbors_30_harmony&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># UMAP using the nearest neighbors</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata_harmony</span><span class="p">,</span> <span class="n">neighbors_key</span> <span class="o">=</span> <span class="s1">&#39;neighbors_30_harmony&#39;</span><span class="p">,</span> <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">c0</span> <span class="o">=</span> <span class="n">adata_harmony</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">adata_harmony</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_harmony</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][</span><span class="n">c0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_harmony</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][</span><span class="n">c0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Batch-0&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_harmony</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][</span><span class="n">c1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_harmony</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_umap&#39;</span><span class="p">][</span><span class="n">c1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Batch-1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;UMAP of Harmony corrected data&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">c0</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_harmony</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;old_UMAP&#39;</span><span class="p">][</span><span class="n">c0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_harmony</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;old_UMAP&#39;</span><span class="p">][</span><span class="n">c0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Batch-0&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">adata_harmony</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;old_UMAP&#39;</span><span class="p">][</span><span class="n">c1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">adata_harmony</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;old_UMAP&#39;</span><span class="p">][</span><span class="n">c1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Batch-1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;UMAP of un-corrected data&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;UMAP of un-corrected data&#39;)
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/98f7b8ef25d34569bd8c52533fba3e0f527093dbbb7fd57731be3f836834d030.png"><img alt="../_images/98f7b8ef25d34569bd8c52533fba3e0f527093dbbb7fd57731be3f836834d030.png" src="../_images/98f7b8ef25d34569bd8c52533fba3e0f527093dbbb7fd57731be3f836834d030.png" style="width: 640px; height: 398px;" />
+</a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata_harmony</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CellType&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../_images/d04ac476632110ab55107c3e6ef21b8cea08289e8211f6b1e5f80da18bd98529.png"><img alt="../_images/d04ac476632110ab55107c3e6ef21b8cea08289e8211f6b1e5f80da18bd98529.png" src="../_images/d04ac476632110ab55107c3e6ef21b8cea08289e8211f6b1e5f80da18bd98529.png" style="width: 485px; height: 296px;" />
+</a>
+</div>
+</div>
+<section id="compare-integrations-using-scib-metrics">
+<h2>Compare integrations using scib-metrics<a class="headerlink" href="#compare-integrations-using-scib-metrics" title="Link to this heading">#</a></h2>
+<p>Integration is very much dataset dependent and there is no single tool that always performs best. Usually, it’s better to use a few methods and evaluate their quality by certain downstrea metrics. One package that can facility this is <code class="docutils literal notranslate"><span class="pre">scib-metrics</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Please run this step if we did not install harmonypy</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>scib-metrics
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scib-metrics
+  Downloading scib_metrics-0.5.3-py3-none-any.whl.metadata (8.2 kB)
+Requirement already satisfied: anndata in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scib-metrics) (0.11.4)
+Collecting chex (from scib-metrics)
+  Downloading chex-0.1.89-py3-none-any.whl.metadata (17 kB)
+Requirement already satisfied: igraph&gt;0.9.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scib-metrics) (0.11.8)
+Requirement already satisfied: jax in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scib-metrics) (0.5.2)
+Requirement already satisfied: jaxlib in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scib-metrics) (0.5.2)
+Requirement already satisfied: matplotlib in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scib-metrics) (3.10.1)
+Requirement already satisfied: numpy in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scib-metrics) (2.1.3)
+Requirement already satisfied: pandas in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scib-metrics) (2.2.3)
+Collecting plottable (from scib-metrics)
+  Downloading plottable-0.1.5-py3-none-any.whl.metadata (3.2 kB)
+Requirement already satisfied: pynndescent in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scib-metrics) (0.5.13)
+Collecting rich (from scib-metrics)
+  Using cached rich-14.0.0-py3-none-any.whl.metadata (18 kB)
+Requirement already satisfied: scanpy&gt;=1.9 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scib-metrics) (1.11.1)
+Requirement already satisfied: scikit-learn in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scib-metrics) (1.5.2)
+Requirement already satisfied: scipy in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scib-metrics) (1.15.2)
+Requirement already satisfied: tqdm in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scib-metrics) (4.67.1)
+Requirement already satisfied: umap-learn&gt;=0.5.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scib-metrics) (0.5.7)
+Requirement already satisfied: texttable&gt;=1.6.2 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from igraph&gt;0.9.0-&gt;scib-metrics) (1.7.0)
+Requirement already satisfied: h5py&gt;=3.7 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanpy&gt;=1.9-&gt;scib-metrics) (3.13.0)
+Requirement already satisfied: joblib in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanpy&gt;=1.9-&gt;scib-metrics) (1.4.2)
+Requirement already satisfied: legacy-api-wrap&gt;=1.4 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanpy&gt;=1.9-&gt;scib-metrics) (1.4.1)
+Requirement already satisfied: natsort in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanpy&gt;=1.9-&gt;scib-metrics) (8.4.0)
+Requirement already satisfied: networkx&gt;=2.7 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanpy&gt;=1.9-&gt;scib-metrics) (3.4.2)
+Requirement already satisfied: numba&gt;=0.57 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanpy&gt;=1.9-&gt;scib-metrics) (0.61.0)
+Requirement already satisfied: packaging&gt;=21.3 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanpy&gt;=1.9-&gt;scib-metrics) (24.2)
+Requirement already satisfied: patsy!=1.0.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanpy&gt;=1.9-&gt;scib-metrics) (1.0.1)
+Requirement already satisfied: seaborn&gt;=0.13 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanpy&gt;=1.9-&gt;scib-metrics) (0.13.2)
+Requirement already satisfied: session-info2 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanpy&gt;=1.9-&gt;scib-metrics) (0.1.2)
+Requirement already satisfied: statsmodels&gt;=0.13 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanpy&gt;=1.9-&gt;scib-metrics) (0.14.4)
+Requirement already satisfied: typing-extensions in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scanpy&gt;=1.9-&gt;scib-metrics) (4.13.1)
+Requirement already satisfied: array-api-compat!=1.5,&gt;1.4 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from anndata-&gt;scib-metrics) (1.11.2)
+Requirement already satisfied: exceptiongroup in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from anndata-&gt;scib-metrics) (1.2.2)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from matplotlib-&gt;scib-metrics) (1.3.1)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from matplotlib-&gt;scib-metrics) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from matplotlib-&gt;scib-metrics) (4.57.0)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from matplotlib-&gt;scib-metrics) (1.4.7)
+Requirement already satisfied: pillow&gt;=8 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from matplotlib-&gt;scib-metrics) (11.1.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from matplotlib-&gt;scib-metrics) (3.2.3)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from matplotlib-&gt;scib-metrics) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from pandas-&gt;scib-metrics) (2024.1)
+Requirement already satisfied: tzdata&gt;=2022.7 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from pandas-&gt;scib-metrics) (2025.2)
+Requirement already satisfied: llvmlite&gt;=0.30 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from pynndescent-&gt;scib-metrics) (0.44.0)
+Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from scikit-learn-&gt;scib-metrics) (3.6.0)
+Requirement already satisfied: absl-py&gt;=0.9.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from chex-&gt;scib-metrics) (2.2.0)
+Collecting toolz&gt;=0.9.0 (from chex-&gt;scib-metrics)
+  Using cached toolz-1.0.0-py3-none-any.whl.metadata (5.1 kB)
+Requirement already satisfied: ml_dtypes&gt;=0.4.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from jax-&gt;scib-metrics) (0.5.1)
+Requirement already satisfied: opt_einsum in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from jax-&gt;scib-metrics) (3.4.0)
+Collecting markdown-it-py&gt;=2.2.0 (from rich-&gt;scib-metrics)
+  Using cached markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
+Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from rich-&gt;scib-metrics) (2.19.1)
+Collecting mdurl~=0.1 (from markdown-it-py&gt;=2.2.0-&gt;rich-&gt;scib-metrics)
+  Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Requirement already satisfied: six&gt;=1.5 in /Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;scib-metrics) (1.17.0)
+Downloading scib_metrics-0.5.3-py3-none-any.whl (37 kB)
+Downloading chex-0.1.89-py3-none-any.whl (99 kB)
+Downloading plottable-0.1.5-py3-none-any.whl (24 kB)
+Using cached rich-14.0.0-py3-none-any.whl (243 kB)
+Using cached markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+Downloading toolz-1.0.0-py3-none-any.whl (56 kB)
+Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Installing collected packages: toolz, mdurl, markdown-it-py, rich, plottable, chex, scib-metrics
+Successfully installed chex-0.1.89 markdown-it-py-3.0.0 mdurl-0.1.2 plottable-0.1.5 rich-14.0.0 scib-metrics-0.5.3 toolz-1.0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scib_metrics.benchmark</span><span class="w"> </span><span class="kn">import</span> <span class="n">Benchmarker</span><span class="p">,</span> <span class="n">BioConservation</span><span class="p">,</span> <span class="n">BatchCorrection</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that both AnnData objects produced one embedding vector with 30 values for every cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_corrected</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_scanorama&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(15476, 30)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_harmony</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_pca_harmony&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(15476, 30)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll now create a joint AnnData object that we pass to scib-metrics for evaluation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_for_scib</span> <span class="o">=</span> <span class="n">adata_corrected</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">adata_for_scib</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;Unintegrated&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata_corrected</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_pca&#39;</span><span class="p">]</span>
+<span class="n">adata_for_scib</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_scanorama&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata_corrected</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_scanorama&#39;</span><span class="p">]</span>
+<span class="n">adata_for_scib</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_pca_harmony&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata_harmony</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_pca_harmony&#39;</span><span class="p">]</span>
+<span class="n">adata_for_scib</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata_corrected</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;batch_id&#39;</span><span class="p">]</span>
+<span class="n">adata_for_scib</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;celltype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata_corrected</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;CellType&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bm</span> <span class="o">=</span> <span class="n">Benchmarker</span><span class="p">(</span>
+    <span class="n">adata_for_scib</span><span class="p">,</span>
+    <span class="n">batch_key</span><span class="o">=</span><span class="s2">&quot;batch&quot;</span><span class="p">,</span>
+    <span class="n">label_key</span><span class="o">=</span><span class="s2">&quot;celltype&quot;</span><span class="p">,</span>
+    <span class="n">bio_conservation_metrics</span><span class="o">=</span><span class="n">BioConservation</span><span class="p">(),</span>
+    <span class="n">batch_correction_metrics</span><span class="o">=</span><span class="n">BatchCorrection</span><span class="p">(),</span>
+    <span class="n">embedding_obsm_keys</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;Unintegrated&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;X_scanorama&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;X_pca_harmony&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">benchmark</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages/scanpy/preprocessing/_pca/__init__.py:438: FutureWarning: Argument `use_highly_variable` is deprecated, consider using the mask argument. Use_highly_variable=True can be called through mask_var=&quot;highly_variable&quot;. Use_highly_variable=False can be called through mask_var=None
+  warn(msg, FutureWarning)
+Computing neighbors: 100%|██████████| 3/3 [00:18&lt;00:00,  6.19s/it]
+Embeddings:   0%|<span class=" -Color -Color-Green">          </span>| 0/3 [00:00&lt;?, ?it/s]/Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages/scib_metrics/metrics/_graph_connectivity.py:32: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.
+  tab = pd.value_counts(comps)
+/Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages/scib_metrics/metrics/_pcr_comparison.py:49: UserWarning: PCR comparison score is negative, meaning variance contribution increased after integration. Setting to 0.
+  warnings.warn(
+Embeddings:  33%|<span class=" -Color -Color-Green">███▎      </span>| 1/3 [00:20&lt;00:41, 20.68s/it]/Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages/scib_metrics/metrics/_graph_connectivity.py:32: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.
+  tab = pd.value_counts(comps)
+/Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages/scib_metrics/metrics/_pcr_comparison.py:49: UserWarning: PCR comparison score is negative, meaning variance contribution increased after integration. Setting to 0.
+  warnings.warn(
+Embeddings:  67%|<span class=" -Color -Color-Green">██████▋   </span>| 2/3 [00:31&lt;00:15, 15.08s/it]/Users/tim.treis/anaconda3/envs/spatialdata/envs/workshop_2025/lib/python3.10/site-packages/scib_metrics/metrics/_graph_connectivity.py:32: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.
+  tab = pd.value_counts(comps)
+Embeddings: 100%|<span class=" -Color -Color-Green">██████████</span>| 3/3 [00:43&lt;00:00, 14.45s/it]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bm</span><span class="o">.</span><span class="n">plot_results_table</span><span class="p">(</span><span class="n">min_max_scale</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../_images/358c9a08bdc96ecdd3445910122dc01865dfe556e66ad0bf94ce52337946a9ce.png"><img alt="../_images/358c9a08bdc96ecdd3445910122dc01865dfe556e66ad0bf94ce52337946a9ce.png" src="../_images/358c9a08bdc96ecdd3445910122dc01865dfe556e66ad0bf94ce52337946a9ce.png" style="width: 1030px; height: 253px;" />
+</a>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;plottable.table.Table at 0x2cc859600&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that, based on the default <code class="docutils literal notranslate"><span class="pre">scib-metrics</span></code>, harmony seems to perform significantly better than <code class="docutils literal notranslate"><span class="pre">scanorama</span></code>. For more information on what these metrics exactly are or how best to understand them, please refer to the <a class="reference external" href="https://scib-metrics.readthedocs.io/">official scib-metrics documentation.</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./day_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="nb2_preprocessing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Dimensionality reduction, clustering and annotation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="nb4_downstream_analysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Downstream: DGEA and GSEA</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Batch Correction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-packages">Load packages</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-multiple-samples-into-scanpy">Loading multiple samples into Scanpy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-1">batch-1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-2">batch-2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenate">Concatenate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-qc-and-normalization">Basic QC and normalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#highly-variable-genes-pca-nearest-neighbor-graph-umap">Highly variable genes, PCA, Nearest Neighbor Graph, UMAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-results">Visualize the results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-some-genes">Visualize some genes</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-effect-correction">Batch Effect Correction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-effect-correction-scanorama">Batch effect correction - Scanorama</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nearest-neighbors-and-umap">Nearest neighbors and UMAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize">Visualize</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#true-celltypes">True celltypes</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-effect-correction-harmony">Batch effect correction - Harmony</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-integrations-using-scib-metrics">Compare integrations using scib-metrics</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GSCN Workshop Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1995 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction &#8212; GSCN Workshop 2025</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'day_2/nb2_differential_cellular_abundance';</script>
+    <link rel="canonical" href="/202504_workshop_GSCN/day_2/nb2_differential_cellular_abundance.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Spatial Analysis Tutorials" href="spatialdata/README.html" />
+    <link rel="prev" title="Ligand-Receptor Analysis" href="nb1_ligand_recepter_interactions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">GSCN Workshop 2025</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    scverse workshop in collaboration with the GSCN
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../day_1/README.html">Day 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../day_1/nb1_qc_normalization.html">QC and Normalisation</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../day_1/nb2_preprocessing.html">Dimensionality reduction, clustering and annotation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../day_1/nb3_batch_correction.html">Batch Correction</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../day_1/nb4_downstream_analysis.html">Downstream Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day_1/nb5_trajectory_inference.html">Introduction</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Day 2</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nb1_ligand_recepter_interactions.html">Ligand-Receptor Interactions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Introduction</a></li>
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="spatialdata/README.html">Spatial Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="spatialdata/beginner/nb1_spatialdata_objects.html">1. SpatialData Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spatialdata/beginner/nb2_static_plotting.html">2. Static Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spatialdata/beginner/nb3_interactive_plotting_with_napari.html">3. Interactive Plotting with Napari</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spatialdata/beginner/nb4_simple_analysis_using_scverse_tools.html">4. Simple Analysis using scverse Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spatialdata/advanced/transformations.html">5. Transformations (advanced)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spatialdata/advanced/tutorial_niche_calculation.html">6. Niche Calculation Tutorial (advanced)</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_3/README.html">Day 3</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/scverse/202504_workshop_GSCN" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scverse/202504_workshop_GSCN/edit/main/notebooks/day_2/nb2_differential_cellular_abundance.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scverse/202504_workshop_GSCN/issues/new?title=Issue%20on%20page%20%2Fday_2/nb2_differential_cellular_abundance.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/day_2/nb2_differential_cellular_abundance.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-packages">Load packages</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-example-data">Load example data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternate-visual">Alternate visual</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#milor">MiloR</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-for-milor">Set up for MiloR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-milor">Run MiloR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construct-design-matrix">Construct Design Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-analysis">Differential analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-in-r">Visualize in R</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-celltype-information">Add celltype information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beeswarm-plot-in-r">Beeswarm plot in R</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Alternate visual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-contrasts-in-milo-models">Adding contrasts in Milo models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-design-matrix-with-contrasts">Create design matrix with contrasts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-one-contrast-a-vs-b">Example one: contrast A vs B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-two-contrast-c-vs-a-b">Example two: contrast C vs (A + B)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>In this notebook we will look at some techniques for differential cell abundance analysis when you have multiple samples.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="load-packages">
+<h1>Load packages<a class="headerlink" href="#load-packages" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scanpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rpy2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">anndata2ri</span>
+<span class="n">anndata2ri</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+<span class="o">%</span><span class="k">load_ext</span> rpy2.ipython
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/x1/3bxg2yyn42x6m5tcv9l5k511m4dgnw/T/ipykernel_8973/2909349582.py:3: DeprecationWarning: The global conversion available with activate() is deprecated and will be removed in the next major release. Use a local converter.
+  anndata2ri.activate()
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="load-example-data">
+<h1>Load example data<a class="headerlink" href="#load-example-data" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/sharmar1/Dropbox/msk_workshop/SCALE_2024_winter/scale_2024_winter_day4/afternoon/&#39;</span>
+<span class="n">adata</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">read_h5ad</span><span class="p">(</span><span class="n">input_path</span> <span class="o">+</span> <span class="s1">&#39;clean_myeloid.h5ad&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 4718 × 12786
+    obs: &#39;Clusters&#39;, &#39;Celltype&#39;, &#39;SampleID&#39;, &#39;name&#39;, &#39;background&#39;, &#39;condition&#39;, &#39;replicate&#39;, &#39;experiment&#39;, &#39;ncells&#39;, &#39;libsize&#39;, &#39;mito_fraction&#39;, &#39;ribo_fraction&#39;, &#39;mhc_fraction&#39;, &#39;actin_fraction&#39;, &#39;cytoskeleton_fraction&#39;, &#39;malat1_fraction&#39;, &#39;scrublet_predict&#39;, &#39;scrublet_score&#39;, &#39;lowlibsize&#39;, &#39;Clusters_myeloid&#39;, &#39;Celltype_myeloid&#39;
+    obsm: &#39;X_pca&#39;, &#39;X_tsne&#39;, &#39;imputed_data&#39;
+    layers: &#39;norm_count&#39;, &#39;norm_log&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Celltype_myeloid&#39;</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">],</span> <span class="n">wspace</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0a891a08cd71e3ef26b0314952ab9030db66c11ca39e09d204683c519e1e8779.png" src="../_images/0a891a08cd71e3ef26b0314952ab9030db66c11ca39e09d204683c519e1e8779.png" />
+</div>
+</div>
+<section id="alternate-visual">
+<h2>Alternate visual<a class="headerlink" href="#alternate-visual" title="Link to this heading">#</a></h2>
+<p>Let’s visualize density differences based on distribution of cells on the tSNE space. This gives was a visual perspective of what the density differences look like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;tsne_x&#39;</span><span class="p">:</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;tsne_y&#39;</span><span class="p">:</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span> 
+                        <span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;condition&#39;</span><span class="p">]},</span> <span class="n">index</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;tsne_x&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;tsne_y&#39;</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_temp</span><span class="p">[</span><span class="n">df_temp</span><span class="p">[</span><span class="s1">&#39;condition&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;CTRL&#39;</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;tsne_x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tsne_y&quot;</span><span class="p">,</span>
+    <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Purples&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">cut</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([]);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([]);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Control&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;tSNE-1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;tSNE-2&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;tsne_x&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;tsne_y&#39;</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_temp</span><span class="p">[</span><span class="n">df_temp</span><span class="p">[</span><span class="s1">&#39;condition&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;DT&#39;</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;tsne_x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tsne_y&quot;</span><span class="p">,</span>
+    <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Purples&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">cut</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([]);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([]);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;DT&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;tSNE-1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;tSNE-2&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1">#fig.savefig(outbase + &#39;Ctrl_DT_kdeplot_endo.png&#39;, dpi = 150, bbox_inches = &#39;tight&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/85c96e24fb777f11ef798f85e91cb1cc1b505c76b489143ca111cfe0d0d3d88d.png" src="../_images/85c96e24fb777f11ef798f85e91cb1cc1b505c76b489143ca111cfe0d0d3d88d.png" />
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="milor">
+<h1>MiloR<a class="headerlink" href="#milor" title="Link to this heading">#</a></h1>
+<p>Milo is a statistical method to quantify changes in cellular abundancies in neighborhoods of cells in high-dimensional space. Given a data with cells from two conditions, Milo partitions the cell phenotype space in a set of (possibly overlapping) neighborhoods and allows quantification of differential abundances of cells from one condition compared to another in each neighborhood. It outputs associated logfoldchange between the two conditions, p-values and multiple comparisons adjusted p-values for each neighborhood. Furthermore, Milo allows one to annotate each neighborhood as a distinct celltype based on the proportion of cells from each celltype in the neighborhood. All of this is discussed in the code below.</p>
+<p>Milo’s strength lies in detecting subtle <code class="docutils literal notranslate"><span class="pre">local</span></code> changes in cellular abundances. This is possible by the use of graphs and looking for changes in occupancy locally along the graph.</p>
+<p>For more details, please see the original publication: <a class="reference external" href="https://www.nature.com/articles/s41587-021-01033-z">https://www.nature.com/articles/s41587-021-01033-z</a>.</p>
+<p>We will use the R implementation from Python.</p>
+<section id="set-up-for-milor">
+<h2>Set up for MiloR<a class="headerlink" href="#set-up-for-milor" title="Link to this heading">#</a></h2>
+<p>Create a separate anndata object for Milo for simplicity. We will need to provide log-normalized data, the condition, celltypes information. We also need to provide the computed PCA coordinates to construct the graph and tSNE coordinates to visualize.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_milo</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">AnnData</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s1">&#39;norm_log&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> 
+                        <span class="n">obs</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[[</span><span class="s1">&#39;SampleID&#39;</span><span class="p">,</span> <span class="s1">&#39;Celltype_myeloid&#39;</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">]],</span> 
+                        <span class="n">var</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="p">)</span>
+<span class="n">adata_milo</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_pca&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_pca&#39;</span><span class="p">]</span>
+<span class="n">adata_milo</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-milor">
+<h2>Run MiloR<a class="headerlink" href="#run-milor" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span> -i adata_milo
+
+# load necessary R packages
+library(miloR, quietly = TRUE)
+library(igraph, quietly = TRUE)
+
+# create a Milo object
+myeloid_milo &lt;- Milo(adata_milo)
+
+# Build graph
+myeloid_milo &lt;- buildGraph(myeloid_milo, k=30, d=50, reduced.dim = &quot;PCA&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attaching package: ‘limma’
+
+The following object is masked from ‘package:BiocGenerics’:
+
+    plotMA
+
+
+Attaching package: ‘edgeR’
+
+The following object is masked from ‘package:SingleCellExperiment’:
+
+    cpm
+
+
+Attaching package: ‘igraph’
+
+The following object is masked from ‘package:miloR’:
+
+    graph
+
+The following object is masked from ‘package:GenomicRanges’:
+
+    union
+
+The following object is masked from ‘package:IRanges’:
+
+    union
+
+The following object is masked from ‘package:S4Vectors’:
+
+    union
+
+The following objects are masked from ‘package:BiocGenerics’:
+
+    normalize, path, union
+
+The following objects are masked from ‘package:stats’:
+
+    decompose, spectrum
+
+The following object is masked from ‘package:base’:
+
+    union
+
+Constructing kNN graph with k:30
+</pre></div>
+</div>
+</div>
+</div>
+<p>A note on the parameters for building graph:</p>
+<ul class="simple">
+<li><p>k = 30 indicates we build a graph for 30 nearest neighbors</p></li>
+<li><p>d = 50 indicates that we are using the 50 principal components provided with the data</p></li>
+</ul>
+</section>
+<section id="construct-design-matrix">
+<h2>Construct Design Matrix<a class="headerlink" href="#construct-design-matrix" title="Link to this heading">#</a></h2>
+<p>Now we set up the Design matrix. We follow the same procedure as illustrated in the Milo package example documentation (<a class="reference external" href="https://rawcdn.githack.com/MarioniLab/miloR/3646391023f600bae00efd9d940b888503d7a536/docs/articles/milo_demo.html">https://rawcdn.githack.com/MarioniLab/miloR/3646391023f600bae00efd9d940b888503d7a536/docs/articles/milo_demo.html</a>). The example in this notebook does not have many covariates, so this is an example of ‘vanilla’ application of Milo. For more complicated scenarios, please see <a class="reference external" href="https://bioconductor.org/packages/release/bioc/vignettes/miloR/inst/doc/milo_contrasts.html">https://bioconductor.org/packages/release/bioc/vignettes/miloR/inst/doc/milo_contrasts.html</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">design_df</span> <span class="o">=</span> <span class="n">adata_milo</span><span class="o">.</span><span class="n">obs</span><span class="p">[[</span><span class="s2">&quot;condition&quot;</span><span class="p">,</span> <span class="s2">&quot;SampleID&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">design_df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">design_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">design_df</span><span class="p">[</span><span class="s1">&#39;SampleID&#39;</span><span class="p">]</span>
+<span class="n">design_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>SampleID</th>
+    </tr>
+    <tr>
+      <th>SampleID</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2_DT_1_CD45_minus</th>
+      <td>DT</td>
+      <td>2_DT_1_CD45_minus</td>
+    </tr>
+    <tr>
+      <th>2_DT_1_CD45plus</th>
+      <td>DT</td>
+      <td>2_DT_1_CD45plus</td>
+    </tr>
+    <tr>
+      <th>2_DT_2_CD45minus</th>
+      <td>DT</td>
+      <td>2_DT_2_CD45minus</td>
+    </tr>
+    <tr>
+      <th>2_DT_2_CD45plus</th>
+      <td>DT</td>
+      <td>2_DT_2_CD45plus</td>
+    </tr>
+    <tr>
+      <th>2_DT_3_CD45_minus</th>
+      <td>DT</td>
+      <td>2_DT_3_CD45_minus</td>
+    </tr>
+    <tr>
+      <th>2_DT_3_CD45plus</th>
+      <td>DT</td>
+      <td>2_DT_3_CD45plus</td>
+    </tr>
+    <tr>
+      <th>2_ctl_1_CD45minus</th>
+      <td>CTRL</td>
+      <td>2_ctl_1_CD45minus</td>
+    </tr>
+    <tr>
+      <th>2_ctl_1_CD45plus</th>
+      <td>CTRL</td>
+      <td>2_ctl_1_CD45plus</td>
+    </tr>
+    <tr>
+      <th>2_ctl_2_CD45plus</th>
+      <td>CTRL</td>
+      <td>2_ctl_2_CD45plus</td>
+    </tr>
+    <tr>
+      <th>2_ctl_3_CD45plus</th>
+      <td>CTRL</td>
+      <td>2_ctl_3_CD45plus</td>
+    </tr>
+    <tr>
+      <th>ctl_3_CD45_minus</th>
+      <td>CTRL</td>
+      <td>ctl_3_CD45_minus</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="differential-analysis">
+<h2>Differential analysis<a class="headerlink" href="#differential-analysis" title="Link to this heading">#</a></h2>
+<p>Now we perform differential abundance analysis. Note on the parameters used for making neighborhoods:</p>
+<p><code class="docutils literal notranslate"><span class="pre">prop</span> <span class="pre">=</span> <span class="pre">0.1</span></code>: It is the proportion of the data to randomly sample as the initial “anchor” cells. The larger the value of prop, the more the number of neighborhoods.</p>
+<p><code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">30</span></code>: This is the number of nearest neighbors in the initial graph.</p>
+<p><code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">50</span></code>: This represents the number of principal components to use (Note: we already computed PCA and hence specify <code class="docutils literal notranslate"><span class="pre">reduced_dims</span> <span class="pre">=</span> <span class="pre">&quot;PCA&quot;</span></code>)</p>
+<p><code class="docutils literal notranslate"><span class="pre">refined</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>: Implements a refined sampling schemes.</p>
+<p>For more details please see: <a class="reference external" href="https://rdrr.io/github/MarioniLab/miloR/man/makeNhoods.html">https://rdrr.io/github/MarioniLab/miloR/man/makeNhoods.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span> -i design_df -o DA_results_myeloid
+## Define neighbourhoods
+myeloid_milo &lt;- makeNhoods(myeloid_milo, prop = 0.1, k = 30, d=50, refined = TRUE, reduced_dims = &quot;PCA&quot;)
+
+## Count cells in neighbourhoods
+myeloid_milo &lt;- countCells(myeloid_milo, meta.data = data.frame(colData(myeloid_milo)), sample=&quot;SampleID&quot;)
+
+## Calculate distances between cells in neighbourhoods for spatial FDR correction
+myeloid_milo &lt;- calcNhoodDistance(myeloid_milo, d=50, reduced.dim = &quot;PCA&quot;)
+
+## Test for differential abundance
+DA_results_myeloid &lt;- testNhoods(myeloid_milo, design = ~condition, design.df = design_df)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Checking valid object
+Running refined sampling with reduced_dim
+Checking meta.data validity
+Counting cells in neighbourhoods
+&#39;as(&lt;dgTMatrix&gt;, &quot;dgCMatrix&quot;)&#39; is deprecated.
+Use &#39;as(., &quot;CsparseMatrix&quot;)&#39; instead.
+See help(&quot;Deprecated&quot;) and help(&quot;Matrix-deprecated&quot;).
+Using TMM normalisation
+Running with model contrasts
+Performing spatial FDR correction with k-distance weighting
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DA_results_myeloid</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>logFC</th>
+      <th>logCPM</th>
+      <th>F</th>
+      <th>PValue</th>
+      <th>FDR</th>
+      <th>Nhood</th>
+      <th>SpatialFDR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>-2.552020</td>
+      <td>13.219991</td>
+      <td>6.435417</td>
+      <td>0.011235</td>
+      <td>0.029817</td>
+      <td>1.0</td>
+      <td>0.027766</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-1.658053</td>
+      <td>12.510093</td>
+      <td>2.597062</td>
+      <td>0.107164</td>
+      <td>0.166538</td>
+      <td>2.0</td>
+      <td>0.160167</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.890283</td>
+      <td>13.233001</td>
+      <td>11.893620</td>
+      <td>0.000571</td>
+      <td>0.003861</td>
+      <td>3.0</td>
+      <td>0.003570</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-1.172270</td>
+      <td>12.492417</td>
+      <td>1.313566</td>
+      <td>0.251838</td>
+      <td>0.337487</td>
+      <td>4.0</td>
+      <td>0.330434</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-1.431348</td>
+      <td>12.712209</td>
+      <td>1.838476</td>
+      <td>0.175228</td>
+      <td>0.245417</td>
+      <td>5.0</td>
+      <td>0.238963</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">DA_results_myeloid</span><span class="o">.</span><span class="n">logFC</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">DA_results_myeloid</span><span class="o">.</span><span class="n">SpatialFDR</span><span class="p">),</span> <span class="s1">&#39;.&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;log-Fold Change&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;- log10(Spatial FDR)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;- log10(Spatial FDR)&#39;)
+</pre></div>
+</div>
+<img alt="../_images/a383e0f7925dd9e96d3b8c757c69280390f919cb90eb6a7562eb185f65aa4474.png" src="../_images/a383e0f7925dd9e96d3b8c757c69280390f919cb90eb6a7562eb185f65aa4474.png" />
+</div>
+</div>
+</section>
+<section id="visualize-in-r">
+<h2>Visualize in R<a class="headerlink" href="#visualize-in-r" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+myeloid_milo &lt;- buildNhoodGraph(myeloid_milo)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span> 
+head(DA_results_myeloid)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      logFC   logCPM         F      PValue         FDR Nhood  SpatialFDR
+1 -2.552020 13.21999  6.435417 0.011235255 0.029816638     1 0.027765546
+2 -1.658053 12.51009  2.597062 0.107163663 0.166538125     2 0.160167482
+3  4.890283 13.23300 11.893620 0.000570764 0.003861051     3 0.003570464
+4 -1.172270 12.49242  1.313566 0.251838345 0.337487454     4 0.330434373
+5 -1.431348 12.71221  1.838476 0.175228218 0.245416957     5 0.238963263
+6 -2.314546 13.18328  5.503363 0.019042522 0.042939020     6 0.040358161
+</pre></div>
+</div>
+</div>
+</div>
+<p>Please refer to the documentation for plotNhoodGraphDA for the choice of parameters: <a class="reference external" href="https://rdrr.io/github/MarioniLab/miloR/man/plotNhoodGraphDA.html">https://rdrr.io/github/MarioniLab/miloR/man/plotNhoodGraphDA.html</a>.</p>
+<p>In the example below:<br>
+(1) We visualize the NhoodGraph for myeloid_milo <br>
+(2) Color the neighborhood by ‘SpatialFDR’ as specified in <code class="docutils literal notranslate"><span class="pre">DA_results_myeloid</span></code> <br>
+(3) alpha = alpha_val is a parameter that only includes those neighborhood that have SpatialFDR smaller than alpha_val. For below, we set it to 1, so we can look at all neighborhoods. You may want to choose a different parameter if you want to focus on only those neighborhoods that are significantly differential. <br>
+(4) layout = “TSNE” specifies the low-dimensional visual to use. <br>
+For aesthetics:<br>
+(5) size_range specifices the range of sizes of the circles for the neighborhoods. <br>
+(6) node_stroke specifies the thickness of connecting lines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span> -w 800 -h 600
+# color by Spatial_FDR
+alpha_val = 1
+library(ggplot2)
+p1 &lt;- plotNhoodGraphDA(myeloid_milo, DA_results_myeloid, res_column = &#39;SpatialFDR&#39;, alpha=alpha_val, 
+                 layout=&quot;TSNE&quot;, size_range = c(2, 8), node_stroke =0.8)
+p1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adding nhood effect sizes to neighbourhood graph attributes
+</pre></div>
+</div>
+<img alt="../_images/ac0a133ce084b9a530e86d5c75e3c248e5ead45761fd47b8be12de627b90fc52.png" src="../_images/ac0a133ce084b9a530e86d5c75e3c248e5ead45761fd47b8be12de627b90fc52.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span> -w 800 -h 600
+# color by log fold change
+alpha_val = 1
+library(ggplot2)
+p1 &lt;- plotNhoodGraphDA(myeloid_milo, DA_results_myeloid, res_column = &#39;logFC&#39;, alpha=alpha_val, 
+                 layout=&quot;TSNE&quot;, size_range = c(2, 8), node_stroke =0.8)
+p1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adding nhood effect sizes to neighbourhood graph attributes
+</pre></div>
+</div>
+<img alt="../_images/c54d55a6f63deb6a42f0eed5edfdc304d8ca1d973639575892a05dbd64272145.png" src="../_images/c54d55a6f63deb6a42f0eed5edfdc304d8ca1d973639575892a05dbd64272145.png" />
+</div>
+</div>
+<p>Plot and save directly from R:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span> -w 600 -h 450
+library(ggplot2)
+alpha_val = 1
+
+# outbase is the path where we want to save the output
+outbase = &#39;/Users/sharmar1/Dropbox/msk_workshop/GSCN_2025/&#39;
+for (j in c(&#39;SpatialFDR&#39;, &#39;FDR&#39;, &#39;PValue&#39;, &#39;logFC&#39;)){
+    p1 &lt;- plotNhoodGraphDA(myeloid_milo, DA_results_myeloid, res_column = j, alpha=alpha_val, layout=&quot;TSNE&quot;, 
+                           size_range = c(2, 8), node_stroke =.8)
+    p1    
+    ggsave(paste0(outbase, &#39;milor_R_myeloid_&#39;, j, &#39;.pdf&#39;), p1, dpi = 200)
+}
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving 8.33 x 6.25 in image
+Saving 8.33 x 6.25 in image
+Saving 8.33 x 6.25 in image
+Saving 8.33 x 6.25 in image
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adding nhood effect sizes to neighbourhood graph attributes
+Adding nhood effect sizes to neighbourhood graph attributes
+Adding nhood effect sizes to neighbourhood graph attributes
+Adding nhood effect sizes to neighbourhood graph attributes
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-celltype-information">
+<h2>Add celltype information<a class="headerlink" href="#add-celltype-information" title="Link to this heading">#</a></h2>
+<p>Milo also allows to divide the neighborhoods based on the most representative celltype in that neighborhood.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span> 
+DA_results_myeloid &lt;- annotateNhoods(myeloid_milo, DA_results_myeloid, coldata_col = &quot;Celltype_myeloid&quot;)
+head(DA_results_myeloid)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      logFC   logCPM         F      PValue         FDR Nhood  SpatialFDR
+1 -2.552020 13.21999  6.435417 0.011235255 0.029816638     1 0.027765546
+2 -1.658053 12.51009  2.597062 0.107163663 0.166538125     2 0.160167482
+3  4.890283 13.23300 11.893620 0.000570764 0.003861051     3 0.003570464
+4 -1.172270 12.49242  1.313566 0.251838345 0.337487454     4 0.330434373
+5 -1.431348 12.71221  1.838476 0.175228218 0.245416957     5 0.238963263
+6 -2.314546 13.18328  5.503363 0.019042522 0.042939020     6 0.040358161
+     Celltype_myeloid Celltype_myeloid_fraction
+1 Alveolar Macrophage                 1.0000000
+2 Alveolar Macrophage                 0.9767442
+3            Monocyte                 0.9906542
+4                cDC2                 0.9756098
+5     C1QA Macrophage                 0.9400000
+6     C1QA Macrophage                 0.9875000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize the cell type fraction distribution for the most representative cell type in each neighborhood:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+library(ggplot2)
+ggplot(DA_results_myeloid, aes(Celltype_myeloid_fraction)) + geom_histogram(bins=50)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/998554aa2b38075d1fae006ad98b14bdaa6b940eba998558b34aca58688132f8.png" src="../_images/998554aa2b38075d1fae006ad98b14bdaa6b940eba998558b34aca58688132f8.png" />
+</div>
+</div>
+<p>We can relabel the neighborhood as celltype X if 80% of the cells in the neighborhood are of X type, else we can call it “Mixed”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span> -o DA_results_myeloid
+DA_results_myeloid$Myeloid_Celltypes &lt;- ifelse(DA_results_myeloid$Celltype_myeloid_fraction &lt; 0.8, &quot;Mixed&quot;, DA_results_myeloid$Celltype_myeloid)
+head(DA_results_myeloid)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      logFC   logCPM         F      PValue         FDR Nhood  SpatialFDR
+1 -2.552020 13.21999  6.435417 0.011235255 0.029816638     1 0.027765546
+2 -1.658053 12.51009  2.597062 0.107163663 0.166538125     2 0.160167482
+3  4.890283 13.23300 11.893620 0.000570764 0.003861051     3 0.003570464
+4 -1.172270 12.49242  1.313566 0.251838345 0.337487454     4 0.330434373
+5 -1.431348 12.71221  1.838476 0.175228218 0.245416957     5 0.238963263
+6 -2.314546 13.18328  5.503363 0.019042522 0.042939020     6 0.040358161
+     Celltype_myeloid Celltype_myeloid_fraction   Myeloid_Celltypes
+1 Alveolar Macrophage                 1.0000000 Alveolar Macrophage
+2 Alveolar Macrophage                 0.9767442 Alveolar Macrophage
+3            Monocyte                 0.9906542            Monocyte
+4                cDC2                 0.9756098                cDC2
+5     C1QA Macrophage                 0.9400000     C1QA Macrophage
+6     C1QA Macrophage                 0.9875000     C1QA Macrophage
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: We have exported <code class="docutils literal notranslate"><span class="pre">DA_results_myeloid</span></code> onto Python by using <code class="docutils literal notranslate"><span class="pre">%%R</span> <span class="pre">-o</span> <span class="pre">DA_results_myeloid</span></code> above. So we can work with it in Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DA_results_myeloid</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>logFC</th>
+      <th>logCPM</th>
+      <th>F</th>
+      <th>PValue</th>
+      <th>FDR</th>
+      <th>Nhood</th>
+      <th>SpatialFDR</th>
+      <th>Celltype_myeloid</th>
+      <th>Celltype_myeloid_fraction</th>
+      <th>Myeloid_Celltypes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>-2.552020</td>
+      <td>13.219991</td>
+      <td>6.435417</td>
+      <td>0.011235</td>
+      <td>0.029817</td>
+      <td>1.0</td>
+      <td>0.027766</td>
+      <td>Alveolar Macrophage</td>
+      <td>1.000000</td>
+      <td>Alveolar Macrophage</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-1.658053</td>
+      <td>12.510093</td>
+      <td>2.597062</td>
+      <td>0.107164</td>
+      <td>0.166538</td>
+      <td>2.0</td>
+      <td>0.160167</td>
+      <td>Alveolar Macrophage</td>
+      <td>0.976744</td>
+      <td>Alveolar Macrophage</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.890283</td>
+      <td>13.233001</td>
+      <td>11.893620</td>
+      <td>0.000571</td>
+      <td>0.003861</td>
+      <td>3.0</td>
+      <td>0.003570</td>
+      <td>Monocyte</td>
+      <td>0.990654</td>
+      <td>Monocyte</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-1.172270</td>
+      <td>12.492417</td>
+      <td>1.313566</td>
+      <td>0.251838</td>
+      <td>0.337487</td>
+      <td>4.0</td>
+      <td>0.330434</td>
+      <td>cDC2</td>
+      <td>0.975610</td>
+      <td>cDC2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-1.431348</td>
+      <td>12.712209</td>
+      <td>1.838476</td>
+      <td>0.175228</td>
+      <td>0.245417</td>
+      <td>5.0</td>
+      <td>0.238963</td>
+      <td>C1QA Macrophage</td>
+      <td>0.940000</td>
+      <td>C1QA Macrophage</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="beeswarm-plot-in-r">
+<h2>Beeswarm plot in R<a class="headerlink" href="#beeswarm-plot-in-r" title="Link to this heading">#</a></h2>
+<p>Make a beeswarm plot to visualize the results.</p>
+<p>Note: The color code in the default version is non-sensical because it is color coded by logFoldChange which is already in the x-axis. Hence there is no colormap to quantify the color code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+plotDAbeeswarm(DA_results_myeloid, group.by = &quot;Myeloid_Celltypes&quot;, alpha = 1)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Converting group_by to factor...
+</pre></div>
+</div>
+<img alt="../_images/75bca52190a989b183af57a6d51550c2c3e3402679f372ade27d30cd66805f95.png" src="../_images/75bca52190a989b183af57a6d51550c2c3e3402679f372ade27d30cd66805f95.png" />
+</div>
+</div>
+<p>R code to change the colormap in the beeswarmplot (again non-sensical because it is quantified in the x-axis):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span> -w 600 -h 600
+library(ggplot2)
+library(ggbeeswarm)
+library(scales)
+
+p1 &lt;- plotDAbeeswarm(DA_results_myeloid, group.by = &quot;Myeloid_Celltypes&quot;, alpha = alpha_val) 
+
+p1 &lt;- p1 + geom_quasirandom(size = 3) 
+p1 &lt;- p1 + scale_color_gradient2(low = &quot;navyblue&quot;, mid = &quot;gray74&quot;, high = &quot;darkred&quot;, guide = &quot;colourbar&quot;)
+
+
+p1
+#outbase = &#39;/path_to_save/&#39;
+#ggsave(paste0(outbase, &#39;milor_R_myeloid_swarmplot.pdf&#39;), p1, dpi = 200)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scale for colour is already present.
+Adding another scale for colour, which will replace the existing scale.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Converting group_by to factor...
+</pre></div>
+</div>
+<img alt="../_images/6a89236e27e64ec749dc9479fc0a4efc70ffbf9684965ff72eac4b799cc8d03c.png" src="../_images/6a89236e27e64ec749dc9479fc0a4efc70ffbf9684965ff72eac4b799cc8d03c.png" />
+</div>
+</div>
+</section>
+<section id="id1">
+<h2>Alternate visual<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>The following is a python code that loads the <code class="docutils literal notranslate"><span class="pre">DA_results_myeloid</span></code> onto Python and creates a stripplot using Seaborn package. This is a replacement for the beeswarmplot and enables additional control. For example below, we color code each neighborhood by the p-values associated with each neighborhood. So unlike the above beeswarmplot, here the color of the neighborhood is not the <code class="docutils literal notranslate"><span class="pre">logFoldChange</span></code> (which is already on the x-axis):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mcolors</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.cm</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cm</span>
+
+<span class="n">outbase</span> <span class="o">=</span> <span class="s1">&#39;/Users/sharmar1/Dropbox/msk_workshop/GSCN_2025/&#39;</span>
+
+<span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;FDR&#39;</span><span class="p">,</span> <span class="s1">&#39;SpatialFDR&#39;</span><span class="p">,</span> <span class="s1">&#39;PValue&#39;</span><span class="p">]):</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+    <span class="n">DA_results_myeloid</span><span class="p">[</span><span class="s1">&#39;log_&#39;</span> <span class="o">+</span> <span class="n">item</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">DA_results_myeloid</span><span class="p">[</span><span class="n">item</span><span class="p">])</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;logFC&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Myeloid_Celltypes&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;log_&#39;</span> <span class="o">+</span> <span class="n">item</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">DA_results_myeloid</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> 
+              <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;cividis&#39;</span><span class="p">,</span> 
+              <span class="n">jitter</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+    <span class="n">plot</span><span class="o">.</span><span class="n">get_legend</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1">#ax.set_xticklabels(ax.get_xticks(), fontsize = 18)</span>
+    <span class="c1">#ax.set_yticklabels(ax.get_yticks(), fontsize = 18)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Myeloid Celltypes&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">18</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;logFC&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">18</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+
+
+    <span class="c1"># Drawing the side color bar</span>
+    <span class="n">normalize</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">DA_results_myeloid</span><span class="p">[</span><span class="s1">&#39;log_&#39;</span> <span class="o">+</span> <span class="n">item</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> 
+                              <span class="n">vmax</span><span class="o">=</span><span class="n">DA_results_myeloid</span><span class="p">[</span><span class="s1">&#39;log_&#39;</span> <span class="o">+</span> <span class="n">item</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    <span class="n">colormap</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">cividis</span>
+
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">DA_results_myeloid</span><span class="p">[</span><span class="s1">&#39;log_&#39;</span> <span class="o">+</span> <span class="n">item</span><span class="p">]:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">colormap</span><span class="p">(</span><span class="n">normalize</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+
+    <span class="n">scalarmappaple</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">norm</span><span class="o">=</span><span class="n">normalize</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">colormap</span><span class="p">)</span>
+    <span class="n">scalarmappaple</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">DA_results_myeloid</span><span class="p">[</span><span class="s1">&#39;log_&#39;</span> <span class="o">+</span> <span class="n">item</span><span class="p">])</span>
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">scalarmappaple</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">())</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">get_yticks</span><span class="p">(),</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">18</span><span class="p">)</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;-log10(&#39;</span> <span class="o">+</span> <span class="n">item</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">,</span>  <span class="n">labelpad</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">18</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1">#fig.savefig(outbase + &#39;milor_myeloid_swarmplot_colored_by_log_&#39; + item + &#39;.pdf&#39;, dpi = 300, </span>
+    <span class="c1">#            bbox_inches = &#39;tight&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/x1/3bxg2yyn42x6m5tcv9l5k511m4dgnw/T/ipykernel_8973/75971933.py:33: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  cbar.ax.set_yticklabels(cbar.ax.get_yticks(), fontsize = 18)
+/var/folders/x1/3bxg2yyn42x6m5tcv9l5k511m4dgnw/T/ipykernel_8973/75971933.py:33: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  cbar.ax.set_yticklabels(cbar.ax.get_yticks(), fontsize = 18)
+/var/folders/x1/3bxg2yyn42x6m5tcv9l5k511m4dgnw/T/ipykernel_8973/75971933.py:33: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  cbar.ax.set_yticklabels(cbar.ax.get_yticks(), fontsize = 18)
+</pre></div>
+</div>
+<img alt="../_images/d9a5a407e6fccea717c7dba71d50bfd0874fbc3b4e6bb9ddd08204c5ed79252f.png" src="../_images/d9a5a407e6fccea717c7dba71d50bfd0874fbc3b4e6bb9ddd08204c5ed79252f.png" />
+<img alt="../_images/588b01c3a993dc5ee1452133459f75aafe536834bed46c786d9d72ac36490a40.png" src="../_images/588b01c3a993dc5ee1452133459f75aafe536834bed46c786d9d72ac36490a40.png" />
+<img alt="../_images/cec3c8b5b3932258a48596158e1da110e293bdf4f7541ece9b8940f09e945462.png" src="../_images/cec3c8b5b3932258a48596158e1da110e293bdf4f7541ece9b8940f09e945462.png" />
+</div>
+</div>
+</section>
+<section id="adding-contrasts-in-milo-models">
+<h2>Adding contrasts in Milo models<a class="headerlink" href="#adding-contrasts-in-milo-models" title="Link to this heading">#</a></h2>
+<p>We can extend the idea of computing cellular abundance changes using Milo for more than a pair of conditions. For example, if you have data from different timepoints or conditions and wish to compute different flavors of contrasts, you can use Milo as follows. We will follow the example provided by the authors: <a class="reference external" href="https://bioconductor.org/packages/release/bioc/vignettes/miloR/inst/doc/milo_contrasts.html">https://bioconductor.org/packages/release/bioc/vignettes/miloR/inst/doc/milo_contrasts.html</a></p>
+<p>For illustration, let’s randomly assign half of control cells into one group and remaining half to another, while leaving DT as is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[[</span><span class="s1">&#39;SampleID&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;2_DT_1_CD45_minus&#39;, &#39;2_DT_1_CD45plus&#39;, &#39;2_DT_2_CD45minus&#39;,
+       &#39;2_DT_2_CD45plus&#39;, &#39;2_DT_3_CD45_minus&#39;, &#39;2_DT_3_CD45plus&#39;,
+       &#39;2_ctl_1_CD45minus&#39;, &#39;2_ctl_1_CD45plus&#39;, &#39;2_ctl_2_CD45plus&#39;,
+       &#39;2_ctl_3_CD45plus&#39;, &#39;ctl_3_CD45_minus&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">map_dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;2_ctl_1_CD45minus&#39;</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;2_ctl_1_CD45plus&#39;</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;2_ctl_2_CD45plus&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;2_ctl_3_CD45plus&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;ctl_3_CD45_minus&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;2_DT_1_CD45_minus&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;2_DT_1_CD45plus&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;2_DT_2_CD45minus&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;2_DT_2_CD45plus&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;2_DT_3_CD45_minus&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;2_DT_3_CD45plus&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">}</span>
+
+<span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;random_assignment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;SampleID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">map_dictionary</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;random_assignment&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120703424032052000    C
+120703436053422000    C
+120703436147574000    C
+120703455025974000    C
+120703455259875000    C
+                     ..
+170660067981030011    A
+192806964092251011    A
+196527716002220011    A
+232261695269612011    A
+239407446735798011    A
+Name: random_assignment, Length: 4718, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">wspace</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Celltype_myeloid&#39;</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">,</span> <span class="s1">&#39;random_assignment&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/423f0692110b47bcdc6ca6eadc7289eb1d44b0b51a3ae513065c997b755807d8.png" src="../_images/423f0692110b47bcdc6ca6eadc7289eb1d44b0b51a3ae513065c997b755807d8.png" />
+</div>
+</div>
+<p>Now let’s try to build different contrasts to compare cellular abundance between the three groups A, B and C and their combinations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_milo2</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">AnnData</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s1">&#39;norm_log&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> 
+                        <span class="n">obs</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[[</span><span class="s1">&#39;SampleID&#39;</span><span class="p">,</span> <span class="s1">&#39;Celltype_myeloid&#39;</span><span class="p">,</span> <span class="s1">&#39;random_assignment&#39;</span><span class="p">]],</span> 
+                        <span class="n">var</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="p">)</span>
+<span class="n">adata_milo2</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_pca&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_pca&#39;</span><span class="p">]</span>
+<span class="n">adata_milo2</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_tsne&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span> -i adata_milo2
+adata_milo2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>class: SingleCellExperiment 
+dim: 12786 4718 
+metadata(0):
+assays(1): X
+rownames(12786): GNAI3 CDC45 ... MIR155HG IGHV5-9
+rowData names(0):
+colnames(4718): 120703424032052000 120703436053422000 ...
+  232261695269612011 239407446735798011
+colData names(3): SampleID Celltype_myeloid random_assignment
+reducedDimNames(2): PCA TSNE
+mainExpName: NULL
+altExpNames(0):
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# load necessary R packages
+library(miloR, quietly = TRUE)
+library(igraph, quietly = TRUE)
+
+# create a Milo object
+myeloid_milo2 &lt;- Milo(adata_milo2)
+
+# Build graph
+myeloid_milo2 &lt;- buildGraph(myeloid_milo2, k=30, d=50, reduced.dim = &quot;PCA&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Constructing kNN graph with k:30
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# Do all other steps that do not depend on the design matrix
+# Build neighborhoods 
+myeloid_milo2 &lt;- makeNhoods(myeloid_milo2, 
+                            prop = 0.1, 
+                            k = 30, 
+                            d=50, 
+                            refined = TRUE, reduced_dims=&quot;PCA&quot;) 
+
+## Count cells in neighbourhoods
+myeloid_milo2 &lt;- countCells(myeloid_milo2, 
+                            meta.data = data.frame(colData(myeloid_milo2)), 
+                            sample=&quot;SampleID&quot;)
+
+## Calculate distances between cells in neighbourhoods for spatial FDR correction
+myeloid_milo2 &lt;- calcNhoodDistance(myeloid_milo2, d=50, reduced.dim = &quot;PCA&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Checking valid object
+Running refined sampling with reduced_dim
+Checking meta.data validity
+Counting cells in neighbourhoods
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-design-matrix-with-contrasts">
+<h2>Create design matrix with contrasts<a class="headerlink" href="#create-design-matrix-with-contrasts" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">design_df</span> <span class="o">=</span> <span class="n">adata_milo2</span><span class="o">.</span><span class="n">obs</span><span class="p">[[</span><span class="s2">&quot;SampleID&quot;</span><span class="p">,</span> <span class="s2">&quot;random_assignment&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">design_df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">design_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">design_df</span><span class="p">[</span><span class="s1">&#39;SampleID&#39;</span><span class="p">]</span>
+<span class="n">design_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SampleID</th>
+      <th>random_assignment</th>
+    </tr>
+    <tr>
+      <th>SampleID</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2_DT_1_CD45_minus</th>
+      <td>2_DT_1_CD45_minus</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2_DT_1_CD45plus</th>
+      <td>2_DT_1_CD45plus</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2_DT_2_CD45minus</th>
+      <td>2_DT_2_CD45minus</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2_DT_2_CD45plus</th>
+      <td>2_DT_2_CD45plus</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2_DT_3_CD45_minus</th>
+      <td>2_DT_3_CD45_minus</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2_DT_3_CD45plus</th>
+      <td>2_DT_3_CD45plus</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2_ctl_1_CD45minus</th>
+      <td>2_ctl_1_CD45minus</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>2_ctl_1_CD45plus</th>
+      <td>2_ctl_1_CD45plus</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>2_ctl_2_CD45plus</th>
+      <td>2_ctl_2_CD45plus</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>2_ctl_3_CD45plus</th>
+      <td>2_ctl_3_CD45plus</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>ctl_3_CD45_minus</th>
+      <td>ctl_3_CD45_minus</td>
+      <td>A</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">design_df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(11, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-one-contrast-a-vs-b">
+<h3>Example one: contrast A vs B<a class="headerlink" href="#example-one-contrast-a-vs-b" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span> -i design_df
+contrast_1 &lt;- c(&quot;random_assignmentA - random_assignmentB&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+DA_results_A_B &lt;- testNhoods(myeloid_milo2, 
+                             design = ~ 0 + random_assignment, 
+                             design.df = design_df, 
+                             model.contrasts = contrast_1, 
+                             fdr.weighting=&quot;graph-overlap&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using TMM normalisation
+Running with model contrasts
+Performing spatial FDR correction with graph-overlap weighting
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+head(DA_results_A_B)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        logFC   logCPM           F    PValue FDR Nhood SpatialFDR
+1  0.07272869 13.26374 0.001620185 0.9678956   1     1          1
+2 -0.17166549 12.89242 0.008244692 0.9276581   1     2          1
+3  0.42905205 12.64819 0.040091981 0.8413161   1     3          1
+4  0.00000000 12.44544 0.000000000 1.0000000   1     4          1
+5 -0.31237557 12.79881 0.029641038 0.8633203   1     5          1
+6 -1.20183502 12.89538 0.276205947 0.5992426   1     6          1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+myeloid_milo2 &lt;- buildNhoodGraph(myeloid_milo2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span> -w 800 -h 600
+# color by Spatial_FDR
+alpha_val = 1
+library(ggplot2)
+p1 &lt;- plotNhoodGraphDA(myeloid_milo2, 
+                       DA_results_A_B, 
+                       res_column = &#39;SpatialFDR&#39;, 
+                       alpha=alpha_val, 
+                       layout=&quot;TSNE&quot;, 
+                       size_range = c(2, 8), 
+                       node_stroke =0.8)
+p1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adding nhood effect sizes to neighbourhood graph attributes
+</pre></div>
+</div>
+<img alt="../_images/110ff428f7d121c9c5b34daa477bba48013490a96c3581ac32d413643353d9cc.png" src="../_images/110ff428f7d121c9c5b34daa477bba48013490a96c3581ac32d413643353d9cc.png" />
+</div>
+</div>
+<p>Essentially, there is no difference anywhere as expected.</p>
+</section>
+<section id="example-two-contrast-c-vs-a-b">
+<h3>Example two: contrast C vs (A + B)<a class="headerlink" href="#example-two-contrast-c-vs-a-b" title="Link to this heading">#</a></h3>
+<p>We first design a model matrix to separate out A, B and C:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+model &lt;- model.matrix(~ 0 + random_assignment, data=design_df)
+model
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                  random_assignmentA random_assignmentB random_assignmentC
+2_DT_1_CD45_minus                  0                  0                  1
+2_DT_1_CD45plus                    0                  0                  1
+2_DT_2_CD45minus                   0                  0                  1
+2_DT_2_CD45plus                    0                  0                  1
+2_DT_3_CD45_minus                  0                  0                  1
+2_DT_3_CD45plus                    0                  0                  1
+2_ctl_1_CD45minus                  0                  1                  0
+2_ctl_1_CD45plus                   0                  1                  0
+2_ctl_2_CD45plus                   1                  0                  0
+2_ctl_3_CD45plus                   1                  0                  0
+ctl_3_CD45_minus                   1                  0                  0
+attr(,&quot;assign&quot;)
+[1] 1 1 1
+attr(,&quot;contrasts&quot;)
+attr(,&quot;contrasts&quot;)$random_assignment
+[1] &quot;contr.treatment&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now add contrasts. Since we are looking at C vs. (A + B), we can average the effect from A and B:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+contrast &lt;- c(&quot;random_assignmentC - (random_assignmentA + random_assignmentB)/2&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# we can check the effect of dividing by 2
+contrast_update &lt;- makeContrasts(contrasts=contrast, levels=model)
+contrast_update
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Contrasts
+Levels               random_assignmentC - (random_assignmentA + random_assignmentB)/2
+  random_assignmentA                                                             -0.5
+  random_assignmentB                                                             -0.5
+  random_assignmentC                                                              1.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+DA_results_C_vs_AB &lt;- testNhoods(myeloid_milo2, 
+                                 design = ~ 0 + random_assignment, 
+                                 design.df = design_df, 
+                                 model.contrasts = contrast, 
+                                 fdr.weighting=&quot;graph-overlap&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using TMM normalisation
+Running with model contrasts
+Performing spatial FDR correction with graph-overlap weighting
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span> -w 800 -h 600
+# color by Spatial_FDR
+alpha_val = 1
+library(ggplot2)
+p1 &lt;- plotNhoodGraphDA(myeloid_milo2, 
+                       DA_results_C_vs_AB, 
+                       res_column = &#39;SpatialFDR&#39;, 
+                       alpha=alpha_val, 
+                       layout=&quot;TSNE&quot;, 
+                       size_range = c(2, 8), 
+                       node_stroke =0.8)
+p1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adding nhood effect sizes to neighbourhood graph attributes
+</pre></div>
+</div>
+<img alt="../_images/e65622d6ae93218633bb0462013a353728451e7b77822b2a4f98f3a8cc87d90a.png" src="../_images/e65622d6ae93218633bb0462013a353728451e7b77822b2a4f98f3a8cc87d90a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span> -w 800 -h 600
+# color by Spatial_FDR
+alpha_val = 1
+library(ggplot2)
+p1 &lt;- plotNhoodGraphDA(myeloid_milo2, 
+                       DA_results_C_vs_AB, 
+                       res_column = &#39;logFC&#39;, 
+                       alpha=alpha_val, 
+                       layout=&quot;TSNE&quot;, 
+                       size_range = c(2, 8), 
+                       node_stroke =0.8)
+p1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adding nhood effect sizes to neighbourhood graph attributes
+</pre></div>
+</div>
+<img alt="../_images/570ed12b0abf9adf3993c416548c8c4180cd91c7d9c0e13b09c6395cd0c96584.png" src="../_images/570ed12b0abf9adf3993c416548c8c4180cd91c7d9c0e13b09c6395cd0c96584.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span> -o DA_results_C_vs_AB
+head(DA_results_C_vs_AB)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       logFC   logCPM          F      PValue        FDR Nhood SpatialFDR
+1  0.2222479 13.26374 0.03723808 0.846995833 0.88416806     1 0.90718623
+2  0.3923492 12.89242 0.10061936 0.751112494 0.81207942     2 0.85542762
+3  1.3130667 12.64819 0.94926343 0.329995313 0.42925172     3 0.47049823
+4  5.2057702 12.44544 7.37020015 0.006674115 0.02849863     4 0.04100785
+5 -0.4869355 12.79881 0.16922016 0.680838900 0.75825871     5 0.80501270
+6  3.2387324 12.89538 4.51272992 0.033735366 0.07527718     6 0.08943952
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can continue with analyses similar to two condition example above.</p>
+<p>To save your miloR results as a csv file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DA_results_myeloid</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;/path_to_save/miloR_differential_abundance_output.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To save your adata:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">write_h5ad</span><span class="p">(</span><span class="s1">&#39;path_to_save/processed_miloR_adata.h5ad&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "workshop_2025"
+        },
+        kernelOptions: {
+            name: "workshop_2025",
+            path: "./day_2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'workshop_2025'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="nb1_ligand_recepter_interactions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Ligand-Receptor Analysis</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="spatialdata/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Spatial Analysis Tutorials</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-packages">Load packages</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-example-data">Load example data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternate-visual">Alternate visual</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#milor">MiloR</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-for-milor">Set up for MiloR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-milor">Run MiloR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construct-design-matrix">Construct Design Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-analysis">Differential analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-in-r">Visualize in R</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-celltype-information">Add celltype information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beeswarm-plot-in-r">Beeswarm plot in R</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Alternate visual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-contrasts-in-milo-models">Adding contrasts in Milo models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-design-matrix-with-contrasts">Create design matrix with contrasts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-one-contrast-a-vs-b">Example one: contrast A vs B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-two-contrast-c-vs-a-b">Example two: contrast C vs (A + B)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GSCN Workshop Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

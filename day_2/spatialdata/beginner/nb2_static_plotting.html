@@ -1,0 +1,1182 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Static plotting for spatialdata &#8212; GSCN Workshop 2025</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'day_2/spatialdata/beginner/nb2_static_plotting';</script>
+    <link rel="canonical" href="/202504_workshop_GSCN/day_2/spatialdata/beginner/nb2_static_plotting.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Exploring SpatialData objects using napari" href="nb3_interactive_plotting_with_napari.html" />
+    <link rel="prev" title="Introduction to SpatialData objects" href="nb1_spatialdata_objects.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">GSCN Workshop 2025</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../README.html">
+                    scverse workshop in collaboration with the GSCN
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../day_1/README.html">Day 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../day_1/nb1_qc_normalization.html">QC and Normalisation</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../day_1/nb2_preprocessing.html">Dimensionality reduction, clustering and annotation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../day_1/nb3_batch_correction.html">Batch Correction</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../day_1/nb4_downstream_analysis.html">Downstream Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../day_1/nb5_trajectory_inference.html">Introduction</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Day 2</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../nb1_ligand_recepter_interactions.html">Ligand-Receptor Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nb2_differential_cellular_abundance.html">Introduction</a></li>
+
+
+
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../README.html">Spatial Analysis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nb1_spatialdata_objects.html">1. SpatialData Objects</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">2. Static Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nb3_interactive_plotting_with_napari.html">3. Interactive Plotting with Napari</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nb4_simple_analysis_using_scverse_tools.html">4. Simple Analysis using scverse Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/transformations.html">5. Transformations (advanced)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/tutorial_niche_calculation.html">6. Niche Calculation Tutorial (advanced)</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../day_3/README.html">Day 3</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/scverse/202504_workshop_GSCN" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scverse/202504_workshop_GSCN/edit/main/notebooks/day_2/spatialdata/beginner/nb2_static_plotting.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scverse/202504_workshop_GSCN/issues/new?title=Issue%20on%20page%20%2Fday_2/spatialdata/beginner/nb2_static_plotting.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/day_2/spatialdata/beginner/nb2_static_plotting.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Static plotting for spatialdata</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-function-calls">Simple function calls <a id="simple-viz"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-some-genes-with-spatial-patterns">Identify some genes with spatial patterns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-technology-visum-hd">Other technology: Visum HD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-technology-xenium">Other technology: Xenium</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="static-plotting-for-spatialdata">
+<h1>Static plotting for <code class="docutils literal notranslate"><span class="pre">spatialdata</span></code><a class="headerlink" href="#static-plotting-for-spatialdata" title="Link to this heading">#</a></h1>
+<p>In this notebook, we will explore how to use <code class="docutils literal notranslate"><span class="pre">spatialdata-plot</span></code> to generate static plots of various different technologies. When we load the <code class="docutils literal notranslate"><span class="pre">spatialdata-plot</span></code> library, this adds the <code class="docutils literal notranslate"><span class="pre">.pl</span></code> accessor to every <code class="docutils literal notranslate"><span class="pre">SpatialData</span></code> object, which gives us access to the plotting functions. Their logic is loosly inspired by the ggplot-library in R, in which one can chain multiple function calls, gradually building the final figure.</p>
+<p>⚠️ Adjust the variable below to the data path on your specific workstation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;../data/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">spatialdata</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">spatialdata_plot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sdp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># for multi-panel plots later</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scanpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">squidpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sq</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="n">sd</span><span class="p">,</span> <span class="n">sdp</span><span class="p">,</span> <span class="n">sc</span><span class="p">,</span> <span class="n">sq</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">sdata_visium</span> <span class="o">=</span> <span class="n">sd</span><span class="o">.</span><span class="n">read_zarr</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s2">&quot;visium.zarr/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>spatialdata: 0.3.0
+spatialdata_plot: 0.2.9
+scanpy: 1.11.0
+squidpy: 1.6.6.dev9+g78ed95c.d20250331
+</pre></div>
+</div>
+</div>
+</div>
+<p>In particular, the library exposes the following functions:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://spatialdata.scverse.org/projects/plot/en/latest/plotting.html#spatialdata_plot.pl.basic.PlotAccessor.render_images"><code class="docutils literal notranslate"><span class="pre">SpatialData.pl.render_images()</span></code></a></p></li>
+<li><p><a class="reference external" href="https://spatialdata.scverse.org/projects/plot/en/latest/plotting.html#spatialdata_plot.pl.basic.PlotAccessor.render_labels"><code class="docutils literal notranslate"><span class="pre">SpatialData.pl.render_labels()</span></code></a></p></li>
+<li><p><a class="reference external" href="https://spatialdata.scverse.org/projects/plot/en/latest/plotting.html#spatialdata_plot.pl.basic.PlotAccessor.render_points"><code class="docutils literal notranslate"><span class="pre">SpatialData.pl.render_points()</span></code></a></p></li>
+<li><p><a class="reference external" href="https://spatialdata.scverse.org/projects/plot/en/latest/plotting.html#spatialdata_plot.pl.basic.PlotAccessor.render_shapes"><code class="docutils literal notranslate"><span class="pre">SpatialData.pl.render_shapes()</span></code></a></p></li>
+<li><p><a class="reference external" href="https://spatialdata.scverse.org/projects/plot/en/latest/plotting.html#spatialdata_plot.pl.basic.PlotAccessor.show"><code class="docutils literal notranslate"><span class="pre">SpatialData.pl.show()</span></code></a></p></li>
+</ul>
+<p>We can chain the 4 <code class="docutils literal notranslate"><span class="pre">render_xxx</span></code> functions to gradually build up a figure, with a final call to <code class="docutils literal notranslate"><span class="pre">show</span></code> to then actually render out the function. In the following sections we will explore these functions further.</p>
+<section id="simple-function-calls">
+<h2>Simple function calls <a id="simple-viz"></a><a class="headerlink" href="#simple-function-calls" title="Link to this heading">#</a></h2>
+<p>Let’s first focus on some <a class="reference external" href="https://www.10xgenomics.com/products/spatial-gene-expression">Visium</a> data from the previous notebook. As we can see below, it contains slots for <code class="docutils literal notranslate"><span class="pre">Images</span></code>, <code class="docutils literal notranslate"><span class="pre">Shapes</span></code>, and <code class="docutils literal notranslate"><span class="pre">Tables</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sdata_visium</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SpatialData object, with associated Zarr store: /Users/tim.treis/Documents/GitHub/202504_workshop_GSCN/notebooks/day_2/spatialdata/data/visium.zarr
+├── Images
+│     ├── &#39;CytAssist_FFPE_Protein_Expression_Human_Glioblastoma_hires_image&#39;: DataArray[cyx] (3, 2000, 1744)
+│     └── &#39;CytAssist_FFPE_Protein_Expression_Human_Glioblastoma_lowres_image&#39;: DataArray[cyx] (3, 600, 523)
+├── Shapes
+│     └── &#39;CytAssist_FFPE_Protein_Expression_Human_Glioblastoma&#39;: GeoDataFrame shape: (5756, 2) (2D shapes)
+└── Tables
+      └── &#39;table&#39;: AnnData (5756, 18085)
+with coordinate systems:
+    ▸ &#39;downscaled_hires&#39;, with elements:
+        CytAssist_FFPE_Protein_Expression_Human_Glioblastoma_hires_image (Images), CytAssist_FFPE_Protein_Expression_Human_Glioblastoma (Shapes)
+    ▸ &#39;downscaled_lowres&#39;, with elements:
+        CytAssist_FFPE_Protein_Expression_Human_Glioblastoma_lowres_image (Images), CytAssist_FFPE_Protein_Expression_Human_Glioblastoma (Shapes)
+    ▸ &#39;global&#39;, with elements:
+        CytAssist_FFPE_Protein_Expression_Human_Glioblastoma_hires_image (Images), CytAssist_FFPE_Protein_Expression_Human_Glioblastoma_lowres_image (Images), CytAssist_FFPE_Protein_Expression_Human_Glioblastoma (Shapes)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s first visualize the individual contained modalities separately. When rendering the images, we see that we get two plots. That’s because the <code class="docutils literal notranslate"><span class="pre">SpatialData</span></code> object contains two coordinate systems (<code class="docutils literal notranslate"><span class="pre">downscaled_hires</span></code> and <code class="docutils literal notranslate"><span class="pre">downscaled_lowres</span></code>) with images aligned to them. The <code class="docutils literal notranslate"><span class="pre">global</span></code> coordinate system doesn’t contain any, as visible above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sdata_visium</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_images</span><span class="p">()</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">INFO    </span> Rasterizing image for faster rendering.                                                                   
+<span class=" -Color -Color-Blue">INFO    </span> Rasterizing image for faster rendering.                                                                   
+</pre></div>
+</div>
+<img alt="../../../_images/86d015d60ce1c5bc87f8d7bef32cb98dded99140be2279309aabc21e88ea0e6d.png" src="../../../_images/86d015d60ce1c5bc87f8d7bef32cb98dded99140be2279309aabc21e88ea0e6d.png" />
+</div>
+</div>
+<p>We can pass the name of a specific coordinate system to the <code class="docutils literal notranslate"><span class="pre">pl.show()</span></code> function to only render elements of that coordinate system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sdata_visium</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_images</span><span class="p">()</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">coordinate_systems</span><span class="o">=</span><span class="s2">&quot;downscaled_hires&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">INFO    </span> Rasterizing image for faster rendering.                                                                   
+</pre></div>
+</div>
+<img alt="../../../_images/1792846c597535b2e5148ecc26e28decfecde9259a63260a3f08411a822a9d66.png" src="../../../_images/1792846c597535b2e5148ecc26e28decfecde9259a63260a3f08411a822a9d66.png" />
+</div>
+</div>
+<p>The Visium technology works by detecting transcripts in specific circular caption locations (often referred to as “Visium spots”) on a slide. The circular capture locations are defined by the <code class="docutils literal notranslate"><span class="pre">Shapes</span></code> slot, which contains their coordinates. The <code class="docutils literal notranslate"><span class="pre">Tables</span></code> slot contains the actual transcript counts for each capture location. We can use the <code class="docutils literal notranslate"><span class="pre">render_shapes</span></code> function to overlay these circular locations onto our image.</p>
+<p><img alt="Visium technology" src="../../../_images/visium_tech.png" /></p>
+<p><em>Image: The Visium Spatial Gene Expression Slide (<a class="reference external" href="https://www.10xgenomics.com/">https://www.10xgenomics.com/</a>)</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">sdata_visium</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_images</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_shapes</span><span class="p">(</span><span class="n">fill_alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;downscaled_hires&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">INFO    </span> Rasterizing image for faster rendering.                                                                   
+</pre></div>
+</div>
+<img alt="../../../_images/b147779650e482d1b46d9dfaa91f479bf6ad792cb5b2f4cc8d99b3f41d41871f.png" src="../../../_images/b147779650e482d1b46d9dfaa91f479bf6ad792cb5b2f4cc8d99b3f41d41871f.png" />
+</div>
+</div>
+</section>
+<section id="identify-some-genes-with-spatial-patterns">
+<h2>Identify some genes with spatial patterns<a class="headerlink" href="#identify-some-genes-with-spatial-patterns" title="Link to this heading">#</a></h2>
+<p>However, simply overlaying these locations doesn’t really contain much information. Ideally we want to investigate spatial trends in the gene expression data. For this we’re going to use <code class="docutils literal notranslate"><span class="pre">Squidpy</span></code>, another scverse package that contains several spatial analysis tools. We’ll use it to calculate the spatial autocorrelation of some genes, more specifically Moran’s I. This measure describes how homogenous a gene is expressed across a slide:</p>
+<p><img alt="spatial patterns" src="../../../_images/spatial_patterns.png" /></p>
+<p><em>Image: <a class="reference external" href="https://en.wikipedia.org/wiki/Moran%27s_I">https://en.wikipedia.org/wiki/Moran’s_I</a></em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_visium</span> <span class="o">=</span> <span class="n">sdata_visium</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="s2">&quot;table&quot;</span><span class="p">]</span>
+
+<span class="n">sq</span><span class="o">.</span><span class="n">gr</span><span class="o">.</span><span class="n">spatial_neighbors</span><span class="p">(</span><span class="n">adata_visium</span><span class="p">)</span>
+<span class="n">sq</span><span class="o">.</span><span class="n">gr</span><span class="o">.</span><span class="n">spatial_autocorr</span><span class="p">(</span>
+    <span class="n">adata_visium</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;moran&quot;</span><span class="p">,</span>
+    <span class="n">genes</span><span class="o">=</span><span class="n">adata_visium</span><span class="o">.</span><span class="n">var_names</span><span class="p">,</span>
+    <span class="n">n_perms</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/scanpy/metrics/_common.py:73: UserWarning: 43 variables were constant, will return nan for these.
+  warnings.warn(
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b2736e78a4614e23817383ea9865f9ca", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">adata_visium</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;moranI&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                   I  pval_norm  var_norm  pval_z_sim  pval_sim   var_sim  \
+CST3        0.925848        0.0  0.000061         0.0  0.090909  0.000172   
+GFAP        0.907449        0.0  0.000061         0.0  0.090909  0.000117   
+IFI6        0.903449        0.0  0.000061         0.0  0.090909  0.000087   
+PTPRZ1      0.901717        0.0  0.000061         0.0  0.090909  0.000062   
+SPARC       0.900480        0.0  0.000061         0.0  0.090909  0.000048   
+...              ...        ...       ...         ...       ...       ...   
+NLGN4Y           NaN        NaN  0.000061         NaN  0.090909       NaN   
+AC007244.1       NaN        NaN  0.000061         NaN  0.090909       NaN   
+KDM5D            NaN        NaN  0.000061         NaN  0.090909       NaN   
+EIF1AY           NaN        NaN  0.000061         NaN  0.090909       NaN   
+DAZ2             NaN        NaN  0.000061         NaN  0.090909       NaN   
+
+            pval_norm_fdr_bh  pval_z_sim_fdr_bh  pval_sim_fdr_bh  
+CST3                     NaN                NaN         0.106628  
+GFAP                     NaN                NaN         0.106628  
+IFI6                     NaN                NaN         0.106628  
+PTPRZ1                   NaN                NaN         0.106628  
+SPARC                    NaN                NaN         0.106628  
+...                      ...                ...              ...  
+NLGN4Y                   NaN                NaN         0.106628  
+AC007244.1               NaN                NaN         0.106628  
+KDM5D                    NaN                NaN         0.106628  
+EIF1AY                   NaN                NaN         0.106628  
+DAZ2                     NaN                NaN         0.106628  
+
+[18085 rows x 9 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">adata_visium</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;moranI&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">adata_visium</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;moranI&quot;</span><span class="p">][</span><span class="o">~</span><span class="n">adata_visium</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;moranI&quot;</span><span class="p">][</span><span class="s2">&quot;I&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()])</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             I  pval_norm  var_norm  pval_z_sim  pval_sim   var_sim  \
+CST3  0.925848        0.0  0.000061         0.0  0.090909  0.000172   
+GFAP  0.907449        0.0  0.000061         0.0  0.090909  0.000117   
+IFI6  0.903449        0.0  0.000061         0.0  0.090909  0.000087   
+
+      pval_norm_fdr_bh  pval_z_sim_fdr_bh  pval_sim_fdr_bh  
+CST3               NaN                NaN         0.106628  
+GFAP               NaN                NaN         0.106628  
+IFI6               NaN                NaN         0.106628  
+                I  pval_norm  var_norm  pval_z_sim  pval_sim   var_sim  \
+FAM81B   0.012231   0.061272  0.000061    0.003717  0.090909  0.000032   
+FOXD3    0.012730   0.053913  0.000061    0.004170  0.090909  0.000034   
+COLEC10  0.013522   0.043683  0.000061    0.000581  0.090909  0.000024   
+
+         pval_norm_fdr_bh  pval_z_sim_fdr_bh  pval_sim_fdr_bh  
+FAM81B                NaN                NaN         0.106628  
+FOXD3                 NaN                NaN         0.106628  
+COLEC10               NaN                NaN         0.106628  
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s visualise the spatial expression of the 3 genes with the highest and lowest Moran’s I scores each. We’ll use classic matplotlib synthax to construct the multi-panel figure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">gene</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;CST3&quot;</span><span class="p">,</span> <span class="s2">&quot;GFAP&quot;</span><span class="p">,</span> <span class="s2">&quot;IFI6&quot;</span><span class="p">,</span> <span class="s2">&quot;FAM81B&quot;</span><span class="p">,</span> <span class="s2">&quot;FOXD3&quot;</span><span class="p">,</span> <span class="s2">&quot;COLEC10&quot;</span><span class="p">]):</span>
+    <span class="p">(</span>
+        <span class="n">sdata_visium</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_images</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_shapes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gene</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span>
+            <span class="s2">&quot;downscaled_hires&quot;</span><span class="p">,</span>
+            <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">idx</span> <span class="o">//</span> <span class="mi">3</span><span class="p">,</span> <span class="n">idx</span> <span class="o">%</span> <span class="mi">3</span><span class="p">],</span>
+            <span class="n">title</span><span class="o">=</span><span class="n">gene</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">INFO    </span> Rasterizing image for faster rendering.                                                                   
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:105: UserWarning: Key `CytAssist_FFPE_Protein_Expression_Human_Glioblastoma` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:125: UserWarning: Key `table` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">INFO    </span> Rasterizing image for faster rendering.                                                                   
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:105: UserWarning: Key `CytAssist_FFPE_Protein_Expression_Human_Glioblastoma` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:125: UserWarning: Key `table` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">INFO    </span> Rasterizing image for faster rendering.                                                                   
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:105: UserWarning: Key `CytAssist_FFPE_Protein_Expression_Human_Glioblastoma` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:125: UserWarning: Key `table` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">INFO    </span> Rasterizing image for faster rendering.                                                                   
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:105: UserWarning: Key `CytAssist_FFPE_Protein_Expression_Human_Glioblastoma` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:125: UserWarning: Key `table` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">INFO    </span> Rasterizing image for faster rendering.                                                                   
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:105: UserWarning: Key `CytAssist_FFPE_Protein_Expression_Human_Glioblastoma` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:125: UserWarning: Key `table` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">INFO    </span> Rasterizing image for faster rendering.                                                                   
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:105: UserWarning: Key `CytAssist_FFPE_Protein_Expression_Human_Glioblastoma` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:125: UserWarning: Key `table` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+</pre></div>
+</div>
+<img alt="../../../_images/ac3a8b1905f87e0a5a4b4afdbe61d92c57c074b8aa2b15c5ba1850905a29ae04.png" src="../../../_images/ac3a8b1905f87e0a5a4b4afdbe61d92c57c074b8aa2b15c5ba1850905a29ae04.png" />
+</div>
+</div>
+<p>Generally, the <code class="docutils literal notranslate"><span class="pre">spatialdata-plot</span></code> library tries to be as flexible as possible, allowing for a wide range of different plotting options. However, this flexibility comes at the cost of some complexity. To limit the amount of permutations we have to account for in the codebase, we recommend a workflow in which one gradually builds up a figure on an <code class="docutils literal notranslate"><span class="pre">ax</span></code> object. If multiple similar plots are required, it is currently the easiest way, to manually assign them to their panels, for example like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">sdata_visium</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_images</span><span class="p">()</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;downscaled_hires&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;H&amp;E&quot;</span><span class="p">)</span>
+
+<span class="n">sdata_visium</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_shapes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;CST3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span>
+    <span class="s2">&quot;downscaled_hires&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;CST3 expression&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">INFO    </span> Rasterizing image for faster rendering.                                                                   
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [0.0..1.0070922].
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:105: UserWarning: Key `CytAssist_FFPE_Protein_Expression_Human_Glioblastoma` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:125: UserWarning: Key `table` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+</pre></div>
+</div>
+<img alt="../../../_images/87a2c2b70fec686d6c01118475f2a71dd0e758699a6bd7370ae3bba0a64a2a87.png" src="../../../_images/87a2c2b70fec686d6c01118475f2a71dd0e758699a6bd7370ae3bba0a64a2a87.png" />
+</div>
+</div>
+</section>
+<section id="other-technology-visum-hd">
+<h2>Other technology: Visum HD<a class="headerlink" href="#other-technology-visum-hd" title="Link to this heading">#</a></h2>
+<p>The true strength of the <code class="docutils literal notranslate"><span class="pre">SpatialData</span></code> ecosystems presents itself when considering the vast amount of different technology providers on the market. Usually, most of these would require a scientist to learn specialised analysis methods and data formats. However, with <code class="docutils literal notranslate"><span class="pre">spatialdata</span></code>, we can abstract away these differences and provide a unified interface to the data. This allows us to easily switch between different technologies, without having to change the analysis code.</p>
+<p>As a practical example of this, let’s load some <a class="reference external" href="https://www.10xgenomics.com/products/visium-hd-spatial-gene-expression">Visium HD</a> data. This technology is somewhat similar to the regular Visium technology, but the spatial expression is no longer based on an hexagonal grid but instead on probes, arranged into a square grid, which can be aggregated into different resolutions. This allows the data to have sub-cellular precision. More details can be found in the <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2024.06.04.597233v1">publication</a>.</p>
+<p><img alt="Visium HD technology" src="../../../_images/visium_hd_tech.png" /></p>
+<p><em>Image: <a class="reference external" href="https://www.10xgenomics.com/blog/your-introduction-to-visium-hd-spatial-biology-in-high-definition">https://www.10xgenomics.com/blog/your-introduction-to-visium-hd-spatial-biology-in-high-definition)</a></em></p>
+<p>Similarly, to the regular Visium data, we can read and inspect the individual modalities contained in the data. We can see that the <code class="docutils literal notranslate"><span class="pre">Visium</span> <span class="pre">HD</span></code> data contains a lot more elements in the <code class="docutils literal notranslate"><span class="pre">Shapes</span></code> slot (351817 vs 5756) due to the increased precision.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sdata_visium_hd</span> <span class="o">=</span> <span class="n">sd</span><span class="o">.</span><span class="n">read_zarr</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s2">&quot;visium_hd.zarr&quot;</span><span class="p">)</span>
+<span class="n">sdata_visium_hd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SpatialData object, with associated Zarr store: /Users/tim.treis/Documents/GitHub/202504_workshop_GSCN/notebooks/day_2/spatialdata/data/visium_hd.zarr
+├── Images
+│     ├── &#39;Visium_HD_Mouse_Small_Intestine_hires_image&#39;: DataArray[cyx] (3, 5575, 6000)
+│     └── &#39;Visium_HD_Mouse_Small_Intestine_lowres_image&#39;: DataArray[cyx] (3, 558, 600)
+├── Shapes
+│     └── &#39;Visium_HD_Mouse_Small_Intestine_square_008um&#39;: GeoDataFrame shape: (351817, 1) (2D shapes)
+└── Tables
+      └── &#39;square_008um&#39;: AnnData (351817, 19059)
+with coordinate systems:
+    ▸ &#39;downscaled_hires&#39;, with elements:
+        Visium_HD_Mouse_Small_Intestine_hires_image (Images), Visium_HD_Mouse_Small_Intestine_square_008um (Shapes)
+    ▸ &#39;downscaled_lowres&#39;, with elements:
+        Visium_HD_Mouse_Small_Intestine_lowres_image (Images), Visium_HD_Mouse_Small_Intestine_square_008um (Shapes)
+    ▸ &#39;global&#39;, with elements:
+        Visium_HD_Mouse_Small_Intestine_hires_image (Images), Visium_HD_Mouse_Small_Intestine_lowres_image (Images), Visium_HD_Mouse_Small_Intestine_square_008um (Shapes)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use the same synthax to visualise the individual modalities contained in the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sdata_visium_hd</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_images</span><span class="p">()</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;downscaled_hires&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">INFO    </span> Rasterizing image for faster rendering.                                                                   
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [-0.15..1.0].
+</pre></div>
+</div>
+<img alt="../../../_images/297a0b4497236f1abba615ca111fa2dc3c4a42395f6c22fd632ecd13c2eac509.png" src="../../../_images/297a0b4497236f1abba615ca111fa2dc3c4a42395f6c22fd632ecd13c2eac509.png" />
+</div>
+</div>
+<p>We will use the <code class="docutils literal notranslate"><span class="pre">.query.bounding_box()</span></code> function to subset the data so that we can visually inspect the result easier. This function allows us to subset the data to a specific bounding box, which is defined by the top-left and bottom-right coordinates. This is useful when working with large datasets, as it allows us to only load the data that we’re interested in.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sdata_visium_hd_crop</span> <span class="o">=</span> <span class="n">sdata_visium_hd</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">bounding_box</span><span class="p">(</span>
+    <span class="n">axes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">],</span>
+    <span class="n">min_coordinate</span><span class="o">=</span><span class="p">[</span><span class="mi">4500</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">max_coordinate</span><span class="o">=</span><span class="p">[</span><span class="mi">6000</span><span class="p">,</span> <span class="mi">1500</span><span class="p">],</span>
+    <span class="n">target_coordinate_system</span><span class="o">=</span><span class="s2">&quot;downscaled_hires&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s identify some genes with a high variance in expression across the slide for a quick proxy of Moran’s I and then visualise the spatial expression of these genes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sdata_visium_hd_crop</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="s2">&quot;square_008um&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_df</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="n">col</span><span class="o">.</span><span class="n">var</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ptpn20           0.000000
+Olfr718-ps1      0.000000
+Spdye4b          0.000000
+Zfp853           0.000000
+Pou6f2           0.000000
+                  ...    
+Iglc1           45.842403
+Lyz1            50.397385
+Defa21          58.193329
+Igha           189.171158
+Igkc           215.507874
+Length: 19059, dtype: float32
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sdata_visium_hd_crop</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_shapes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;Igha&quot;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span>
+    <span class="s2">&quot;downscaled_hires&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:105: UserWarning: Key `Visium_HD_Mouse_Small_Intestine_square_008um` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:125: UserWarning: Key `square_008um` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+</pre></div>
+</div>
+<img alt="../../../_images/3dfbace2c2168e44b6d62c4641a8ac81bc86e4dd2cebe7cb196042f12fe7b929.png" src="../../../_images/3dfbace2c2168e44b6d62c4641a8ac81bc86e4dd2cebe7cb196042f12fe7b929.png" />
+</div>
+</div>
+<p>We can see that these bins are continous, so when overlaying the expression over an image, we would no longer see the image. To counter this, we will modify the <code class="docutils literal notranslate"><span class="pre">colormap</span></code> we’ll use so that true 0s in the expression matrix are shown fully transparent. The <code class="docutils literal notranslate"><span class="pre">spatialdata-plot</span></code> library provides a helper function for this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialdata_plot.pl.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_zero_in_cmap_to_transparent</span>
+
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">set_zero_in_cmap_to_transparent</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">)</span>
+<span class="n">cmap</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="vertical-align: middle;"><strong>from_list</strong> </div><div class="cmap"><img alt="from_list colormap" title="from_list" style="border: 1px solid #555;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAABACAYAAABsv8+/AAAAGHRFWHRUaXRsZQBmcm9tX2xpc3QgY29sb3JtYXBDL89FAAAAHnRFWHREZXNjcmlwdGlvbgBmcm9tX2xpc3QgY29sb3JtYXABtCnOAAAAMHRFWHRBdXRob3IATWF0cGxvdGxpYiB2My45LjIsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmdhmcVTAAAAMnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHYzLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZ08/WnQAAAIkSURBVHic7dZBdpwwFEXBL1ibt5D9ryRkEBmCQE27T2avatKW9BEcj27btq2qqr7WX3//aEv/afXvuvq6tb6/9P1hfZzfP7/Pz+6d3X+59/53ezifPb/t5/XheZ3u3+db3c8N943z1/V4/+zeGp4b7lkezi/Pv37P8/rd++/Xn77nf9//OFev597f3z57vp7mt4++Yzw/5ibn+3fMnn+93yZz7bIenqtx7nxfm64f9vu9y2V+6/s1rMfz+3tmc/tvPZwPc0v7/ebceX798fn5PWvdv3fcX7+fq4f193uH913X999x3Hv+/mP+fN91fnjfbH/4jtn3rjX+X87/z/WyX32/zut9vw37fd3393WfOOaX/tvn2nK6BwAIIgAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAfwB1p4yH2gCuWwAAAABJRU5ErkJggg=="></div><div style="vertical-align: middle; max-width: 514px; display: flex; justify-content: space-between;"><div style="float: left;"><div title="#ffffff00" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #ffffff00;"></div> under</div><div style="margin: 0 auto; display: inline-block;">bad <div title="#00000000" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #00000000;"></div></div><div style="float: right;">over <div title="#fde725ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #fde725ff;"></div></div></div></div></div>
+</div>
+<p>We can now use this <code class="docutils literal notranslate"><span class="pre">cmap</span></code> to visualise the spatial expression of the genes. We see that the gene is only expressed in certain areas of the slide.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sdata_visium_hd_crop</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_images</span><span class="p">()</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_shapes</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;Igha&quot;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span>
+<span class="p">)</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;downscaled_hires&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [-0.16513762..1.0].
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:105: UserWarning: Key `Visium_HD_Mouse_Small_Intestine_square_008um` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:125: UserWarning: Key `square_008um` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+</pre></div>
+</div>
+<img alt="../../../_images/72bbf2a19f16e48b7ae77bee4b42f513a7071d4bb0094bbf26681994c08da7c5.png" src="../../../_images/72bbf2a19f16e48b7ae77bee4b42f513a7071d4bb0094bbf26681994c08da7c5.png" />
+</div>
+</div>
+<div style="border: 1px solid #4CAF50; border-left-width: 15px; padding: 10px; background-color: #F0FFF0; color: black;">
+    <strong>Tip:</strong>
+    <p>Some operations, such as plotting, can be accelerated by representing the Visium HD bins as pixels of an image. The function <br><code>rasterize_bins()</code> can be used for this; for its usage please refer to the <a href="https://spatialdata.scverse.org/en/latest/tutorials/notebooks/notebooks/examples/technology_visium_hd.html">Visium HD notebook</a> from the documentation.</p>
+</div>
+</section>
+<section id="other-technology-xenium">
+<h2>Other technology: Xenium<a class="headerlink" href="#other-technology-xenium" title="Link to this heading">#</a></h2>
+<p>Similar to Visium HD, the <code class="docutils literal notranslate"><span class="pre">Xenium</span></code> technology is a spatial transcriptomics technology that allows for sub-cellular precision. The main difference is that the transcripts here are never binned and are localised with (theoretically) arbitrary precision. This allows for a much higher resolution of the data, but also makes the data much more sparse.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sdata_xenium</span> <span class="o">=</span> <span class="n">sd</span><span class="o">.</span><span class="n">read_zarr</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s2">&quot;xenium.zarr&quot;</span><span class="p">)</span>
+<span class="n">sdata_xenium</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/anndata/_core/aligned_df.py:68: ImplicitModificationWarning: Transforming to str index.
+  warnings.warn(&quot;Transforming to str index.&quot;, ImplicitModificationWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SpatialData object, with associated Zarr store: /Users/tim.treis/Documents/GitHub/202504_workshop_GSCN/notebooks/day_2/spatialdata/data/xenium.zarr
+├── Images
+│     ├── &#39;he_image&#39;: DataTree[cyx] (3, 5636, 1448), (3, 2818, 724), (3, 1409, 362), (3, 704, 181), (3, 352, 90)
+│     └── &#39;morphology_focus&#39;: DataTree[cyx] (1, 17098, 51187), (1, 8549, 25593), (1, 4274, 12796), (1, 2137, 6398), (1, 1068, 3199)
+├── Labels
+│     ├── &#39;cell_labels&#39;: DataTree[yx] (17098, 51187), (8549, 25593), (4274, 12796), (2137, 6398), (1068, 3199)
+│     └── &#39;nucleus_labels&#39;: DataTree[yx] (17098, 51187), (8549, 25593), (4274, 12796), (2137, 6398), (1068, 3199)
+├── Points
+│     └── &#39;transcripts&#39;: DataFrame with shape: (&lt;Delayed&gt;, 11) (3D points)
+├── Shapes
+│     ├── &#39;cell_boundaries&#39;: GeoDataFrame shape: (162254, 1) (2D shapes)
+│     ├── &#39;cell_circles&#39;: GeoDataFrame shape: (162254, 2) (2D shapes)
+│     └── &#39;nucleus_boundaries&#39;: GeoDataFrame shape: (156628, 1) (2D shapes)
+└── Tables
+      └── &#39;table&#39;: AnnData (162254, 377)
+with coordinate systems:
+    ▸ &#39;global&#39;, with elements:
+        he_image (Images), morphology_focus (Images), cell_labels (Labels), nucleus_labels (Labels), transcripts (Points), cell_boundaries (Shapes), cell_circles (Shapes), nucleus_boundaries (Shapes)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will explore this data more in detail in of our next notebooks but will use the image here to show some benefits of using the <code class="docutils literal notranslate"><span class="pre">spatialdata-plot</span></code> library with large data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crop</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">sdata</span><span class="p">:</span> <span class="n">sdata</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">bounding_box</span><span class="p">(</span>
+    <span class="n">min_coordinate</span><span class="o">=</span><span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">12000</span><span class="p">],</span>
+    <span class="n">max_coordinate</span><span class="o">=</span><span class="p">[</span><span class="mi">11000</span><span class="p">,</span> <span class="mi">13000</span><span class="p">],</span>
+    <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">),</span>
+    <span class="n">target_coordinate_system</span><span class="o">=</span><span class="s2">&quot;global&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="p">(</span>
+    <span class="n">crop</span><span class="p">(</span><span class="n">sdata_xenium</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_images</span><span class="p">(</span><span class="s2">&quot;he_image&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_shapes</span><span class="p">(</span>
+        <span class="s2">&quot;cell_boundaries&quot;</span><span class="p">,</span> <span class="n">fill_alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">outline_alpha</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;global&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/functools.py:909: UserWarning: The object has `points` element. Depending on the number of points, querying MAY suffer from performance issues. Please consider filtering the object before calling this function by calling the `subset()` method of `SpatialData`.
+  return dispatch(args[0].__class__)(*args, **kw)
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [-0.275..1.0].
+</pre></div>
+</div>
+<img alt="../../../_images/50daa204bf207500b0a204dbc8d7bb6bbe0d6e7eff40d89a48edfa19b5877994.png" src="../../../_images/50daa204bf207500b0a204dbc8d7bb6bbe0d6e7eff40d89a48edfa19b5877994.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the xenium gene expression in annotating the cell circles, let&#39;s switch the annoation to the cell boundaries (polygons)</span>
+<span class="n">sdata_xenium</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="s2">&quot;table&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;region&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;cell_boundaries&quot;</span>
+<span class="n">sdata_xenium</span><span class="o">.</span><span class="n">set_table_annotates_spatialelement</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="s2">&quot;cell_boundaries&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/spatialdata.py:511: UserWarning: Converting `region_key: region` to categorical dtype.
+  convert_region_column_to_categorical(table)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gene_name</span> <span class="o">=</span> <span class="s2">&quot;EPCAM&quot;</span>
+
+<span class="n">crop</span><span class="p">(</span><span class="n">sdata_xenium</span><span class="p">)</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_images</span><span class="p">(</span><span class="s2">&quot;he_image&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_shapes</span><span class="p">(</span>
+    <span class="s2">&quot;cell_boundaries&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">gene_name</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">render_points</span><span class="p">(</span>
+    <span class="s2">&quot;transcripts&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;feature_name&quot;</span><span class="p">,</span>
+    <span class="n">groups</span><span class="o">=</span><span class="n">gene_name</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gene_name</span><span class="si">}</span><span class="s2"> expression over H&amp;E image&quot;</span><span class="p">,</span>
+    <span class="n">coordinate_systems</span><span class="o">=</span><span class="s2">&quot;global&quot;</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/functools.py:909: UserWarning: The object has `points` element. Depending on the number of points, querying MAY suffer from performance issues. Please consider filtering the object before calling this function by calling the `subset()` method of `SpatialData`.
+  return dispatch(args[0].__class__)(*args, **kw)
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [-0.275..1.0].
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">INFO    </span> input has more than <span class=" -Color -Color-Bold -Color-Bold-Cyan">103</span> categories. Uniform <span class=" -Color -Color-Green">&#39;grey&#39;</span> color will be used for all categories.                 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:105: UserWarning: Key `cell_boundaries` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:125: UserWarning: Key `table` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/anndata/_core/anndata.py:381: FutureWarning: The dtype argument is deprecated and will be removed in late 2024.
+  warnings.warn(
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/anndata/_core/aligned_df.py:68: ImplicitModificationWarning: Transforming to str index.
+  warnings.warn(&quot;Transforming to str index.&quot;, ImplicitModificationWarning)
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata/_core/_elements.py:115: UserWarning: Key `transcripts` already exists. Overwriting it in-memory.
+  self._check_key(key, self.keys(), self._shared_keys)
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata_plot/pl/utils.py:771: FutureWarning: The default value of &#39;ignore&#39; for the `na_action` parameter in pandas.Categorical.map is deprecated and will be changed to &#39;None&#39; in a future version. Please set na_action to the desired value to avoid seeing this warning
+  color_vector = color_source_vector.map(color_mapping)
+/Users/tim.treis/anaconda3/envs/spatialdata-workshop/lib/python3.11/site-packages/spatialdata_plot/pl/render.py:669: UserWarning: No data for colormapping provided via &#39;c&#39;. Parameters &#39;cmap&#39;, &#39;norm&#39; will be ignored
+  _cax = ax.scatter(
+</pre></div>
+</div>
+<img alt="../../../_images/1450a42e10b74574f871aca2d7a2046fe8f199de4e6560442da8cea344ce9e24.png" src="../../../_images/1450a42e10b74574f871aca2d7a2046fe8f199de4e6560442da8cea344ce9e24.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./day_2/spatialdata/beginner"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="nb1_spatialdata_objects.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction to <code class="docutils literal notranslate"><span class="pre">SpatialData</span></code> objects</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="nb3_interactive_plotting_with_napari.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exploring <code class="docutils literal notranslate"><span class="pre">SpatialData</span></code> objects using <code class="docutils literal notranslate"><span class="pre">napari</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-function-calls">Simple function calls <a id="simple-viz"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-some-genes-with-spatial-patterns">Identify some genes with spatial patterns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-technology-visum-hd">Other technology: Visum HD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-technology-xenium">Other technology: Xenium</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GSCN Workshop Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

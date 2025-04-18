@@ -1,0 +1,1469 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Ligand-Receptor Analysis &#8212; GSCN Workshop 2025</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'day_2/nb1_ligand_recepter_interactions';</script>
+    <link rel="canonical" href="/202504_workshop_GSCN/day_2/nb1_ligand_recepter_interactions.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="nb2_differential_cellular_abundance.html" />
+    <link rel="prev" title="Day 2: Advanced Single-cell Analysis and Spatial Omics" href="README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">GSCN Workshop 2025</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    scverse workshop in collaboration with the GSCN
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../day_1/README.html">Day 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../day_1/nb1_qc_normalization.html">QC and Normalisation</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../day_1/nb2_preprocessing.html">Dimensionality reduction, clustering and annotation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../day_1/nb3_batch_correction.html">Batch Correction</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../day_1/nb4_downstream_analysis.html">Downstream Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day_1/nb5_trajectory_inference.html">Introduction</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Day 2</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Ligand-Receptor Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nb2_differential_cellular_abundance.html">Introduction</a></li>
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="spatialdata/README.html">Spatial Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="spatialdata/beginner/nb1_spatialdata_objects.html">1. SpatialData Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spatialdata/beginner/nb2_static_plotting.html">2. Static Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spatialdata/beginner/nb3_interactive_plotting_with_napari.html">3. Interactive Plotting with Napari</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spatialdata/beginner/nb4_simple_analysis_using_scverse_tools.html">4. Simple Analysis using scverse Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spatialdata/advanced/transformations.html">5. Transformations (advanced)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spatialdata/advanced/tutorial_niche_calculation.html">6. Niche Calculation Tutorial (advanced)</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_3/README.html">Day 3</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/scverse/202504_workshop_GSCN" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scverse/202504_workshop_GSCN/edit/main/notebooks/day_2/nb1_ligand_recepter_interactions.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scverse/202504_workshop_GSCN/issues/new?title=Issue%20on%20page%20%2Fday_2/nb1_ligand_recepter_interactions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/day_2/nb1_ligand_recepter_interactions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Ligand-Receptor Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-packages">Loading Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data">Loading data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#by-default-liana-uses-human-gene-symbols-see-the-documentation-and-the-prior-knowledge-vignette-for-details-and-instructions-for-homology-conversion">By default, LIANA+ uses <strong>human gene symbols</strong>. See the documentation and the Prior Knowledge vignette for details and instructions for homology conversion.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-run">Example Run</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-methods">Individual Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dotplot">Dotplot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tileplot">Tileplot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-aggregate">Rank Aggregate</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Dotplot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#circle-plot">Circle Plot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-liana-s-rank-aggregate">Customizing LIANA’s rank aggregate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task">Task</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advance-task">Advance task</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ligand-receptor-analysis">
+<h1>Ligand-Receptor Analysis<a class="headerlink" href="#ligand-receptor-analysis" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">liana</span></code> provides different statistical methods to infer <code class="docutils literal notranslate"><span class="pre">ligand-receptor</span></code> interactions from single-cell transcriptomics data omics data using prior knowledge.
+In this notebook we showcase how to use liana in its most basic form with toy data.</p>
+<section id="loading-packages">
+<h2>Loading Packages<a class="headerlink" href="#loading-packages" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import liana</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">liana</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">li</span>
+<span class="c1"># needed for visualization and toy data</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scanpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OMP: Info #276: omp_set_nested routine deprecated, please use omp_set_max_active_levels instead.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="loading-data">
+<h2>Loading data<a class="headerlink" href="#loading-data" title="Link to this heading">#</a></h2>
+<p>In the most general case, <code class="docutils literal notranslate"><span class="pre">liana</span></code>’s ligand-receptor methods use <code class="docutils literal notranslate"><span class="pre">anndata</span></code> objects with processed single-cell transcriptomics data, with pre-defined cell labels (identities), to infer ligand-receptor interactions among all pairs of cell identities.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">pbmc68k_reduced</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The example single-cell data consists processed data with PBMCs cell types</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">umap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;bulk_labels&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9146704a1ec6dde43be211cdde42d824b73aa664bcf110b12a449bc578a26679.png" src="../_images/9146704a1ec6dde43be211cdde42d824b73aa664bcf110b12a449bc578a26679.png" />
+</div>
+</div>
+</section>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">liana</span></code> typically works with the log1p-trasformed counts matrix, in this object the normalized counts are stored in <code class="docutils literal notranslate"><span class="pre">raw</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">X</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;700x765 sparse matrix of type &#39;&lt;class &#39;numpy.float32&#39;&gt;&#39;
+	with 174400 stored elements in Compressed Sparse Row format&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Preferably, one would use <code class="docutils literal notranslate"><span class="pre">liana</span></code> with all features (genes) for which we have enough counts, but for the sake of this tutorial we are working with a matrix pre-filtered to the variable features alone.</p>
+<p>In the background, <code class="docutils literal notranslate"><span class="pre">liana</span></code> aggregates the counts matrix and generates statistics, typically related to cell identies.
+These statistics are then utilized by each of the methods in <code class="docutils literal notranslate"><span class="pre">liana</span></code>.</p>
+<section id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">li</span><span class="o">.</span><span class="n">mt</span><span class="o">.</span><span class="n">show_methods</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Method Name</th>
+      <th>Magnitude Score</th>
+      <th>Specificity Score</th>
+      <th>Reference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CellPhoneDB</td>
+      <td>lr_means</td>
+      <td>cellphone_pvals</td>
+      <td>Efremova, M., Vento-Tormo, M., Teichmann, S.A....</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Connectome</td>
+      <td>expr_prod</td>
+      <td>scaled_weight</td>
+      <td>Raredon, M.S.B., Yang, J., Garritano, J., Wang...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>log2FC</td>
+      <td>None</td>
+      <td>lr_logfc</td>
+      <td>Dimitrov, D., Türei, D., Garrido-Rodriguez, M....</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>NATMI</td>
+      <td>expr_prod</td>
+      <td>spec_weight</td>
+      <td>Hou, R., Denisenko, E., Ong, H.T., Ramilowski,...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>SingleCellSignalR</td>
+      <td>lrscore</td>
+      <td>None</td>
+      <td>Cabello-Aguilar, S., Alame, M., Kon-Sun-Tack, ...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Rank_Aggregate</td>
+      <td>magnitude_rank</td>
+      <td>specificity_rank</td>
+      <td>Dimitrov, D., Türei, D., Garrido-Rodriguez, M....</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Geometric Mean</td>
+      <td>lr_gmeans</td>
+      <td>gmean_pvals</td>
+      <td>CellPhoneDBv2's permutation approach applied t...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>scSeqComm</td>
+      <td>inter_score</td>
+      <td>None</td>
+      <td>Baruzzo, G., Cesaro, G., Di Camillo, B. 2022. ...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>CellChat</td>
+      <td>lr_probs</td>
+      <td>cellchat_pvals</td>
+      <td>Jin, S., Guerrero-Juarez, C.F., Zhang, L., Cha...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Each method infers relevant ligand-receptor interactions relying on different assumptions and each method returns different ligand-receptor scores, typically a pair per method. One score corresponding to
+the <code class="docutils literal notranslate"><span class="pre">magnitude</span></code> (strength) of interaction and the other reflecting how <code class="docutils literal notranslate"><span class="pre">specificity</span></code> of a given interaction to a pair cell identities.</p>
+<p>For example, if the user wishes to learn more about liana’s <code class="docutils literal notranslate"><span class="pre">rank_aggregate</span></code> implementation, where we combine the scores of multiple methods, they could do the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import liana&#39;s rank_aggregate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">liana.mt</span><span class="w"> </span><span class="kn">import</span> <span class="n">rank_aggregate</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rank_aggregate</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rank_Aggregate returns `magnitude_rank`, `specificity_rank`. magnitude_rank and specificity_rank respectively represent an aggregate of the `magnitude`- and `specificity`-related scoring functions from the different methods.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="by-default-liana-uses-human-gene-symbols-see-the-documentation-and-the-prior-knowledge-vignette-for-details-and-instructions-for-homology-conversion">
+<h2>By default, LIANA+ uses <strong>human gene symbols</strong>. See the documentation and the <a class="reference external" href="https://liana-py.readthedocs.io/en/latest/notebooks/prior_knowledge.html">Prior Knowledge vignette</a> for details and instructions for homology conversion.<a class="headerlink" href="#by-default-liana-uses-human-gene-symbols-see-the-documentation-and-the-prior-knowledge-vignette-for-details-and-instructions-for-homology-conversion" title="Link to this heading">#</a></h2>
+</section>
+<section id="example-run">
+<h2>Example Run<a class="headerlink" href="#example-run" title="Link to this heading">#</a></h2>
+<section id="individual-methods">
+<h3>Individual Methods<a class="headerlink" href="#individual-methods" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import all individual methods</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">liana.method</span><span class="w"> </span><span class="kn">import</span> <span class="n">singlecellsignalr</span><span class="p">,</span> <span class="n">connectome</span><span class="p">,</span> <span class="n">cellphonedb</span><span class="p">,</span> <span class="n">natmi</span><span class="p">,</span> <span class="n">logfc</span><span class="p">,</span> <span class="n">cellchat</span><span class="p">,</span> <span class="n">geometric_mean</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-info">
+<p><strong>Note</strong></p>
+<p>LIANA will by default use the <code class="docutils literal notranslate"><span class="pre">.raw</span></code> attribute of AnnData. If you wish to use .X set <code class="docutils literal notranslate"><span class="pre">use_raw</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>, or specify a <code class="docutils literal notranslate"><span class="pre">layer</span></code>.</p>
+<p>LIANA will also by default use the ‘consensus’ resource to infer ligand-receptor interactions.
+This resource was created as a consensus from the resources literature-curated resources in OmniPath, and uses <strong>human gene symbols</strong>.</p>
+<p>For different species, we provide ‘mouseconsensus’, for any other species you can provide your own resource, or translate LIANA’s resources as shown <a class="reference external" href="https://liana-py.readthedocs.io/en/latest/notebooks/prior_knowledge.html#Homology-Mapping">here</a>.</p>
+<p>If you wish to use a different resource, please specify it via the <code class="docutils literal notranslate"><span class="pre">resource_name</span></code> parameter for internal resources, or provide an external one via <code class="docutils literal notranslate"><span class="pre">resource</span></code> or <code class="docutils literal notranslate"><span class="pre">interactions</span></code>.</p>
+</div>  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run cellphonedb</span>
+<span class="n">cellphonedb</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span>
+            <span class="n">groupby</span><span class="o">=</span><span class="s1">&#39;bulk_labels&#39;</span><span class="p">,</span> 
+            <span class="c1"># NOTE by default the resource uses HUMAN gene symbols</span>
+            <span class="n">resource_name</span><span class="o">=</span><span class="s1">&#39;consensus&#39;</span><span class="p">,</span>
+            <span class="n">expr_prop</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">key_added</span><span class="o">=</span><span class="s1">&#39;cpdb_res&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using resource `consensus`.
+Using `.raw`!
+/Users/sara.jimenez/miniconda3/envs/workshop_2025/lib/python3.10/site-packages/anndata/_core/anndata.py:381: FutureWarning: The dtype argument is deprecated and will be removed in late 2024.
+/Users/sara.jimenez/miniconda3/envs/workshop_2025/lib/python3.10/site-packages/liana/method/_pipe_utils/_pre.py:153: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+0.94 of entities in the resource are missing from the data.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating ligand-receptor stats for 700 samples and 43 features
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1000/1000 [00:02&lt;00:00, 473.07it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<p>By default, liana will be run <strong>inplace</strong> and results will be assigned to <code class="docutils literal notranslate"><span class="pre">adata.uns['liana_res']</span></code>.
+Note that the high proportion of missing entities here is expected, as we are working on the reduced dimensions data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># by default, liana&#39;s output is saved in place:</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;cpdb_res&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ligand</th>
+      <th>ligand_complex</th>
+      <th>ligand_means</th>
+      <th>ligand_props</th>
+      <th>receptor</th>
+      <th>receptor_complex</th>
+      <th>receptor_means</th>
+      <th>receptor_props</th>
+      <th>source</th>
+      <th>target</th>
+      <th>lr_means</th>
+      <th>cellphone_pvals</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>482</th>
+      <td>HLA-DRA</td>
+      <td>HLA-DRA</td>
+      <td>4.537684</td>
+      <td>0.995833</td>
+      <td>CD4</td>
+      <td>CD4</td>
+      <td>0.612842</td>
+      <td>0.421053</td>
+      <td>Dendritic</td>
+      <td>CD4+/CD45RO+ Memory</td>
+      <td>2.575263</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>321</th>
+      <td>HLA-DRA</td>
+      <td>HLA-DRA</td>
+      <td>4.537684</td>
+      <td>0.995833</td>
+      <td>CD4</td>
+      <td>CD4</td>
+      <td>0.596125</td>
+      <td>0.500000</td>
+      <td>Dendritic</td>
+      <td>CD4+/CD45RA+/CD25- Naive T</td>
+      <td>2.566905</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>989</th>
+      <td>HLA-DRA</td>
+      <td>HLA-DRA</td>
+      <td>4.537684</td>
+      <td>0.995833</td>
+      <td>CD4</td>
+      <td>CD4</td>
+      <td>0.483977</td>
+      <td>0.302326</td>
+      <td>Dendritic</td>
+      <td>CD14+ Monocyte</td>
+      <td>2.510830</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>651</th>
+      <td>HLA-DRA</td>
+      <td>HLA-DRA</td>
+      <td>4.537684</td>
+      <td>0.995833</td>
+      <td>LAG3</td>
+      <td>LAG3</td>
+      <td>0.399500</td>
+      <td>0.240741</td>
+      <td>Dendritic</td>
+      <td>CD8+ Cytotoxic T</td>
+      <td>2.468592</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1392</th>
+      <td>HLA-DRA</td>
+      <td>HLA-DRA</td>
+      <td>4.537684</td>
+      <td>0.995833</td>
+      <td>CD4</td>
+      <td>CD4</td>
+      <td>0.373671</td>
+      <td>0.270833</td>
+      <td>Dendritic</td>
+      <td>Dendritic</td>
+      <td>2.455678</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Here, we see that stats are provided for both ligand and receptor entities, more specifically: <code class="docutils literal notranslate"><span class="pre">ligand</span></code> and <code class="docutils literal notranslate"><span class="pre">receptor</span></code> are the two entities that potentially interact. As a reminder, CCC events are not limited to secreted signalling, but we refer to them as <code class="docutils literal notranslate"><span class="pre">ligand</span></code> and <code class="docutils literal notranslate"><span class="pre">receptor</span></code> for simplicity.</p>
+<p>Also, in the case of heteromeric complexes, the <code class="docutils literal notranslate"><span class="pre">ligand</span></code> and <code class="docutils literal notranslate"><span class="pre">receptor</span></code> columns represent the subunit with minimum expression, while <code class="docutils literal notranslate"><span class="pre">*_complex</span></code> corresponds to the actual complex, with subunits being separated by <code class="docutils literal notranslate"><span class="pre">_</span></code>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">target</span></code> columns represent the source/sender and target/receiver cell identity for each interaction, respectively</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*_props</span></code>: represents the proportion of cells that express the entity.</p>
+<p>By default, any interactions in which either entity is not expressed in above 10% of cells per cell type is considered as a false positive,
+under the assumption that since CCC occurs between cell types, a sufficient proportion of cells within should express the genes.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*_means</span></code>: entity expression mean per cell type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_means</span></code>: mean ligand-receptor expression, as a measure of ligand-receptor interaction <strong>magnitude</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cellphone_pvals</span></code>: permutation-based p-values, as a measure of interaction <strong>specificity</strong></p></li>
+</ul>
+<div class="alert alert-info">
+<p><strong>Note</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">ligand</span></code>, <code class="docutils literal notranslate"><span class="pre">receptor</span></code>, <code class="docutils literal notranslate"><span class="pre">source</span></code>, and <code class="docutils literal notranslate"><span class="pre">target</span></code> columns are returned by every ligand-receptor method, while the rest of the columns can vary across the ligand-receptor methods, as each method infers relies on different assumptions and scoring functions, and hence each returns different ligand-receptor scores. Nevertheless, typically most methods use a pair of scoring functions - where one often corresponds to the <strong>magnitude</strong> (strength) of interaction and the other reflects how <strong>specificity</strong> of a given interaction to a pair cell identities.</p>
+</div><section id="dotplot">
+<h4>Dotplot<a class="headerlink" href="#dotplot" title="Link to this heading">#</a></h4>
+<p>We can now visualize the results that we just obtained.</p>
+<p>LIANA provides some basic, but flexible plotting functionalities. Here, we will generate a dotplot of relevant ligand-receptor interactions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">li</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">dotplot</span><span class="p">(</span><span class="n">adata</span> <span class="o">=</span> <span class="n">adata</span><span class="p">,</span> 
+              <span class="n">colour</span><span class="o">=</span><span class="s1">&#39;lr_means&#39;</span><span class="p">,</span>
+              <span class="n">size</span><span class="o">=</span><span class="s1">&#39;cellphone_pvals&#39;</span><span class="p">,</span>
+              <span class="n">inverse_size</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># we inverse sign since we want small p-values to have large sizes</span>
+              <span class="n">source_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">,</span> <span class="s1">&#39;CD14+ Monocyte&#39;</span><span class="p">],</span>
+              <span class="n">target_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">],</span>
+              <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+              <span class="c1"># finally, since cpdbv2 suggests using a filter to FPs</span>
+              <span class="c1"># we filter the pvals column to &lt;= 0.05</span>
+              <span class="n">filter_fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;cellphone_pvals&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">0.05</span><span class="p">,</span>
+              <span class="n">uns_key</span><span class="o">=</span><span class="s1">&#39;cpdb_res&#39;</span> <span class="c1"># uns_key to use, default is &#39;liana_res&#39; </span>
+             <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../_images/35b72c23cdcf8434817ccb4829ba618d552d1486a2e0cc46603b02a739fcb94e.png"><img alt="../_images/35b72c23cdcf8434817ccb4829ba618d552d1486a2e0cc46603b02a739fcb94e.png" src="../_images/35b72c23cdcf8434817ccb4829ba618d552d1486a2e0cc46603b02a739fcb94e.png" style="width: 800px; height: 700px;" />
+</a>
+</div>
+</div>
+<div class="alert alert-info">
+<p><strong>Note</strong></p>
+<p>Missing dots here would represent interactions for which the ligand and receptor are not expressed above the <code class="docutils literal notranslate"><span class="pre">expr_prop</span></code>. One can change this threshold by setting <code class="docutils literal notranslate"><span class="pre">expr_prop</span></code> to a different value. Alternatively, setting <code class="docutils literal notranslate"><span class="pre">return_all_lrs</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> will return all ligand-receptor interactions, regardless of expression.</p>
+</div></section>
+<section id="tileplot">
+<h4>Tileplot<a class="headerlink" href="#tileplot" title="Link to this heading">#</a></h4>
+<p>While dotplots are useful to visualize the most relevant interactions, LIANA’s tileplots are more useful when visualizing the statistics of ligands and receptors, individually.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_plot</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tileplot</span><span class="p">(</span><span class="n">adata</span> <span class="o">=</span> <span class="n">adata</span><span class="p">,</span> 
+                         <span class="c1"># NOTE: fill &amp; label need to exist for both</span>
+                         <span class="c1"># ligand_ and receptor_ columns</span>
+                         <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;means&#39;</span><span class="p">,</span>
+                         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;props&#39;</span><span class="p">,</span>
+                         <span class="n">label_fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                         <span class="n">top_n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
+                         <span class="n">orderby</span><span class="o">=</span><span class="s1">&#39;cellphone_pvals&#39;</span><span class="p">,</span>
+                         <span class="n">orderby_ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                         <span class="n">source_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">,</span> <span class="s1">&#39;CD14+ Monocyte&#39;</span><span class="p">],</span>
+                         <span class="n">target_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">],</span>
+                         <span class="n">uns_key</span><span class="o">=</span><span class="s1">&#39;cpdb_res&#39;</span><span class="p">,</span> <span class="c1"># NOTE: default is &#39;liana_res&#39;</span>
+                         <span class="n">source_title</span><span class="o">=</span><span class="s1">&#39;Ligand&#39;</span><span class="p">,</span>
+                         <span class="n">target_title</span><span class="o">=</span><span class="s1">&#39;Receptor&#39;</span><span class="p">,</span>
+                         <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+                         <span class="p">)</span>
+<span class="n">my_plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/sara.jimenez/miniconda3/envs/workshop_2025/lib/python3.10/site-packages/liana/plotting/_common.py:107: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/a8b5e84d6271bd683cf1cac0e1d4473ee923e39a5adacb0a20afa738c9e5d489.png"><img alt="../_images/a8b5e84d6271bd683cf1cac0e1d4473ee923e39a5adacb0a20afa738c9e5d489.png" src="../_images/a8b5e84d6271bd683cf1cac0e1d4473ee923e39a5adacb0a20afa738c9e5d489.png" style="width: 800px; height: 700px;" />
+</a>
+</div>
+</div>
+</section>
+</section>
+<section id="rank-aggregate">
+<h3>Rank Aggregate<a class="headerlink" href="#rank-aggregate" title="Link to this heading">#</a></h3>
+<p>In addition to the individual methods, LIANA also provides a consensus that integrates the predictions of individual methods.
+This is done by ranking and aggregating (<a class="reference external" href="https://academic.oup.com/bioinformatics/article-abstract/28/4/573/213339">RRA</a>) the ligand-receptor interaction predictions from all methods.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run rank_aggregate</span>
+<span class="n">li</span><span class="o">.</span><span class="n">mt</span><span class="o">.</span><span class="n">rank_aggregate</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> 
+                     <span class="n">groupby</span><span class="o">=</span><span class="s1">&#39;bulk_labels&#39;</span><span class="p">,</span>
+                     <span class="n">resource_name</span><span class="o">=</span><span class="s1">&#39;consensus&#39;</span><span class="p">,</span>
+                     <span class="n">expr_prop</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                     <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using resource `consensus`.
+Using `.raw`!
+/Users/sara.jimenez/miniconda3/envs/workshop_2025/lib/python3.10/site-packages/anndata/_core/anndata.py:381: FutureWarning: The dtype argument is deprecated and will be removed in late 2024.
+/Users/sara.jimenez/miniconda3/envs/workshop_2025/lib/python3.10/site-packages/liana/method/_pipe_utils/_pre.py:153: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+0.94 of entities in the resource are missing from the data.
+/Users/sara.jimenez/miniconda3/envs/workshop_2025/lib/python3.10/site-packages/liana/method/sc/_liana_pipe.py:262: ImplicitModificationWarning: Setting element `.layers[&#39;scaled&#39;]` of view, initializing view as actual.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating ligand-receptor stats for 700 samples and 43 features
+Assuming that counts were `natural` log-normalized!
+Running CellPhoneDB
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1000/1000 [00:01&lt;00:00, 516.73it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running Connectome
+Running log2FC
+Running NATMI
+Running SingleCellSignalR
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;liana_res&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>source</th>
+      <th>target</th>
+      <th>ligand_complex</th>
+      <th>receptor_complex</th>
+      <th>lr_means</th>
+      <th>cellphone_pvals</th>
+      <th>expr_prod</th>
+      <th>scaled_weight</th>
+      <th>lr_logfc</th>
+      <th>spec_weight</th>
+      <th>lrscore</th>
+      <th>specificity_rank</th>
+      <th>magnitude_rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1209</th>
+      <td>Dendritic</td>
+      <td>CD4+/CD45RO+ Memory</td>
+      <td>HLA-DRA</td>
+      <td>CD4</td>
+      <td>2.575263</td>
+      <td>0.0</td>
+      <td>2.780884</td>
+      <td>0.723815</td>
+      <td>1.431302</td>
+      <td>0.065077</td>
+      <td>0.736772</td>
+      <td>0.001137</td>
+      <td>0.000653</td>
+    </tr>
+    <tr>
+      <th>1188</th>
+      <td>Dendritic</td>
+      <td>CD4+/CD45RA+/CD25- Naive T</td>
+      <td>HLA-DRA</td>
+      <td>CD4</td>
+      <td>2.566905</td>
+      <td>0.0</td>
+      <td>2.705027</td>
+      <td>0.709428</td>
+      <td>1.332656</td>
+      <td>0.063302</td>
+      <td>0.734081</td>
+      <td>0.001137</td>
+      <td>0.000911</td>
+    </tr>
+    <tr>
+      <th>1210</th>
+      <td>Dendritic</td>
+      <td>CD4+/CD45RO+ Memory</td>
+      <td>HLA-DRB1</td>
+      <td>CD4</td>
+      <td>2.415010</td>
+      <td>0.0</td>
+      <td>2.584465</td>
+      <td>0.712731</td>
+      <td>1.331341</td>
+      <td>0.060203</td>
+      <td>0.729607</td>
+      <td>0.001137</td>
+      <td>0.001211</td>
+    </tr>
+    <tr>
+      <th>1205</th>
+      <td>Dendritic</td>
+      <td>CD4+/CD45RO+ Memory</td>
+      <td>HLA-DPB1</td>
+      <td>CD4</td>
+      <td>2.367473</td>
+      <td>0.0</td>
+      <td>2.526199</td>
+      <td>0.731297</td>
+      <td>1.447014</td>
+      <td>0.068953</td>
+      <td>0.727352</td>
+      <td>0.001137</td>
+      <td>0.001377</td>
+    </tr>
+    <tr>
+      <th>1189</th>
+      <td>Dendritic</td>
+      <td>CD4+/CD45RA+/CD25- Naive T</td>
+      <td>HLA-DRB1</td>
+      <td>CD4</td>
+      <td>2.406652</td>
+      <td>0.0</td>
+      <td>2.513965</td>
+      <td>0.698344</td>
+      <td>1.232695</td>
+      <td>0.058561</td>
+      <td>0.726870</td>
+      <td>0.001137</td>
+      <td>0.001741</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rank_aggregate</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rank_Aggregate returns `magnitude_rank`, `specificity_rank`. magnitude_rank and specificity_rank respectively represent an aggregate of the `magnitude`- and `specificity`-related scoring functions from the different methods.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The remainder of the columns in this dataframe are those coming from each of the methods included in the <code class="docutils literal notranslate"><span class="pre">rank_aggregate</span></code> - i.e. see the <code class="docutils literal notranslate"><span class="pre">show_methods</span></code> to map methods to scores.</p>
+<section id="id1">
+<h4>Dotplot<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>We will now plot the most ‘relevant’ interactions ordered to the <code class="docutils literal notranslate"><span class="pre">magnitude_rank</span></code> results from aggregated_rank.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">li</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">dotplot</span><span class="p">(</span><span class="n">adata</span> <span class="o">=</span> <span class="n">adata</span><span class="p">,</span> 
+              <span class="n">colour</span><span class="o">=</span><span class="s1">&#39;magnitude_rank&#39;</span><span class="p">,</span>
+              <span class="n">size</span><span class="o">=</span><span class="s1">&#39;specificity_rank&#39;</span><span class="p">,</span>
+              <span class="n">inverse_size</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">inverse_colour</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">source_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">,</span> <span class="s1">&#39;CD14+ Monocyte&#39;</span><span class="p">],</span>
+              <span class="n">target_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">],</span>
+              <span class="n">top_n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
+              <span class="n">orderby</span><span class="o">=</span><span class="s1">&#39;magnitude_rank&#39;</span><span class="p">,</span>
+              <span class="n">orderby_ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+             <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/sara.jimenez/miniconda3/envs/workshop_2025/lib/python3.10/site-packages/liana/plotting/_common.py:107: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/420850ab08e0219df390f72afc5ff274b14a0197e3b587645865d83acf3fc3f0.png"><img alt="../_images/420850ab08e0219df390f72afc5ff274b14a0197e3b587645865d83acf3fc3f0.png" src="../_images/420850ab08e0219df390f72afc5ff274b14a0197e3b587645865d83acf3fc3f0.png" style="width: 800px; height: 700px;" />
+</a>
+</div>
+</div>
+<p>Similarly, we can also treat the ranks provided by RRA as a probability distribution to which we can <code class="docutils literal notranslate"><span class="pre">filter</span></code> interactions
+according to how robustly and highly ranked they are across the different methods.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_plot</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">dotplot</span><span class="p">(</span><span class="n">adata</span> <span class="o">=</span> <span class="n">adata</span><span class="p">,</span> 
+                        <span class="n">colour</span><span class="o">=</span><span class="s1">&#39;magnitude_rank&#39;</span><span class="p">,</span>
+                        <span class="n">inverse_colour</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">size</span><span class="o">=</span><span class="s1">&#39;specificity_rank&#39;</span><span class="p">,</span>
+                        <span class="n">inverse_size</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">source_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">,</span> <span class="s1">&#39;CD14+ Monocyte&#39;</span><span class="p">],</span>
+                        <span class="n">target_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span> <span class="s1">&#39;CD56+ NK&#39;</span><span class="p">],</span>
+                        <span class="n">filter_fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;specificity_rank&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">0.01</span><span class="p">,</span>
+                       <span class="p">)</span>
+<span class="n">my_plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../_images/5f2cf96a498846ca1c4bbeac476dbc2bf19d6fea2ecf03ea1d160682ee52d206.png"><img alt="../_images/5f2cf96a498846ca1c4bbeac476dbc2bf19d6fea2ecf03ea1d160682ee52d206.png" src="../_images/5f2cf96a498846ca1c4bbeac476dbc2bf19d6fea2ecf03ea1d160682ee52d206.png" style="width: 800px; height: 600px;" />
+</a>
+</div>
+</div>
+</section>
+<section id="circle-plot">
+<h4>Circle Plot<a class="headerlink" href="#circle-plot" title="Link to this heading">#</a></h4>
+<p>While the majority of liana’s plots are in plotnine, thanks to &#64;WeipengMo, we also provide a circle plot (drawn in networkx):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">li</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">circle_plot</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span>
+                  <span class="n">groupby</span><span class="o">=</span><span class="s1">&#39;bulk_labels&#39;</span><span class="p">,</span>
+                  <span class="n">score_key</span><span class="o">=</span><span class="s1">&#39;magnitude_rank&#39;</span><span class="p">,</span>
+                  <span class="n">inverse_score</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">source_labels</span><span class="o">=</span><span class="s1">&#39;CD34+&#39;</span><span class="p">,</span>
+                  <span class="n">filter_fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;specificity_rank&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">0.05</span><span class="p">,</span>
+                  <span class="n">pivot_mode</span><span class="o">=</span><span class="s1">&#39;counts&#39;</span><span class="p">,</span> <span class="c1"># NOTE: this will simply count the interactions, &#39;mean&#39; is also available</span>
+                  <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                  <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../_images/124162db089ac84d13b59803166b3705c2d0a96428ef4c24b436ee49bf9af558.png" src="../_images/124162db089ac84d13b59803166b3705c2d0a96428ef4c24b436ee49bf9af558.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="customizing-liana-s-rank-aggregate">
+<h2>Customizing LIANA’s rank aggregate<a class="headerlink" href="#customizing-liana-s-rank-aggregate" title="Link to this heading">#</a></h2>
+<p>LIANA’s rank aggregate is also customizable, and the user can choose to include only a subset of the methods.</p>
+<p>For example, let’s generate a consensus with geometric mean and logfc methods only:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="n">logfc</span><span class="p">,</span> <span class="n">geometric_mean</span><span class="p">]</span>
+<span class="n">new_rank_aggregate</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">mt</span><span class="o">.</span><span class="n">AggregateClass</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">mt</span><span class="o">.</span><span class="n">aggregate_meta</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="n">methods</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_rank_aggregate</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span>
+                   <span class="n">groupby</span><span class="o">=</span><span class="s1">&#39;bulk_labels&#39;</span><span class="p">,</span>
+                   <span class="n">expr_prop</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
+                   <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                   <span class="c1"># Note that with this option, we don&#39;t perform permutations</span>
+                   <span class="c1"># and hence we exclude the p-value for geometric_mean, as well as specificity_rank</span>
+                   <span class="n">n_perms</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">use_raw</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                   <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using resource `consensus`.
+Using `.raw`!
+/Users/sara.jimenez/miniconda3/envs/workshop_2025/lib/python3.10/site-packages/anndata/_core/anndata.py:381: FutureWarning: The dtype argument is deprecated and will be removed in late 2024.
+/Users/sara.jimenez/miniconda3/envs/workshop_2025/lib/python3.10/site-packages/liana/method/_pipe_utils/_pre.py:153: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+0.94 of entities in the resource are missing from the data.
+/Users/sara.jimenez/miniconda3/envs/workshop_2025/lib/python3.10/site-packages/liana/method/sc/_liana_pipe.py:272: ImplicitModificationWarning: Setting element `.layers[&#39;normcounts&#39;]` of view, initializing view as actual.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating ligand-receptor stats for 700 samples and 43 features
+Assuming that counts were `natural` log-normalized!
+Running log2FC
+Running Geometric Mean
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check the results</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;liana_res&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>source</th>
+      <th>target</th>
+      <th>ligand_complex</th>
+      <th>receptor_complex</th>
+      <th>lr_logfc</th>
+      <th>lr_gmeans</th>
+      <th>magnitude_rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>110</th>
+      <td>CD14+ Monocyte</td>
+      <td>CD56+ NK</td>
+      <td>TIMP1</td>
+      <td>CD63</td>
+      <td>1.435273</td>
+      <td>2.126363</td>
+      <td>0.000776</td>
+    </tr>
+    <tr>
+      <th>109</th>
+      <td>CD14+ Monocyte</td>
+      <td>CD56+ NK</td>
+      <td>S100A9</td>
+      <td>ITGB2</td>
+      <td>1.069681</td>
+      <td>2.048953</td>
+      <td>0.001553</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>CD14+ Monocyte</td>
+      <td>CD14+ Monocyte</td>
+      <td>S100A9</td>
+      <td>ITGB2</td>
+      <td>1.069747</td>
+      <td>1.979753</td>
+      <td>0.002329</td>
+    </tr>
+    <tr>
+      <th>838</th>
+      <td>CD56+ NK</td>
+      <td>CD56+ NK</td>
+      <td>SPON2</td>
+      <td>ITGB2</td>
+      <td>1.860055</td>
+      <td>1.926317</td>
+      <td>0.003106</td>
+    </tr>
+    <tr>
+      <th>782</th>
+      <td>CD56+ NK</td>
+      <td>CD14+ Monocyte</td>
+      <td>SPON2</td>
+      <td>ITGB2</td>
+      <td>1.860121</td>
+      <td>1.861258</td>
+      <td>0.003882</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="task">
+<h2>Task<a class="headerlink" href="#task" title="Link to this heading">#</a></h2>
+<p>Run different methods separately and then aggregate them. How different are the results?</p>
+</section>
+<section id="advance-task">
+<h2>Advance task<a class="headerlink" href="#advance-task" title="Link to this heading">#</a></h2>
+<p>How can you combine GSEA with LRI?</p>
+<ul class="simple">
+<li><p>Run GSEA limiting to the collection of KEGG pathways</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./day_2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Day 2: Advanced Single-cell Analysis and Spatial Omics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="nb2_differential_cellular_abundance.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-packages">Loading Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data">Loading data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#by-default-liana-uses-human-gene-symbols-see-the-documentation-and-the-prior-knowledge-vignette-for-details-and-instructions-for-homology-conversion">By default, LIANA+ uses <strong>human gene symbols</strong>. See the documentation and the Prior Knowledge vignette for details and instructions for homology conversion.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-run">Example Run</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-methods">Individual Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dotplot">Dotplot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tileplot">Tileplot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-aggregate">Rank Aggregate</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Dotplot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#circle-plot">Circle Plot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-liana-s-rank-aggregate">Customizing LIANA’s rank aggregate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task">Task</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advance-task">Advance task</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GSCN Workshop Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
